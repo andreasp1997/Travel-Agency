@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class loginScreen {
+public class Login {
 
     public void back(ActionEvent ae) {
         try {
