@@ -60,5 +60,11 @@
             <Font name="PT Serif" size="20.0" />
          </font>
       </Text>
+      <TextField layoutX="47.0" layoutY="542.0" prefHeight="27.0" prefWidth="208.0" />
+      <Text fill="WHITE" layoutX="109.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail">
+         <font>
+            <Font name="PT Serif" size="19.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
