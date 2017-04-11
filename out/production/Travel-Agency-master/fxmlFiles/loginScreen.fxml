@@ -9,37 +9,37 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.loginScreen">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.Login">
    <children>
-      <Button layoutX="232.0" layoutY="418.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Log In" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="115.0" layoutX="-4.0" layoutY="114.0" opacity="0.53" stroke="WHITE" strokeType="INSIDE" width="649.0" />
-      <Text fill="WHITE" layoutX="182.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log in">
-         <font>
-            <Font name="ITFDevanagari-Book" size="96.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="127.0" fitWidth="164.0" layoutX="481.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="604.0" fitWidth="644.0" opacity="0.82" pickOnBounds="true">
          <image>
-            <Image url="@../images/logo.png" />
+            <Image url="@../images/ocean-796934_1280.jpg" />
          </image>
       </ImageView>
-      <Text fill="#6bbaa7" layoutX="14.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel Agency">
+      <Button layoutX="232.0" layoutY="418.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Log In" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="115.0" layoutX="-4.0" layoutY="114.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="649.0" />
+      <Text fill="WHITE" layoutX="227.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log in">
          <font>
-            <Font name="ITFDevanagari-Book" size="56.0" />
+            <Font name="PT Serif" size="66.0" />
          </font>
       </Text>
       <TextField layoutX="198.0" layoutY="289.0" prefHeight="27.0" prefWidth="248.0" promptText="Enter Username here..." />
       <TextField layoutX="198.0" layoutY="361.0" prefHeight="27.0" prefWidth="248.0" promptText="Enter Password Here..." />
-      <Text fill="#6bbaa7" layoutX="272.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:">
+      <Text fill="WHITE" layoutX="276.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
          <font>
-            <Font name="ITFDevanagari-Book" size="19.0" />
+            <Font name="PT Serif" size="19.0" />
          </font>
       </Text>
-      <Text fill="#6bbaa7" layoutX="274.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
+      <Text fill="WHITE" layoutX="278.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
          <font>
-            <Font name="ITFDevanagari-Book" size="19.0" />
+            <Font name="PT Serif" size="19.0" />
          </font>
       </Text>
       <Button layoutX="232.0" layoutY="481.0" mnemonicParsing="false" onAction="#back" prefHeight="48.0" prefWidth="180.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Back" />
+      <Text fill="WHITE" layoutX="254.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel Agency" wrappingWidth="136.0722625106573">
+         <font>
+            <Font name="PT Serif" size="20.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
