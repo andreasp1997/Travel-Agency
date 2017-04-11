@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a317a888-59c0-4d39-ab8a-c9ca14045f3b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/Login.java" afterPath="$PROJECT_DIR$/src/classes/Login.java" />
     </list>
     <ignored path="Travel-Agency-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -555,7 +554,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491873027447</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Login class updated">
+      <created>1491873084409</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1491873084409</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -601,7 +607,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update for class name (Login/WelcomeScreen)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update for class name (Login/WelcomeScreen)" />
+    <MESSAGE value="Login class updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login class updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
