@@ -44,7 +44,15 @@ public class WelcomeScreen implements Initializable {
         }
     }
 
-    public void helpBtnPressed(){
+    public void helpBtnPressed(ActionEvent ae){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/help.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
