@@ -1,5 +1,6 @@
 package classes;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,7 +10,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Login {
+public class Register {
+
 
     public void back(ActionEvent ae) {
         try {
@@ -21,5 +23,4 @@ public class Login {
             e.printStackTrace();
         }
     }
-
 }
