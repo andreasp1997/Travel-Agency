@@ -20,9 +20,6 @@ public class Login {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.print("Paolo was here");
-        System.out.print("hej");
-
     }
 
 }
