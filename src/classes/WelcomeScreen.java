@@ -8,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -48,7 +47,7 @@ public class WelcomeScreen implements Initializable {
 
     public void helpBtnPressed(ActionEvent ae){
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/help.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/helpScreen.fxml"));
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
             stage.setScene(scene);
