@@ -1,5 +1,6 @@
 package classes;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -7,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -56,7 +58,9 @@ public class WelcomeScreen implements Initializable {
 
     }
 
-    public void quitBtnPressed(){
 
+    public void quitBtnPressed(){
+        Platform.exit();
+        System.exit(0);
     }
 }

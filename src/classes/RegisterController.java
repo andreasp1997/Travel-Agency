@@ -1,5 +1,6 @@
 package classes;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,10 +10,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/**
- * Created by safaa on 2017-04-12.
- */
-public class Help {
+public class RegisterController {
+
 
     public void back(ActionEvent ae) {
         try {
