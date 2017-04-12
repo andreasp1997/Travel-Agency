@@ -9,22 +9,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.Login">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.Login">
    <children>
       <ImageView fitHeight="604.0" fitWidth="644.0" opacity="0.82" pickOnBounds="true">
          <image>
             <Image url="@../images/ocean-796934_1280.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="232.0" layoutY="418.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Log In" />
+      <Button fx:id="loginBtn" layoutX="232.0" layoutY="418.0" mnemonicParsing="false" onAction="#login" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Log In" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="115.0" layoutX="-4.0" layoutY="114.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="649.0" />
       <Text fill="WHITE" layoutX="227.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log in">
          <font>
             <Font name="PT Serif" size="66.0" />
          </font>
       </Text>
-      <TextField layoutX="198.0" layoutY="289.0" prefHeight="27.0" prefWidth="248.0" promptText="Enter Username here..." />
-      <TextField layoutX="198.0" layoutY="361.0" prefHeight="27.0" prefWidth="248.0" promptText="Enter Password Here..." />
+      <TextField fx:id="username" layoutX="198.0" layoutY="289.0" prefHeight="27.0" prefWidth="248.0" promptText="Enter Username here..." />
+      <TextField fx:id="password" layoutX="198.0" layoutY="361.0" prefHeight="27.0" prefWidth="248.0" promptText="Enter Password Here..." />
       <Text fill="WHITE" layoutX="276.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
          <font>
             <Font name="PT Serif" size="19.0" />
