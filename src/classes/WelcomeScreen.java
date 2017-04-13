@@ -27,6 +27,7 @@ public class WelcomeScreen implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
             stage.setScene(scene);
+            stage.setResizable(false);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -39,6 +40,7 @@ public class WelcomeScreen implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
             stage.setScene(scene);
+            stage.setResizable(false);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -51,6 +53,7 @@ public class WelcomeScreen implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
             stage.setScene(scene);
+            stage.setResizable(false);
         } catch (IOException e) {
             e.printStackTrace();
         }

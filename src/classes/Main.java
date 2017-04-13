@@ -14,6 +14,7 @@ public class Main extends Application {
         primaryStage.setTitle("Travel Agency");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        primaryStage.setResizable(false);
     }
 
 
