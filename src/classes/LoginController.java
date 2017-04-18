@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -15,8 +16,17 @@ public class LoginController {
 
     @FXML private TextField usernameField;
     @FXML private TextField passwordField;
+    @FXML private Label loginError;
 
     public void login(ActionEvent ae) {
+
+        if (usernameField.equals("") || passwordField.equals("")) {
+
+            loginError.setText("Please enter both password and username.");
+
+        }
+
+
 
     }
 
