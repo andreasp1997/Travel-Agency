@@ -20,9 +20,4 @@
     -fx-padding: 10 20 10 20;
 }
 
-.loginError {
-    -fx-background-color: transparent;
-}
-
-
 }

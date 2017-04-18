@@ -70,15 +70,4 @@ public class RegisterController {
 
 
     }
-
-    public static boolean isValidEmailAddress(String email) {
-        try {
-            new InternetAddress(email).validate();
-        } catch (AddressException ex) {
-            return false;
-        } catch (javax.mail.internet.AddressException e) {
-            return false;
-        }
-        return true;
-    }
 }

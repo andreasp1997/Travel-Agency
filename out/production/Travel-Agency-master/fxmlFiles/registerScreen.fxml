@@ -22,13 +22,13 @@
             <Font name="PT Serif" size="66.0" />
          </font>
       </Text>
-      <Button layoutX="395.0" layoutY="423.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Register" />
+      <Button layoutX="395.0" layoutY="423.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Create Account" />
       <Button layoutX="395.0" layoutY="542.0" mnemonicParsing="false" onAction="#back" prefHeight="48.0" prefWidth="180.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Back" />
-      <TextField layoutX="47.0" layoutY="275.0" prefHeight="27.0" prefWidth="208.0" />
-      <TextField layoutX="381.0" layoutY="275.0" prefHeight="27.0" prefWidth="208.0" />
-      <TextField layoutX="47.0" layoutY="367.0" prefHeight="27.0" prefWidth="208.0" />
-      <TextField layoutX="47.0" layoutY="458.0" prefHeight="27.0" prefWidth="208.0" />
-      <TextField layoutX="381.0" layoutY="366.0" prefHeight="27.0" prefWidth="208.0" />
+      <TextField fx:id="firstNameField" layoutX="47.0" layoutY="275.0" prefHeight="27.0" prefWidth="208.0" />
+      <TextField fx:id="passwordField" layoutX="381.0" layoutY="275.0" prefHeight="27.0" prefWidth="208.0" />
+      <TextField fx:id="lastNameField" layoutX="47.0" layoutY="367.0" prefHeight="27.0" prefWidth="208.0" />
+      <TextField fx:id="usernameField" layoutX="47.0" layoutY="458.0" prefHeight="27.0" prefWidth="208.0" />
+      <TextField fx:id="confirmPasswordField" layoutX="381.0" layoutY="366.0" prefHeight="27.0" prefWidth="208.0" />
       <Button layoutX="395.0" layoutY="483.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Help" />
       <Text fill="WHITE" layoutX="106.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name">
          <font>
@@ -60,8 +60,8 @@
             <Font name="PT Serif" size="20.0" />
          </font>
       </Text>
-      <TextField layoutX="47.0" layoutY="542.0" prefHeight="27.0" prefWidth="208.0" />
-      <Text fill="WHITE" layoutX="109.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail">
+      <TextField fx:id="emailField" layoutX="47.0" layoutY="542.0" prefHeight="27.0" prefWidth="208.0" />
+      <Text fill="WHITE" layoutX="123.0" layoutY="526.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail">
          <font>
             <Font name="PT Serif" size="19.0" />
          </font>
