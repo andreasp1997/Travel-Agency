@@ -88,6 +88,21 @@ public class RegisterController {
 
         if(register.getFirstName() != null && register.getLastName() != null && register.getUsername() != null && register.getEmail() != null && register.getPassword() != null){
             dbh.register(Integer.toString(userid), register.getFirstName(), register.getLastName(), register.getUsername(), register.getPassword(), "Normal", register.getEmail());
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Account Created!");
+            alert.setHeaderText("Your account has succesfully been created! You can now log in with your created account!");
+
+            alert.showAndWait();
+
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/welcomeScreen.fxml"));
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
 
