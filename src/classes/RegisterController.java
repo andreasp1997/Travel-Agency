@@ -27,6 +27,8 @@ public class RegisterController {
 
     Register register = new Register();
 
+    DBHandler dbh = new DBHandler();
+
     public void back(ActionEvent ae) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/welcomeScreen.fxml"));
@@ -39,10 +41,26 @@ public class RegisterController {
     }
 
     public void createAccount(ActionEvent ae){
+
+        dbh.handleUserID();
+        dbh.checkIfUsernameExists();
+
+        int userid = Integer.parseInt(Singleton.getInstance().getUserIDnumber());
+        userid++;
+
         register.setFirstName(firstNameField.getText());
         register.setLastName(lastNameField.getText());
-        register.setUsername(usernameField.getText());
         register.setEmail(emailField.getText());
+
+
+        if(Singleton.getInstance().getUsernameList().contains(usernameField.getText())){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Username already exists");
+            alert.showAndWait();
+        } else {
+            register.setUsername(usernameField.getText());
+        }
 
         if(passwordField.getText().toString().equals(confirmPasswordField.getText().toString())){
             register.setPassword(confirmPasswordField.getText());
@@ -66,6 +84,10 @@ public class RegisterController {
             alert.setTitle("Error");
             alert.setHeaderText("You didn't enter a correct email address");
             alert.showAndWait();
+        }
+
+        if(register.getFirstName() != null && register.getLastName() != null && register.getUsername() != null && register.getEmail() != null && register.getPassword() != null){
+            dbh.register(Integer.toString(userid), register.getFirstName(), register.getLastName(), register.getUsername(), register.getPassword(), "Normal", register.getEmail());
         }
 
 

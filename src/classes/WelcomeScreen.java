@@ -13,15 +13,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class WelcomeScreen implements Initializable {
-
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
+public class WelcomeScreen {
 
     public void loginBtnPressed(ActionEvent ae){
+
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/loginScreen.fxml"));
             Scene scene = new Scene(root);

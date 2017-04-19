@@ -44,14 +44,6 @@ public class Register {
         this.lastName = lastName;
     }
 
-    public String getSsn() {
-        return ssn;
-    }
-
-    public void setSsn(String ssn) {
-        this.ssn = ssn;
-    }
-
     public String getEmail() {
         return email;
     }
