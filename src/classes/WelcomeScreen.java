@@ -15,6 +15,8 @@ import java.util.ResourceBundle;
 
 public class WelcomeScreen {
 
+    Register register = new Register();
+
     public void loginBtnPressed(ActionEvent ae){
 
         try {
@@ -40,6 +42,13 @@ public class WelcomeScreen {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        register.setUsername(null);
+        register.setEmail(null);
+        register.setPassword(null);
+        register.setFirstName(null);
+        register.setLastName(null);
+
     }
 
     public void helpBtnPressed(ActionEvent ae){

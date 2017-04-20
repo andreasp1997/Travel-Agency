@@ -75,11 +75,13 @@ public class RegisterController {
             new InternetAddress(emailField.getText().toString()).validate();
             register.setEmail(emailField.getText().toString());
         } catch (AddressException ex) {
+            register.setEmail(null);
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("You didn't enter a correct email address");
             alert.showAndWait();
         } catch (javax.mail.internet.AddressException e) {
+            register.setEmail(null);
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("You didn't enter a correct email address");
