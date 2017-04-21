@@ -1,1 +1,1 @@
-SELECT * FROM hotels
+select * from users
