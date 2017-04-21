@@ -10,8 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import sun.jvm.hotspot.debugger.AddressException;
 
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.io.IOException;
 
@@ -45,15 +45,30 @@ public class RegisterController {
         dbh.handleUserID();
         dbh.checkIfUsernameExists();
 
-        int userid = Integer.parseInt(Singleton.getInstance().getUserIDnumber());
+        int userid;
+
+        if(Singleton.getInstance().getUserIDnumber() == null){
+            userid = 0;
+        } else {
+            userid = Integer.parseInt(Singleton.getInstance().getUserIDnumber());
+        }
+
         userid++;
+
 
         register.setFirstName(firstNameField.getText());
         register.setLastName(lastNameField.getText());
         register.setEmail(emailField.getText());
 
+        String usernames;
 
-        if(Singleton.getInstance().getUsernameList().contains(usernameField.getText())){
+        if(Singleton.getInstance().getUsernameList() == null){
+            usernames = "";
+        } else {
+            usernames = Singleton.getInstance().getUsernameList();
+        }
+
+        if(usernames.contains(usernameField.getText())){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Username already exists");
@@ -75,12 +90,6 @@ public class RegisterController {
             new InternetAddress(emailField.getText().toString()).validate();
             register.setEmail(emailField.getText().toString());
         } catch (AddressException ex) {
-            register.setEmail(null);
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("You didn't enter a correct email address");
-            alert.showAndWait();
-        } catch (javax.mail.internet.AddressException e) {
             register.setEmail(null);
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
