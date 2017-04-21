@@ -74,4 +74,24 @@ public class DBHandler {
         }
     }
 
+    public String checkLogin(String username){
+
+        String s = null;
+
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select password from users where username ='" + username + "'");
+
+            while (rs.next()){
+                s = rs.getString(1);
+
+            }
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+
+        return s;
+    }
+
 }
