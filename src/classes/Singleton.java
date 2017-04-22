@@ -11,7 +11,7 @@ public class Singleton {
     private SimpleStringProperty s1 = new SimpleStringProperty();
     private SimpleStringProperty s2 = new SimpleStringProperty();
 
-    protected Singleton() {
+    public Singleton() {
 
     }
 

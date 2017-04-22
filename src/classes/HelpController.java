@@ -13,8 +13,7 @@ import java.io.IOException;
  * Created by safaa on 2017-04-12.
  */
 public class HelpController {
-
-    public void back(ActionEvent ae) {
+    /*public void back(ActionEvent ae) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/welcomeScreen.fxml"));
             Scene scene = new Scene(root);
@@ -23,5 +22,5 @@ public class HelpController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

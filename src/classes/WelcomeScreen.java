@@ -52,16 +52,16 @@ public class WelcomeScreen {
     }
 
     public void helpBtnPressed(ActionEvent ae){
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/helpScreen.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.setResizable(false);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            Stage stage = new Stage();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/helpScreen.fxml"));
+                stage.setScene(new Scene(root, 600,550));
+                stage.show();
+                stage.setResizable(false);
 
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
     }
 
 
