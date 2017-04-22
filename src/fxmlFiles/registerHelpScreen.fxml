@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.HelpController">
+   <children>
+      <ImageView fitHeight="604.0" fitWidth="644.0" opacity="0.82" pickOnBounds="true">
+         <image>
+            <Image url="@../images/ocean-796934_1280.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="115.0" layoutX="-4.0" layoutY="114.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="649.0" />
+      <Text fill="WHITE" layoutX="254.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
+         <font>
+            <Font name="PT Serif" size="66.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="257.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel Agency">
+         <font>
+            <Font name="PT Serif" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

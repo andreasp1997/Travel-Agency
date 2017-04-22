@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -35,6 +36,19 @@ public class RegisterController {
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
             stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void help(ActionEvent ae){
+        Stage stage = new Stage();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/registerHelpScreen.fxml"));
+            stage.setScene(new Scene(root, 600,550));
+            stage.show();
+            stage.setResizable(false);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
