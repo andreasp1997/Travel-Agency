@@ -8,28 +8,28 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.WelcomeScreen">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.userMenuController">
    <children>
       <ImageView fitHeight="604.0" fitWidth="644.0" opacity="0.82" pickOnBounds="true">
          <image>
             <Image url="@../images/ocean-796934_1280.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="26.0" layoutY="278.0" mnemonicParsing="false" onAction="#loginBtnPressed" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Make Booking" />
+      <Button layoutX="26.0" layoutY="278.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Make Booking" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="115.0" layoutX="-4.0" layoutY="114.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="649.0" />
       <Text fill="WHITE" layoutX="238.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu">
          <font>
             <Font name="PT Serif" size="66.0" />
          </font>
       </Text>
-      <Button layoutX="26.0" layoutY="336.0" mnemonicParsing="false" onAction="#registerBtnPressed" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Edit Bookings" />
-      <Button layoutX="450.0" layoutY="484.0" mnemonicParsing="false" onAction="#helpBtnPressed" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Help" />
-      <Button layoutX="450.0" layoutY="542.0" mnemonicParsing="false" onAction="#quitBtnPressed" prefHeight="48.0" prefWidth="180.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Log Out" />
+      <Button layoutX="26.0" layoutY="336.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Edit Bookings" />
+      <Button layoutX="450.0" layoutY="484.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Help" />
+      <Button layoutX="450.0" layoutY="542.0" mnemonicParsing="false" onAction="#logout" prefHeight="48.0" prefWidth="180.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Log Out" />
       <Text fill="WHITE" layoutX="257.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel Agency">
          <font>
             <Font name="PT Serif" size="20.0" />
          </font>
       </Text>
-      <Button layoutX="26.0" layoutY="394.0" mnemonicParsing="false" onAction="#registerBtnPressed" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Account Settings" />
+      <Button layoutX="26.0" layoutY="394.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Account Settings" />
    </children>
 </AnchorPane>
