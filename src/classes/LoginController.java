@@ -30,6 +30,8 @@ public class LoginController implements Initializable {
     //Connection to database
     DBHandler dbh;
 
+    Login login = new Login();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -52,6 +54,9 @@ public class LoginController implements Initializable {
             alert.showAndWait();
 
         } else if (pass.equals(dbPass)) {
+
+            login.setUsername(username.getText());
+            login.setPassword(password.getText());
 
             //Change scene to userMenu if login is successful
             try {
