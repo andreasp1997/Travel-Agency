@@ -74,15 +74,15 @@ public class RegisterController {
         register.setLastName(lastNameField.getText());
         register.setEmail(emailField.getText());
 
-        String usernames;
+        String usernameList;
 
         if(Singleton.getInstance().getUsernameList() == null){
-            usernames = "";
+            usernameList = "";
         } else {
-            usernames = Singleton.getInstance().getUsernameList();
+            usernameList = Singleton.getInstance().getUsernameList();
         }
 
-        if(usernames.contains(usernameField.getText())){
+        if(usernameList.contains(usernameField.getText())){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Username already exists");
