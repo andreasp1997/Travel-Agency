@@ -23,7 +23,7 @@
          </font>
       </Text>
       <Button layoutX="230.0" layoutY="342.0" mnemonicParsing="false" onAction="#registerBtnPressed" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Register" />
-      <Button layoutX="230.0" layoutY="406.0" mnemonicParsing="false" onAction="#helpBtnPressed" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Help" />
+      <Button fx:id="helpBtn" layoutX="230.0" layoutY="406.0" mnemonicParsing="false" onAction="#helpBtnPressed" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Help" />
       <Button layoutX="230.0" layoutY="470.0" mnemonicParsing="false" onAction="#quitBtnPressed" prefHeight="48.0" prefWidth="180.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Quit" />
       <Text fill="WHITE" layoutX="257.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel Agency">
          <font>

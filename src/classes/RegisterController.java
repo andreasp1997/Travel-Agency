@@ -25,6 +25,7 @@ public class RegisterController {
     @FXML TextField emailField;
     @FXML TextField passwordField;
     @FXML TextField confirmPasswordField;
+    @FXML Button helpBtn;
 
     Register register = new Register();
 
@@ -45,9 +46,15 @@ public class RegisterController {
         Stage stage = new Stage();
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/registerHelpScreen.fxml"));
-            stage.setScene(new Scene(root, 600,550));
+            stage.setScene(new Scene(root));
             stage.show();
             stage.setResizable(false);
+
+            helpBtn.setDisable(true);
+
+            stage.setOnCloseRequest(event -> {
+                helpBtn.setDisable(false);
+            });
 
         } catch (IOException e) {
             e.printStackTrace();

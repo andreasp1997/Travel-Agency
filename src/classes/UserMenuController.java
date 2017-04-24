@@ -12,9 +12,28 @@ import java.io.IOException;
 /**
  * Created by andreas on 2017-04-13.
  */
-public class userMenuController {
+public class UserMenuController {
 
-    public void gotoMakeBooking(ActionEvent ae){
+    public void gotoFlightBooking(ActionEvent ae){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/flightBookingScreen.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void gotoHotelBooking(ActionEvent ae){
+
+    }
+
+    public void gotoCarRentalBooking(ActionEvent ae){
+
+    }
+
+    public void gotoCruiseBooking(ActionEvent ae){
 
     }
 
