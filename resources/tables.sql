@@ -15,6 +15,16 @@ CREATE SCHEMA IF NOT EXISTS `travelagency` DEFAULT CHARACTER SET utf8 ;
 USE `travelagency` ;
 
 -- -----------------------------------------------------
+-- Table `travelagency`.`user_roles`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `travelagency`.`user_roles` (
+  `role_id` INT NOT NULL,
+  `role` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`role_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `travelagency`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `travelagency`.`users` (
@@ -24,8 +34,14 @@ CREATE TABLE IF NOT EXISTS `travelagency`.`users` (
   `username` VARCHAR(100) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `email` VARCHAR(80) NOT NULL,
-  `role` VARCHAR(10) NOT NULL,
-  PRIMARY KEY (`user_id`))
+  `role_id` INT NOT NULL,
+  PRIMARY KEY (`user_id`, `role_id`),
+  INDEX `fk_users_user_roles1_idx` (`role_id` ASC),
+  CONSTRAINT `fk_users_user_roles1`
+    FOREIGN KEY (`role_id`)
+    REFERENCES `travelagency`.`user_roles` (`role_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 

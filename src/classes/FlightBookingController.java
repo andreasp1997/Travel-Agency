@@ -1,5 +1,6 @@
 package classes;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -57,6 +58,7 @@ public class FlightBookingController implements Initializable {
 
     private ArrayList<String> cities;
     private ObservableList<String> citiesObservable;
+    private ObservableList<String> citiesObservable2;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -82,13 +84,13 @@ public class FlightBookingController implements Initializable {
 
         dbh.checkUserRole(singleton.getInstance().getUsername());
 
-        if(singleton.getInstance().getUserRole().equals("Admin")){
+        if(singleton.getInstance().getUserRole().equals("1")){
 
             pickUserField.setVisible(true);
             pickUserBtn.setVisible(true);
             adminText.setVisible(true);
 
-        } else if (singleton.getInstance().getUserRole().equals("Normal")) {
+        } else if (singleton.getInstance().getUserRole().equals("2")) {
             pickUserField.setVisible(false);
             pickUserBtn.setVisible(false);
             adminText.setVisible(false);
@@ -98,11 +100,23 @@ public class FlightBookingController implements Initializable {
         dbh.checkCities();
         cities = Singleton.getInstance().getCities();
         citiesObservable = FXCollections.observableArrayList(cities);
-        System.out.println(citiesObservable.toString());
+        citiesObservable2 = FXCollections.observableArrayList(cities);
 
         travelOrigin.setItems(citiesObservable);
         travelOrigin.getSelectionModel().selectFirst();
+
+        for(int i = 0; i < citiesObservable2.size(); i++){
+            if(i == travelOrigin.getSelectionModel().getSelectedIndex()){
+                citiesObservable2.remove(i);
+            }
+        }
+
+        Platform.runLater(() -> travelDestination.setItems(citiesObservable2));
+
+        //lägg till listener för combobox
+
     }
+
 
     public void back(ActionEvent ae){
         try {

@@ -33,8 +33,8 @@ public class DBHandler {
         return  appProp;
     }
 
-    public void register(String userID, String firstname, String lastname, String username, String password, String role, String email) {
-        String command = String.format("INSERT INTO users (user_id, firstname, lastname, username, password, role, email) values ('" + userID +"', '" + firstname + "', '" + lastname + "', '" + username + "', '" + password+ "', '" + role+ "', '" + email + "')");
+    public void register(String userID, String firstname, String lastname, String username, String password, String email, String roleID) {
+        String command = String.format("INSERT INTO users (user_id, firstname, lastname, username, password, email, role_id) values ('" + userID +"', '" + firstname + "', '" + lastname + "', '" + username + "', '" + password+ "', '" + email+ "', '" + roleID + "')");
 
         try (Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
@@ -84,7 +84,7 @@ public class DBHandler {
     public void checkUserRole(String username){
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("SELECT role FROM users WHERE username='"+ username + "'");
+            ResultSet rs = statement.executeQuery("SELECT role_id FROM users WHERE username='"+ username + "'");
 
             while (rs.next()){
                 String s = rs.getString(1);

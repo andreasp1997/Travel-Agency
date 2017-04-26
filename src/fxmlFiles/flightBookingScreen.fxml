@@ -31,7 +31,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <ComboBox layoutX="214.0" layoutY="158.0" prefWidth="150.0" />
+      <ComboBox fx:id="travelDestination" layoutX="214.0" layoutY="158.0" prefWidth="150.0" />
       <DatePicker layoutX="404.0" layoutY="124.0" promptText="Date.." />
       <Rectangle fx:id="rectangle1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="37.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" width="262.0" />
       <ImageView fx:id="img1" fitHeight="63.0" fitWidth="69.0" layoutX="59.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">

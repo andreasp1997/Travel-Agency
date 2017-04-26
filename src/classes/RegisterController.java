@@ -122,11 +122,11 @@ public class RegisterController{
         }
 
         if(register.getFirstName() != null && register.getLastName() != null && register.getUsername() != null && register.getEmail() != null && register.getPassword() != null){
-            dbh.register(Integer.toString(userid), register.getFirstName(), register.getLastName(), register.getUsername(), register.getPassword(), "Normal", register.getEmail());
+            dbh.register(Integer.toString(userid), register.getFirstName(), register.getLastName(), register.getUsername(), register.getPassword(),  register.getEmail(), "2");
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Account Created!");
-            alert.setHeaderText("Your account has succesfully been created! You can now log in with your created account!");
+            alert.setHeaderText("Your account has successfuly been created! You can now log in with your created account!");
 
             alert.showAndWait();
 
