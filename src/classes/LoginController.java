@@ -30,7 +30,7 @@ public class LoginController implements Initializable {
     //Connection to database
     DBHandler dbh;
 
-    Login login = new Login();
+    Singleton singleton = new Singleton();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -41,6 +41,8 @@ public class LoginController implements Initializable {
 
     @FXML
     public void login(ActionEvent ae) {
+
+        singleton.getInstance().setUsername(username.getText());
 
         dbPass = dbh.checkLogin(username.getText());
         pass = password.getText();
@@ -54,9 +56,6 @@ public class LoginController implements Initializable {
             alert.showAndWait();
 
         } else if (pass.equals(dbPass)) {
-
-            login.setUsername(username.getText());
-            login.setPassword(password.getText());
 
             //Change scene to userMenu if login is successful
             try {

@@ -9,7 +9,6 @@ public class Register {
     private String password;
     private  String firstName;
     private String lastName;
-    private String ssn;
     private String email;
 
     public String getUsername() {

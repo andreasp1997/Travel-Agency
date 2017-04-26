@@ -2,6 +2,7 @@ package classes;
 
 import java.io.FileInputStream;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Properties;
 
 /**
@@ -49,13 +50,19 @@ public class DBHandler {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("SELECT username FROM users");
 
-            while (rs.next()){
-                String s = rs.getString(1);
-                Singleton.getInstance().setUsernameList(s);
+            ArrayList <String> result = new ArrayList<String>();
+
+            while(rs.next()){
+                result.add(rs.getString(1));
+                continue;
             }
+
+            System.out.println(result.toString());
+            Singleton.getInstance().setUsernameList(result.toString());
         }
         catch (SQLException ex){
             System.out.println("Error on executing the query");
+            ex.printStackTrace();
         }
     }
 
@@ -67,6 +74,21 @@ public class DBHandler {
             while (rs.next()){
                 String s = rs.getString(1);
                 Singleton.getInstance().setUserIDnumber(s);
+            }
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void checkUserRole(String username){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT role FROM users WHERE username='"+ username + "'");
+
+            while (rs.next()){
+                String s = rs.getString(1);
+                Singleton.getInstance().setUserRole(s);
             }
         }
         catch (SQLException ex){
@@ -92,6 +114,26 @@ public class DBHandler {
         }
 
         return s;
+    }
+
+    public void checkCities(){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select city from cities order by city");
+
+            ArrayList <String> result = new ArrayList<String>();
+
+            while(rs.next()){
+                result.add(rs.getString(1));
+                continue;
+            }
+
+            Singleton.getInstance().setCities(result);
+
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
     }
 
 }

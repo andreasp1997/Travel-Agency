@@ -4,6 +4,7 @@ package classes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,8 +16,10 @@ import javafx.stage.Stage;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class RegisterController {
+public class RegisterController{
 
 
     @FXML TextField firstNameField;
@@ -30,6 +33,8 @@ public class RegisterController {
     Register register = new Register();
 
     DBHandler dbh = new DBHandler();
+
+    String usernameList = Singleton.getInstance().getUsernameList();
 
     public void back(ActionEvent ae) {
         try {
@@ -80,8 +85,6 @@ public class RegisterController {
         register.setFirstName(firstNameField.getText());
         register.setLastName(lastNameField.getText());
         register.setEmail(emailField.getText());
-
-        String usernameList;
 
         if(Singleton.getInstance().getUsernameList() == null){
             usernameList = "";
@@ -139,4 +142,5 @@ public class RegisterController {
 
 
     }
+
 }
