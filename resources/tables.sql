@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `travelagency`.`flights` (
   `from` INT NOT NULL,
   `to` INT NOT NULL,
   `seats` INT NOT NULL,
-  `price` INT NOT NULL,
+  `price` DOUBLE NOT NULL,
   `take_off` DATE NOT NULL,
   PRIMARY KEY (`flight_id`, `airline_id`, `to`),
   INDEX `fk_flights_airlines1_idx` (`airline_id` ASC),
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `travelagency`.`cars` (
   `car` VARCHAR(45) NOT NULL,
   `seats` INT NOT NULL,
   `location` INT NOT NULL,
-  `price` DATE NOT NULL,
+  `price` DOUBLE NOT NULL,
   PRIMARY KEY (`car_id`, `location`),
   INDEX `fk_cars_cities1_idx` (`location` ASC),
   CONSTRAINT `fk_cars_cities1`

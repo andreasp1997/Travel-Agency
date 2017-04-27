@@ -66,7 +66,7 @@ public class DBHandler {
         }
     }
 
-    public void handleUserID(){
+    public void getUserID(){
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("select count(user_id) from users");
@@ -116,7 +116,7 @@ public class DBHandler {
         return s;
     }
 
-    public void checkCities(){
+    public void getCities(){
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("select city from cities order by city");
@@ -135,5 +135,4 @@ public class DBHandler {
             System.out.println("Error on executing the query");
         }
     }
-
 }

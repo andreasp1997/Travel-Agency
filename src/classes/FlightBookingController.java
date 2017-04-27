@@ -97,7 +97,7 @@ public class FlightBookingController implements Initializable {
 
         }
 
-        dbh.checkCities();
+        dbh.getCities();
         cities = Singleton.getInstance().getCities();
         citiesObservable = FXCollections.observableArrayList(cities);
         citiesObservable2 = FXCollections.observableArrayList(cities);
@@ -116,7 +116,6 @@ public class FlightBookingController implements Initializable {
         //lägg till listener för combobox
 
     }
-
 
     public void back(ActionEvent ae){
         try {
@@ -149,5 +148,4 @@ public class FlightBookingController implements Initializable {
         img2.setVisible(true);
         img3.setVisible(true);
     }
-
 }

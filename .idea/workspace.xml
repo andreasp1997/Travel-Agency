@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a317a888-59c0-4d39-ab8a-c9ca14045f3b" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/classes/AdminAccountSettings.java" afterPath="$PROJECT_DIR$/src/classes/AdminChangeUserSettings.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master/classes/DBHandler.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master/classes/DBHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master/classes/RegisterController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master/classes/RegisterController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/EER-Diagram-2.mwb" afterPath="$PROJECT_DIR$/resources/EER-Diagram-2.mwb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/EER-Diagram-2.mwb.bak" afterPath="$PROJECT_DIR$/resources/EER-Diagram-2.mwb.bak" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/tables.sql" afterPath="$PROJECT_DIR$/resources/tables.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/DBHandler.java" afterPath="$PROJECT_DIR$/src/classes/DBHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/FlightBookingController.java" afterPath="$PROJECT_DIR$/src/classes/FlightBookingController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/RegisterController.java" afterPath="$PROJECT_DIR$/src/classes/RegisterController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxmlFiles/flightBookingScreen.fxml" afterPath="$PROJECT_DIR$/src/fxmlFiles/flightBookingScreen.fxml" />
     </list>
     <ignored path="Travel-Agency-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FlightBookingController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FlightBookingController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/FlightBookingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-120">
-              <caret line="92" column="66" selection-start-line="92" selection-start-column="66" selection-end-line="92" selection-end-column="66" />
+            <state relative-caret-position="285">
+              <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,11 +42,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegisterController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RegisterController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/classes/RegisterController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="128" column="59" selection-start-line="128" selection-start-column="59" selection-end-line="128" selection-end-column="59" />
+            <state relative-caret-position="240">
+              <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminChangeUserSettings.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/classes/AdminChangeUserSettings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -56,12 +65,12 @@
       <file leaf-file-name="DBHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/DBHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-575">
-              <caret line="36" column="123" selection-start-line="36" selection-start-column="123" selection-end-line="36" selection-end-column="123" />
+            <state relative-caret-position="1065">
+              <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1952#1960#0" expanded="true" />
-                <element signature="e#4316#4324#0" expanded="true" />
+                <element signature="e#4311#4319#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,7 +79,7 @@
       <file leaf-file-name="Singleton.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/classes/Singleton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
+            <state relative-caret-position="255">
               <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -141,9 +150,10 @@
         <option value="$PROJECT_DIR$/src/classes/UserMenuController.java" />
         <option value="$PROJECT_DIR$/src/classes/BookingTypes.java" />
         <option value="$PROJECT_DIR$/src/classes/Singleton.java" />
-        <option value="$PROJECT_DIR$/src/classes/RegisterController.java" />
         <option value="$PROJECT_DIR$/src/classes/DBHandler.java" />
         <option value="$PROJECT_DIR$/src/classes/FlightBookingController.java" />
+        <option value="$PROJECT_DIR$/src/classes/AdminChangeUserSettings.java" />
+        <option value="$PROJECT_DIR$/src/classes/RegisterController.java" />
       </list>
     </option>
   </component>
@@ -251,6 +261,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cssfiles" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -746,7 +760,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493213342584</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="dbhandler updated + sql script fixed">
+      <created>1493240387029</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1493240387029</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -811,7 +832,8 @@
     <MESSAGE value="help screen name changed for man menu, and design update" />
     <MESSAGE value="update to fxml designs" />
     <MESSAGE value="database register fixed, flightbookingController added" />
-    <option name="LAST_COMMIT_MESSAGE" value="database register fixed, flightbookingController added" />
+    <MESSAGE value="dbhandler updated + sql script fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="dbhandler updated + sql script fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -822,16 +844,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/fxmlFiles/welcomeScreen.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cssfiles/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -858,6 +870,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -900,6 +913,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -995,6 +1009,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="537">
           <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -1057,6 +1072,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="76" selection-start-line="17" selection-start-column="76" selection-end-line="17" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -1122,16 +1138,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/Singleton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fxmlFiles/flightBookingScreen.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -1150,33 +1156,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/RegisterController.java">
+    <entry file="file://$PROJECT_DIR$/src/classes/Singleton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="128" column="59" selection-start-line="128" selection-start-column="59" selection-end-line="128" selection-end-column="59" />
-          <folding />
+        <state relative-caret-position="255">
+          <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/DBHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-575">
-          <caret line="36" column="123" selection-start-line="36" selection-start-column="123" selection-end-line="36" selection-end-column="123" />
+        <state relative-caret-position="1065">
+          <caret line="136" column="5" selection-start-line="136" selection-start-column="5" selection-end-line="136" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1952#1960#0" expanded="true" />
-            <element signature="e#4316#4324#0" expanded="true" />
+            <element signature="e#4311#4319#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/AdminChangeUserSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/FlightBookingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="92" column="66" selection-start-line="92" selection-start-column="66" selection-end-line="92" selection-end-column="66" />
+        <state relative-caret-position="285">
+          <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/RegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>

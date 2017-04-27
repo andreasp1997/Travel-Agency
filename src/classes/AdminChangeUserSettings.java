@@ -3,7 +3,7 @@ package classes;
 /**
  * Created by Jun on 2017-04-12.
  */
-public class AdminAccountSettings extends AccountSettings {
+public class AdminChangeUserSettings extends AccountSettings {
     private String enteredUsrName;
     private String password;
     private String ssn;
@@ -13,7 +13,7 @@ public class AdminAccountSettings extends AccountSettings {
     private String userName;
 
     @Override
-    void commitChanges() {
+    public void commitChanges() {
         //todo
     }
 

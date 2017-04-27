@@ -34,7 +34,7 @@ public class RegisterController{
 
     DBHandler dbh = new DBHandler();
 
-    String usernameList = Singleton.getInstance().getUsernameList();
+    private String usernameList = Singleton.getInstance().getUsernameList();
 
     public void back(ActionEvent ae) {
         try {
@@ -68,7 +68,7 @@ public class RegisterController{
 
     public void createAccount(ActionEvent ae){
 
-        dbh.handleUserID();
+        dbh.getUserID();
         dbh.checkIfUsernameExists();
 
         int userid;
@@ -80,7 +80,6 @@ public class RegisterController{
         }
 
         userid++;
-
 
         register.setFirstName(firstNameField.getText());
         register.setLastName(lastNameField.getText());
@@ -139,8 +138,5 @@ public class RegisterController{
                 e.printStackTrace();
             }
         }
-
-
     }
-
 }
