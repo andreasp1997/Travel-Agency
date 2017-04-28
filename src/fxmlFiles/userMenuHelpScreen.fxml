@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="513.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="485.0" fitWidth="513.0" opacity="0.82" pickOnBounds="true">
+         <image>
+            <Image url="@../images/ocean-796934_1280.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="115.0" layoutX="-3.0" layoutY="52.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="520.0" />
+      <Text fill="WHITE" layoutX="189.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
+         <font>
+            <Font name="PT Serif" size="66.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="208.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Menu">
+         <font>
+            <Font name="PT Serif" size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#09015e" layoutX="109.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="helpText" editable="false" layoutX="57.0" layoutY="189.0" prefHeight="231.0" prefWidth="398.0" text="When you come to this screen, you can do the following:&#10;&#10;1. You can choose which kind of booking you want to make, &#10;There're four kinds of bookings that you can choose in between&#10;by clicking on its button.&#10;&#10;2. When finishing and confirming the booking, you can go back &#10;and edit it by clicking Edit Booking button.&#10;&#10;3. Note that you can't edit a booking if it's not confirmed in &#10;the first place.&#10;&#10;4. You can also view and change your account settings anytime&#10;by clicking on the Account Settings option." />
+   </children>
+</AnchorPane>
