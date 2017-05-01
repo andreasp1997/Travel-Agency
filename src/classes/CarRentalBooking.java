@@ -10,34 +10,43 @@ public class CarRentalBooking {
     private int seats;
     private String city;
 
-    public String setHireCarDate() {
-        return hireCarDate;
-    }
-    public String setReturnCarDate() {
-        return returnCarDate;
-    }
-
     public String getCarRentalCompany() {
         return carRentalCompany;
+    }
+
+    public void setCarRentalCompany(String carRentalCompany) {
+        this.carRentalCompany = carRentalCompany;
     }
 
     public String getHireCarDate() {
         return hireCarDate;
     }
 
+    public void setHireCarDate(String hireCarDate) {
+        this.hireCarDate = hireCarDate;
+    }
+
     public String getReturnCarDate() {
         return returnCarDate;
+    }
+
+    public void setReturnCarDate(String returnCarDate) {
+        this.returnCarDate = returnCarDate;
     }
 
     public int getSeats() {
         return seats;
     }
 
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
+
     public String getCity() {
         return city;
     }
 
-    public int setSeats() {
-        return seats;
+    public void setCity(String city) {
+        this.city = city;
     }
 }
