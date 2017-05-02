@@ -125,7 +125,7 @@ public class RegisterController{
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Account Created!");
-            alert.setHeaderText("Your account has successfuly been created! You can now log in with your created account!");
+            alert.setHeaderText("Your account has successfully been created! You can now log in with your created account!");
 
             alert.showAndWait();
 

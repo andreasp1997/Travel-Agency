@@ -37,7 +37,14 @@ public class UserMenuController {
     }
 
     public void gotoCarRentalBooking(ActionEvent ae){
-
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/carRentalScreen.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void gotoCruiseBooking(ActionEvent ae){
