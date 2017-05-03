@@ -4,19 +4,10 @@ package classes;
  * Created by safaa on 2017-04-12.
  */
 public class CarRentalBooking {
-    private String carRentalCompany;
     private String hireCarDate;
     private String returnCarDate;
     private int seats;
     private String city;
-
-    public String getCarRentalCompany() {
-        return carRentalCompany;
-    }
-
-    public void setCarRentalCompany(String carRentalCompany) {
-        this.carRentalCompany = carRentalCompany;
-    }
 
     public String getHireCarDate() {
         return hireCarDate;
