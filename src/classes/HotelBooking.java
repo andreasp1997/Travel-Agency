@@ -5,17 +5,35 @@ package classes;
  */
 public class HotelBooking {
     //Variables
-    private String hotelName;
+    private int hotelId;
+    private int roomId;
     private int roomSize;
     private String checkinDate;
     private String checkoutDate;
 
-    public String getHotelName() {
-        return hotelName;
+    public HotelBooking(int hotelId, int roomSize, String checkinDate, String checkoutDate) {
+
+        this.hotelId = hotelId;
+        this.roomSize = roomSize;
+        this.checkinDate = checkinDate;
+        this.checkoutDate = checkoutDate;
+
     }
 
-    public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
+    public int getHotelId() {
+        return hotelId;
+    }
+
+    public void setHotelId(int hotelId) {
+        this.hotelId = hotelId;
+    }
+
+    public int getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
     }
 
     public int getRoomSize() {

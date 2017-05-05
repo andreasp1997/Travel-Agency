@@ -107,6 +107,9 @@ public class DBHandler {
             while (rs.next()){
                 s = rs.getString(1);
 
+                Singleton.getInstance().setUserIDnumber(rs.getString("user_id"));
+                Singleton.getInstance().setUsername(rs.getString("username"));
+
             }
         }
         catch (SQLException ex){
@@ -135,4 +138,93 @@ public class DBHandler {
             System.out.println("Error on executing the query");
         }
     }
+    public ArrayList<Hotel> getHotels(String city){
+
+        ArrayList <Hotel> hotels = new ArrayList<Hotel>();
+
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select h.hotel_id, h.hotel_name, c.city from hotels h left join cities c on h.location = c.city_id where c.city = '" + city + "'");
+
+            while(rs.next()){
+
+                hotels.add(new Hotel(rs.getInt("hotel_id"), rs.getString("hotel_name"), rs.getString("city")));
+
+                continue;
+            }
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return hotels;
+    }
+
+    public ArrayList<Integer> getRooms(int hotelId){
+
+        ArrayList <Integer> rooms = new ArrayList<>();
+
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select for_people from rooms where hotel_id = '" + hotelId + "'");
+
+            while(rs.next()){
+
+                rooms.add(rs.getInt("for_people"));
+
+                continue;
+            }
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return rooms;
+    }
+
+    public int getRoomId(int hotelId, int roomSize){
+
+        int roomId = 0;
+
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select room_id from rooms where for_people = '" + roomSize + "' and hotel_id = '" + hotelId + "'");
+
+            while(rs.next()){
+
+                roomId = rs.getInt("room_id");
+
+                continue;
+            }
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return roomId;
+    }
+
+    public void setHotelBooking(HotelBooking booking){
+
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+
+            String sql = "INSERT INTO hotel_bookings (user_id, room_id, `from`, `to`) values (?, ?, ?, ?)";
+            PreparedStatement statement = conn.prepareStatement(sql);
+
+            statement.setInt(1, Integer.parseInt(Singleton.getInstance().getUserIDnumber()));
+            statement.setInt(2, booking.getRoomId());
+            statement.setString(3, booking.getCheckinDate());
+            statement.setString(4, booking.getCheckoutDate());
+
+            statement.executeUpdate();
+
+            conn.close();
+
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+    }
+
 }

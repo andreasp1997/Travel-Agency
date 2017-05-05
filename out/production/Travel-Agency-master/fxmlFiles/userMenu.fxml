@@ -31,7 +31,7 @@
          </font>
       </Text>
       <Button layoutX="450.0" layoutY="336.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Account Settings" />
-      <Button layoutX="26.0" layoutY="336.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Hotel Booking" />
+      <Button layoutX="26.0" layoutY="336.0" mnemonicParsing="false" onAction="#gotoHotelBooking" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Hotel Booking" />
       <Button layoutX="26.0" layoutY="394.0" mnemonicParsing="false" onAction="#gotoCarRentalBooking" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Car Rental Booking" />
       <Button layoutX="26.0" layoutY="452.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Cruise Booking" />
    </children>

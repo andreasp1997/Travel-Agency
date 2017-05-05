@@ -30,7 +30,16 @@ public class UserMenuController {
     }
 
     public void gotoHotelBooking(ActionEvent ae){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/hotelBookingScreen.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setResizable(false);
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void gotoCarRentalBooking(ActionEvent ae){
