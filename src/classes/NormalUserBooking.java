@@ -3,9 +3,9 @@ package classes;
 import javafx.scene.control.Alert;
 
 /**
- * Created by Paolo9517 on 2017-04-12.
+ * Created by andreas on 2017-05-04.
  */
-public class AdminBooking implements BookingTypes {
+public class NormalUserBooking implements BookingTypes {
 
     DBHandler dbh = new DBHandler();
 
@@ -14,7 +14,6 @@ public class AdminBooking implements BookingTypes {
 
     @Override
     public void makeFlightBooking() {
-
         dbh.checkForFlight(FlightBooking.getInstance().getAirline(), FlightBooking.getInstance().getOrigin(), FlightBooking.getInstance().getDestination(), FlightBooking.getInstance().getDate());
         dbh.flightIDCount();
         dbh.flightBookingIDCount();
@@ -37,7 +36,7 @@ public class AdminBooking implements BookingTypes {
 
                 dbh.addFlight(flightIDCount, FlightBooking.getInstance().getAirline(), FlightBooking.getInstance().getOrigin(), FlightBooking.getInstance().getDestination(), 200, FlightBooking.getInstance().getPrice(), FlightBooking.getInstance().getDate());
                 dbh.getFlightID(FlightBooking.getInstance().getAirline(), FlightBooking.getInstance().getOrigin(), FlightBooking.getInstance().getDestination(), FlightBooking.getInstance().getDate());
-                dbh.getUserID(Singleton.getInstance().getPickedUser());
+                dbh.getUserID(Singleton.getInstance().getUsername());
                 dbh.bookFlight(flightBookingIDCount, Singleton.getInstance().getFlightID(), Singleton.getInstance().getUserID());
 
             } else if(Singleton.getInstance().getCheckedFlight() != null){
@@ -57,8 +56,8 @@ public class AdminBooking implements BookingTypes {
                 }
 
                 dbh.getFlightID(FlightBooking.getInstance().getAirline(), FlightBooking.getInstance().getOrigin(), FlightBooking.getInstance().getDestination(), FlightBooking.getInstance().getDate());
-                dbh.getUserID(Singleton.getInstance().getPickedUser());
-                dbh.bookFlight(flightBookingIDCount, Singleton.getInstance().getFlightID(), Singleton.getInstance().getPickedUser());
+                dbh.getUserID(Singleton.getInstance().getUsername());
+                dbh.bookFlight(flightBookingIDCount, Singleton.getInstance().getFlightID(), Singleton.getInstance().getUserID());
             }
     }
 

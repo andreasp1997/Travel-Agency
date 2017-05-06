@@ -32,45 +32,42 @@
          </font>
       </Text>
       <ComboBox fx:id="travelDestination" layoutX="214.0" layoutY="158.0" prefWidth="150.0" />
-      <DatePicker layoutX="404.0" layoutY="124.0" promptText="Date.." />
+      <DatePicker fx:id="date" layoutX="404.0" layoutY="124.0" promptText="Date.." />
       <Rectangle fx:id="rectangle1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="37.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" width="262.0" />
       <ImageView fx:id="img1" fitHeight="63.0" fitWidth="69.0" layoutX="59.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/E4l7L5Lf.jpg" />
+            <Image url="@../E4l7L5Lf.jpg" />
          </image>
       </ImageView>
-      <Text fx:id="seatsAvailable1" layoutX="149.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seats available:" />
-      <Button fx:id="bookAirline1Btn" layoutX="501.0" layoutY="253.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="79.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Book" />
+      <Button fx:id="bookAirline1Btn" layoutX="501.0" layoutY="253.0" mnemonicParsing="false" onAction="#airlineBooking1" prefHeight="16.0" prefWidth="79.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Book" />
       <Text fx:id="price1" layoutX="149.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price: " />
       <Rectangle fx:id="rectangle2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="37.0" layoutY="318.0" stroke="BLACK" strokeType="INSIDE" width="262.0" />
-      <Text fx:id="seatsAvailable2" layoutX="149.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seats available:" />
-      <Button fx:id="bookAirline2Btn" layoutX="501.0" layoutY="337.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="79.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Book" />
+      <Button fx:id="bookAirline2Btn" layoutX="501.0" layoutY="337.0" mnemonicParsing="false" onAction="#airlineBooking2" prefHeight="16.0" prefWidth="79.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Book" />
       <Text fx:id="price2" layoutX="149.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price: " />
       <Rectangle fx:id="rectangle3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="37.0" layoutY="402.0" stroke="BLACK" strokeType="INSIDE" width="262.0" />
-      <Text fx:id="seatsAvailable3" layoutX="149.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seats available:" />
-      <Button fx:id="bookAirline3Btn" layoutX="501.0" layoutY="421.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="79.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Book" />
+      <Button fx:id="bookAirline3Btn" layoutX="501.0" layoutY="421.0" mnemonicParsing="false" onAction="#airlineBooking3" prefHeight="16.0" prefWidth="79.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Book" />
       <Text fx:id="price3" layoutX="149.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price: " />
       <ImageView fx:id="img2" fitHeight="63.0" fitWidth="69.0" layoutX="56.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/cathay_pacific_logo_detail.png" />
+            <Image url="@../cathay_pacific_logo_detail.png" />
          </image>
       </ImageView>
       <ImageView fx:id="img3" fitHeight="63.0" fitWidth="69.0" layoutX="59.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/Emirates_Airlines-logo-9AF5EF6DE2-seeklogo.com.gif" />
+            <Image url="@../Emirates_Airlines-logo-9AF5EF6DE2-seeklogo.com.gif" />
          </image>
       </ImageView>
-      <ComboBox fx:id="selectSeats1" layoutX="355.0" layoutY="259.0" prefHeight="27.0" prefWidth="89.0" promptText="Seats" />
       <Text fill="WHITE" layoutX="112.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Booking">
          <font>
             <Font name="PT Serif" size="66.0" />
          </font>
       </Text>
       <TextField fx:id="pickUserField" layoutX="39.0" layoutY="529.0" />
-      <Button fx:id="pickUserBtn" layoutX="217.0" layoutY="524.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="104.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Pick User" />
+      <Button fx:id="pickUserBtn" layoutX="217.0" layoutY="524.0" mnemonicParsing="false" onAction="#pickUser" prefHeight="38.0" prefWidth="104.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Pick User" />
       <Text fx:id="adminText" fill="WHITE" layoutX="594.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" />
       <Button layoutX="453.0" layoutY="158.0" mnemonicParsing="false" onAction="#search" prefHeight="38.0" prefWidth="96.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Search" />
-      <ComboBox fx:id="selectSeats2" layoutX="355.0" layoutY="343.0" prefHeight="27.0" prefWidth="89.0" promptText="Seats" />
-      <ComboBox fx:id="selectSeats3" layoutX="355.0" layoutY="427.0" prefHeight="27.0" prefWidth="89.0" promptText="Seats" />
+      <Text fx:id="priceAmount1" layoutX="191.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1800" />
+      <Text fx:id="priceAmount2" layoutX="191.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1500" />
+      <Text fx:id="priceAmount3" layoutX="191.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2100" />
    </children>
 </AnchorPane>

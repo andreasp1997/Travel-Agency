@@ -17,7 +17,7 @@ public class AdminChangeUserSettings extends AccountSettings {
         //todo
     }
 
-    public void getUser() {
+    public void pickUser() {
         //todo
     }
 

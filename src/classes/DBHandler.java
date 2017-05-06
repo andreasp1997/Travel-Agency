@@ -34,7 +34,7 @@ public class DBHandler {
     }
 
     public void register(String userID, String firstname, String lastname, String username, String password, String email, String roleID) {
-        String command = String.format("INSERT INTO users (user_id, firstname, lastname, username, password, email, role_id) values ('" + userID +"', '" + firstname + "', '" + lastname + "', '" + username + "', '" + password+ "', '" + email+ "', '" + roleID + "')");
+        String command = String.format("INSERT INTO users (user_id, firstname, lastname, username, password, email, role_id) values ('" + userID + "', '" + firstname + "', '" + lastname + "', '" + username + "', '" + password+ "', '" + email+ "', '" + roleID + "')");
 
         try (Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
@@ -66,7 +66,7 @@ public class DBHandler {
         }
     }
 
-    public void getUserID(){
+    public void getUserIDCount(){
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("select count(user_id) from users");
@@ -107,9 +107,6 @@ public class DBHandler {
             while (rs.next()){
                 s = rs.getString(1);
 
-                Singleton.getInstance().setUserIDnumber(rs.getString("user_id"));
-                Singleton.getInstance().setUsername(rs.getString("username"));
-
             }
         }
         catch (SQLException ex){
@@ -138,6 +135,7 @@ public class DBHandler {
             System.out.println("Error on executing the query");
         }
     }
+
     public ArrayList<Hotel> getHotels(String city){
 
         ArrayList <Hotel> hotels = new ArrayList<Hotel>();
@@ -224,7 +222,215 @@ public class DBHandler {
         catch (SQLException ex){
             ex.printStackTrace();
         }
+    }
 
+    public void getEuropeanCities(){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select city from cities where city in ('Rome', 'Stockholm', 'London', 'Berlin', 'Paris', 'Madrid', 'Milan', 'Moscow')");
+
+            ArrayList <String> result = new ArrayList<String>();
+
+            while(rs.next()){
+                result.add(rs.getString(1));
+                continue;
+            }
+
+            Singleton.getInstance().setEuropeanCities(result);
+
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void getNorthAmericanCities(){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select city from cities where city in ('New York', 'Los Angeles')");
+
+            ArrayList <String> result = new ArrayList<String>();
+
+            while(rs.next()){
+                result.add(rs.getString(1));
+                continue;
+            }
+
+            Singleton.getInstance().setNorthAmericanCities(result);
+
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void getAsianCities(){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select city from cities where city in ('Tokyo', 'Beijing', 'Bangkok')");
+
+            ArrayList <String> result = new ArrayList<String>();
+
+            while(rs.next()){
+                result.add(rs.getString(1));
+                continue;
+            }
+
+            Singleton.getInstance().setAsianCities(result);
+
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void getAustralianCities(){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select city from cities where city = 'Sydney'");
+
+            ArrayList <String> result = new ArrayList<String>();
+
+            while(rs.next()){
+                result.add(rs.getString(1));
+                continue;
+            }
+
+            Singleton.getInstance().setAustralianCities(result);
+
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void checkForFlight(String airline_id, String from, String to, String date){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select flight_id from flights where flights.airline_id = '" + airline_id + "' and flights.from = '" + from + "' and flights.to = '" + to + "' and flights.take_off = '" + date + "'");
+
+            while(rs.next()){
+                String s = rs.getString(1);
+                Singleton.getInstance().setCheckedFlight(s);
+            }
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void getCityID(String cityName){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select city_id from cities where city = '" + cityName + "'");
+
+            while(rs.next()){
+                String s = rs.getString(1);
+                Singleton.getInstance().setCityID(s);
+            }
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void flightIDCount(){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select count(flight_id) from flights");
+
+            while(rs.next()){
+                String s = rs.getString(1);
+                Singleton.getInstance().setFlightIDCount(s);
+            }
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void addFlight(int flight_id, String airline_id, String from, String to, int seats, double price, String take_off) {
+        String command = String.format("insert into flights (flight_id, airline_id, flights.from, flights.to, seats, price, take_off) values ('" + flight_id + "', '" + airline_id + "', '" + from + "', '" + to + "', '" + seats + "', '" + price + "', '" + take_off + "')");
+
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            statement.executeUpdate(command);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void bookFlight(int booking_id, String flight_id, String user_id) {
+        String command = String.format("INSERT INTO flight_bookings (booking_id, flight_id, user_id ) values ('" + booking_id + "', '" + flight_id + "', '" + user_id + "')");
+
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            statement.executeUpdate(command);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void getFlightID(String airlineID, String from, String to, String date){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select flight_id from flights where flights.airline_id = '" + airlineID + "' and flights.from = '" + from + "' and flights.to = '" + to + "' and flights.take_off = '" + date + "'");
+
+            while(rs.next()){
+                String s = rs.getString(1);
+                Singleton.getInstance().setFlightID(s);
+            }
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void flightBookingIDCount(){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select count(booking_id) from flight_bookings");
+
+            while(rs.next()){
+                String s = rs.getString(1);
+                Singleton.getInstance().setFlightBookingIDCount(s);
+            }
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void getUserID(String username){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select user_id from users where username = '" + username + "'");
+
+            while(rs.next()){
+                String s = rs.getString(1);
+                Singleton.getInstance().setUserID(s);
+            }
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void bookingAmountForFlight(String from, String to, String date){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select count(booking_id) from flight_bookings left join flights on flight_bookings.flight_id = flights.flight_id where flights.from = '" + from + "' and flights.to = '" + to + "' and flights.take_off = '" + date + "'");
+
+            while(rs.next()){
+                String s = rs.getString(1);
+                Singleton.getInstance().setBookedTicketsForFlight(s);
+            }
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
     }
 
 }
