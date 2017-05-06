@@ -68,3 +68,30 @@ INSERT INTO rooms (hotel_id, for_people, price) VALUES (14, 1, 1799);
 
 INSERT INTO rooms (hotel_id, for_people, price) VALUES (14, 2, 2499);
 INSERT INTO rooms (hotel_id, for_people, price) VALUES (15, 1, 1999);
+
+cities:
+
+INSERT INTO `travelagency`.`cities` (`city_id`, `city`) VALUES ('1', 'New York');
+INSERT INTO `travelagency`.`cities` (`city_id`, `city`) VALUES ('2', 'Los Angeles');
+INSERT INTO `travelagency`.`cities` (`city_id`, `city`) VALUES ('3', 'Rome');
+INSERT INTO `travelagency`.`cities` (`city_id`, `city`) VALUES ('4', 'Stockholm');
+INSERT INTO `travelagency`.`cities` (`city_id`, `city`) VALUES ('5', 'Tokyo');
+INSERT INTO `travelagency`.`cities` (`city_id`, `city`) VALUES ('6', 'London');
+INSERT INTO `travelagency`.`cities` (`city_id`, `city`) VALUES ('7', 'Berlin');
+INSERT INTO `travelagency`.`cities` (`city_id`, `city`) VALUES ('8', 'Madrid');
+INSERT INTO `travelagency`.`cities` (`city_id`, `city`) VALUES ('9', 'Milan');
+INSERT INTO `travelagency`.`cities` (`city_id`, `city`) VALUES ('10', 'Beijing');
+INSERT INTO `travelagency`.`cities` (`city_id`, `city`) VALUES ('11', 'Paris');
+INSERT INTO `travelagency`.`cities` (`city_id`, `city`) VALUES ('12', 'Moscow');
+INSERT INTO `travelagency`.`cities` (`city_id`, `city`) VALUES ('13', 'Sydney');
+INSERT INTO `travelagency`.`cities` (`city_id`, `city`) VALUES ('14', 'Bangkok');
+
+create admin:
+
+INSERT INTO `travelagency`.`users` (`user_id`, `firstname`, `lastname`, `username`, `password`, `email`, `role_id`) VALUES ('1', 'admin', 'admin', 'admin1', 'admin321', 'admin@gmail.com', '1');
+
+airlines:
+
+INSERT INTO `travelagency`.`airlines` (`airline_id`, `airline`) VALUES ('1', 'American Airlines');
+INSERT INTO `travelagency`.`airlines` (`airline_id`, `airline`) VALUES ('2', 'Cathay Pacific');
+INSERT INTO `travelagency`.`airlines` (`airline_id`, `airline`) VALUES ('3', 'Emirates');
