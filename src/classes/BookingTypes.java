@@ -7,7 +7,7 @@ public interface BookingTypes {
 
     public void makeFlightBooking();
 
-    public void makeHotelBooking();
+    public void makeHotelBooking(HotelBooking hotelBooking);
 
     public void makeCarRentalBooking();
 

@@ -30,6 +30,8 @@ public class HotelBookingController implements Initializable {
 
     DBHandler dbh = new DBHandler();
     HotelBooking booking;
+    AdminBooking admin;
+    NormalUserBooking normalUser;
 
     Singleton singleton = new Singleton();
 
@@ -37,6 +39,8 @@ public class HotelBookingController implements Initializable {
     ArrayList<String> rooms;
 
     private ArrayList<String> allCities;
+
+    private String usernameList;
 
     @FXML TextField pickUserField;
     @FXML Button pickUserBtn;
@@ -87,6 +91,18 @@ public class HotelBookingController implements Initializable {
 
         message.setText("Please choose check in, checkout and city.");
 
+        if(singleton.getInstance().getUserRole().equals("1")){
+
+            pickUserField.setVisible(true);
+            pickUserBtn.setVisible(true);
+            adminText.setVisible(true);
+
+        } else if (singleton.getInstance().getUserRole().equals("2")) {
+            pickUserField.setVisible(false);
+            pickUserBtn.setVisible(false);
+            adminText.setVisible(false);
+        }
+
     }
 
     public void back(ActionEvent ae){
@@ -97,6 +113,28 @@ public class HotelBookingController implements Initializable {
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void pickUser(ActionEvent ae){
+        dbh.checkIfUsernameExists();
+        usernameList = Singleton.getInstance().getUsernameList();
+
+        if(usernameList.contains(pickUserField.getText())){
+            Singleton.getInstance().setPickedUser(pickUserField.getText());
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText("You have picked a user");
+            alert.showAndWait();
+
+        } else {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("The username you entered does not exist");
+            alert.showAndWait();
+            Singleton.getInstance().setPickedUser(null);
         }
     }
 
@@ -201,16 +239,24 @@ public class HotelBookingController implements Initializable {
 
     public void btn1(ActionEvent ae) {
 
+        System.out.println(hotelIds.get(0));
+        System.out.println(Integer.parseInt(combo1.getSelectionModel().getSelectedItem().toString()));
+        System.out.println(checkin.getValue().toString());
+        System.out.println(checkout.getValue().toString());
+
         try {
             booking = new HotelBooking(hotelIds.get(0), Integer.parseInt(combo1.getSelectionModel().getSelectedItem().toString()), checkin.getValue().toString(), checkout.getValue().toString());
 
             this.setHotelBooking(booking);
 
         } catch (NullPointerException e) {
+            System.out.println("ss");
+            /*
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Please enter all options.");
             alert.showAndWait();
+            */
         }
     }
 
@@ -251,7 +297,32 @@ public class HotelBookingController implements Initializable {
 
         booking.setRoomId(dbh.getRoomId(booking.getHotelId(), booking.getRoomSize()));
 
-        dbh.setHotelBooking(booking);
+        if(singleton.getInstance().getUserRole().equals("1")){
+
+            if(Singleton.getInstance().getPickedUser() == null){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("You didn't enter a user to make a booking for");
+                alert.showAndWait();
+            } else {
+                admin.makeHotelBooking(booking);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Booking registered!");
+                alert.setHeaderText("The booking has now been registered and can be viewed in the 'Edit Bookings' menu!");
+                alert.showAndWait();
+            }
+
+        } else if (singleton.getInstance().getUserRole().equals("2")) {
+
+            normalUser.makeHotelBooking(booking);
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Booking registered!");
+            alert.setHeaderText("The booking has now been registered and can be viewed in the 'Edit Bookings' menu!");
+            alert.showAndWait();
+        }
 
     }
+
 }
+

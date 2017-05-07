@@ -62,7 +62,12 @@ public class NormalUserBooking implements BookingTypes {
     }
 
     @Override
-    public void makeHotelBooking() {
+    public void makeHotelBooking(HotelBooking hotel) {
+
+        System.out.println(hotel.getHotelId());
+        System.out.println(hotel.getRoomSize());
+
+        dbh.setHotelBooking(hotel, Integer.parseInt(Singleton.getInstance().getUserID()));
 
     }
 

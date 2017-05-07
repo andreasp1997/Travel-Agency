@@ -41,7 +41,7 @@
          </font>
       </Text>
       <TextField fx:id="pickUserField" layoutX="39.0" layoutY="529.0" />
-      <Button fx:id="pickUserBtn" layoutX="217.0" layoutY="524.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="104.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Pick User" />
+      <Button fx:id="pickUserBtn" layoutX="217.0" layoutY="524.0" mnemonicParsing="false" onAction="#pickUser" prefHeight="38.0" prefWidth="104.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Pick User" />
       <Text fx:id="adminText" fill="WHITE" layoutX="594.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" />
       <Button layoutX="484.0" layoutY="145.0" mnemonicParsing="false" onAction="#search" prefHeight="40.0" prefWidth="89.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Search" />
       <ComboBox fx:id="combo2" layoutX="324.0" layoutY="342.0" prefHeight="31.0" prefWidth="161.0" promptText="For people" />
