@@ -107,6 +107,9 @@ public class DBHandler {
             while (rs.next()){
                 s = rs.getString(1);
 
+                Singleton.getInstance().setUserIDnumber(rs.getString("user_id"));
+                Singleton.getInstance().setUsername(rs.getString("username"));
+
             }
         }
         catch (SQLException ex){
@@ -222,6 +225,7 @@ public class DBHandler {
         catch (SQLException ex){
             ex.printStackTrace();
         }
+
     }
 
     public void getEuropeanCities(){

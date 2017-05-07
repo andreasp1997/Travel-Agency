@@ -33,8 +33,8 @@ public class HotelBookingController implements Initializable {
 
     Singleton singleton = new Singleton();
 
-    ArrayList<Integer> hotelIds = new ArrayList<>();
-    ArrayList<String> rooms = new ArrayList<>();
+    ArrayList<Integer> hotelIds;
+    ArrayList<String> rooms;
 
     private ArrayList<String> allCities;
 
@@ -102,6 +102,9 @@ public class HotelBookingController implements Initializable {
 
     public void search(ActionEvent ae){
 
+        rooms = new ArrayList<>();
+        hotelIds = new ArrayList<>();
+
         hotelIds.clear();
         rooms.clear();
 
@@ -118,6 +121,9 @@ public class HotelBookingController implements Initializable {
         combo2.setVisible(false);
         combo3.setVisible(false);
         message.setVisible(false);
+        name1.setVisible(false);
+        name2.setVisible(false);
+        name3.setVisible(false);
 
         try {
 
@@ -125,6 +131,7 @@ public class HotelBookingController implements Initializable {
 
             if (hotels.size() == 0) {
 
+                message.setVisible(true);
                 message.setText("There is no hotels in this city.");
 
             } else {
@@ -147,6 +154,7 @@ public class HotelBookingController implements Initializable {
                         rectangle1.setVisible(true);
                         combo1.setVisible(true);
                         room1.setVisible(true);
+                        name1.setVisible(true);
 
                         name1.setText(hotels.get(i).hotelName);
                         city1.setText(hotels.get(i).hotelCity);
@@ -158,6 +166,7 @@ public class HotelBookingController implements Initializable {
                         rectangle2.setVisible(true);
                         combo2.setVisible(true);
                         room2.setVisible(true);
+                        name2.setVisible(true);
 
                         name2.setText(hotels.get(i).hotelName);
                         city2.setText(hotels.get(i).hotelCity);
@@ -169,12 +178,18 @@ public class HotelBookingController implements Initializable {
                         rectangle3.setVisible(true);
                         combo3.setVisible(true);
                         room3.setVisible(true);
+                        name3.setVisible(true);
 
                         name3.setText(hotels.get(i).hotelName);
                         city3.setText(hotels.get(i).hotelCity);
                         combo3.getItems().addAll(rooms);
 
                     }
+
+                    System.out.println(Integer.parseInt(Singleton.getInstance().getUserIDnumber()));
+
+                    rooms.clear();
+
                 }
             }
 
@@ -187,6 +202,11 @@ public class HotelBookingController implements Initializable {
     }
 
     public void btn1(ActionEvent ae) {
+
+        System.out.println(hotelIds.get(0));
+        System.out.println(Integer.parseInt(combo1.getSelectionModel().getSelectedItem().toString()));
+        System.out.println(checkin.getValue().toString());
+        System.out.println(checkout.getValue().toString());
 
         try {
             booking = new HotelBooking(hotelIds.get(0), Integer.parseInt(combo1.getSelectionModel().getSelectedItem().toString()), checkin.getValue().toString(), checkout.getValue().toString());

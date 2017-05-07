@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="513.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="485.0" fitWidth="513.0" opacity="0.82" pickOnBounds="true">
+         <image>
+            <Image url="@../images/ocean-796934_1280.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="115.0" layoutX="-3.0" layoutY="52.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="520.0" />
+      <Text fill="WHITE" layoutX="189.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
+         <font>
+            <Font name="PT Serif" size="66.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="220.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register">
+         <font>
+            <Font name="PT Serif" size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#09015e" layoutX="109.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="helpText" editable="false" layoutX="58.0" layoutY="189.0" prefHeight="231.0" prefWidth="398.0" text="When creating your account have the following in mind:&#10;&#10;1. Your username might already exist, which you will be&#10;alerted about if that were to be the case.&#10;&#10;2. When entering your password make sure you enter the&#10;same password in both the &quot;Password&quot; and &quot;Confirm&#10;Password&quot; fields.&#10;&#10;3. You can't just enter random text in the email field. You&#10;have to enter a correct email address. If you were to enter&#10;an incorrect email address you will be notified.&#10;&#10;If your account creation was successful, you will be &#10;prompted back to the main menu. You will then be able to&#10;log in with your newly created account.&#10;&#10;&#10;&#10;&#10;&#10;" />
+   </children>
+</AnchorPane>
