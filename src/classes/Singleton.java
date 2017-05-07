@@ -28,6 +28,9 @@ public class Singleton {
     private SimpleStringProperty userID = new SimpleStringProperty();
     private SimpleStringProperty airlines = new SimpleStringProperty();
     private SimpleStringProperty bookedTicketsForFlight = new SimpleStringProperty();
+    private SimpleStringProperty cruiseID = new SimpleStringProperty();
+    private SimpleStringProperty cruisePrice = new SimpleStringProperty();
+    private SimpleStringProperty cruiseRoom = new SimpleStringProperty();
 
 
     public Singleton() {
@@ -112,4 +115,16 @@ public class Singleton {
     public String getBookedTicketsForFlight() { return bookedTicketsForFlight.get(); }
 
     public void setBookedTicketsForFlight(String bookedTicketsForFlight) { this.bookedTicketsForFlight.set(bookedTicketsForFlight); }
+
+    public String getCruiseID() { return cruiseID.get(); }
+
+    public void setCruiseID(String cruiseID) { this.cruiseID.set(cruiseID); }
+
+    public String getCruisePrice() { return cruisePrice.get(); }
+
+    public void setCruisePrice(String cruisePrice) { this.cruisePrice.set(cruisePrice); }
+
+    public String getCruiseRoom() { return cruiseRoom.get(); }
+
+    public void setCruiseRoom(String cruiseRoom) { this.cruiseRoom.set(cruiseRoom); }
 }

@@ -56,7 +56,16 @@ public class UserMenuController {
     }
 
     public void gotoCruiseBooking(ActionEvent ae){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/CruiseBookingScreen.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setResizable(false);
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void gotoAccountSettings(ActionEvent ae){

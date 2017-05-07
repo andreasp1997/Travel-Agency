@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.UserMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.UserMenuController">
    <children>
       <ImageView fitHeight="604.0" fitWidth="644.0" opacity="0.82" pickOnBounds="true">
          <image>
@@ -33,6 +33,6 @@
       <Button layoutX="450.0" layoutY="336.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Account Settings" />
       <Button layoutX="26.0" layoutY="336.0" mnemonicParsing="false" onAction="#gotoHotelBooking" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Hotel Booking" />
       <Button layoutX="26.0" layoutY="394.0" mnemonicParsing="false" onAction="#gotoCarRentalBooking" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Car Rental Booking" />
-      <Button layoutX="26.0" layoutY="452.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Cruise Booking" />
+      <Button layoutX="26.0" layoutY="452.0" mnemonicParsing="false" onAction="#gotoCruiseBooking" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Cruise Booking" />
    </children>
 </AnchorPane>

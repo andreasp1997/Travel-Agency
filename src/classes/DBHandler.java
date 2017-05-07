@@ -439,4 +439,70 @@ public class DBHandler {
         }
     }
 
+
+    public void cruiseInformation(String cruiseID) {
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(
+                    "select cruises.price, cruises.rooms from cruises where cruise_id = "+cruiseID);
+            while(rs.next()) {
+                String s = rs.getString(1);
+                System.out.print(s);
+                String s2 = rs.getString(2);
+                System.out.print(s2);
+                Singleton.getInstance().setCruisePrice(s);
+                Singleton.getInstance().setCruiseRoom(s2);
+            }
+
+        } catch (SQLException e) {
+            System.out.print("Error on executing the query");
+        }
+    }
+
+    public void updateCruises(String cruiseID, int updatedRooms) {
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            String sql = "update cruises set rooms = ? where cruise_id = ?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, String.valueOf(updatedRooms));
+            statement.setString(2,cruiseID);
+
+            statement.execute();
+
+
+        }catch (SQLException e) {
+            System.out.print("Error on executing the query");
+        }
+    }
+
+    public void bookCruise(String cruiseID, String userID, String room) {
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            String sql = "INSERT INTO cruise_bookings (cruise_id, user_id, rooms) values (?, ?, ?)";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, cruiseID);
+            statement.setString(2,userID);
+            statement.setString(3,room);
+
+            statement.execute();
+
+
+        }catch (SQLException e) {
+            System.out.print("Error on executing the query");
+        }
+    }
+    public void cruiseSearch(Object destination, Object date) {
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(
+                    "Select cruises.cruise_id from cruises left join cities on city_id = cruises.to where city " +
+                            "= '"+destination+"' and take_off = '"+date+"'");
+            while(rs.next()) {
+                String s = rs.getString(1);
+                Singleton.getInstance().setCruiseID(s);
+            }
+
+
+        } catch (SQLException e) {
+            System.out.print("Error on executing the query");
+        }
+    }
 }

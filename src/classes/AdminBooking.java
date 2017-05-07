@@ -76,6 +76,8 @@ public class AdminBooking implements BookingTypes {
 
     @Override
     public void makeCruiseBooking() {
+        dbh.getUserID(Singleton.getInstance().getUsername());
+        dbh.bookCruise(Singleton.getInstance().getCruiseID(),Singleton.getInstance().getPickedUser(),CruiseBooking.getInstance().getRoom());
 
     }
 }

@@ -78,6 +78,10 @@ public class NormalUserBooking implements BookingTypes {
 
     @Override
     public void makeCruiseBooking() {
-
+        dbh.getUserID(Singleton.getInstance().getUsername());
+        dbh.bookCruise(Singleton.getInstance().getCruiseID(),Singleton.getInstance().getUserID(),CruiseBooking.getInstance().getRoom());
+        System.out.println(Singleton.getInstance().getCruiseID());
+        System.out.println(Singleton.getInstance().getUserID());
+        System.out.println(CruiseBooking.getInstance().getRoom());
     }
 }
