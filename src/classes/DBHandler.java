@@ -102,12 +102,12 @@ public class DBHandler {
 
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select password from users where username ='" + username + "'");
+            ResultSet rs = statement.executeQuery("select user_id, username, password from users where username ='" + username + "'");
 
             while (rs.next()){
-                s = rs.getString(1);
+                s = rs.getString("password");
 
-                Singleton.getInstance().setUserIDnumber(rs.getString("user_id"));
+                Singleton.getInstance().setUserID(rs.getString("user_id"));
                 Singleton.getInstance().setUsername(rs.getString("username"));
 
             }
@@ -212,7 +212,7 @@ public class DBHandler {
             String sql = "INSERT INTO hotel_bookings (user_id, room_id, `from`, `to`) values (?, ?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(sql);
 
-            statement.setInt(1, Integer.parseInt(Singleton.getInstance().getUserIDnumber()));
+            statement.setInt(1, Integer.parseInt(Singleton.getInstance().getUserID()));
             statement.setInt(2, booking.getRoomId());
             statement.setString(3, booking.getCheckinDate());
             statement.setString(4, booking.getCheckoutDate());

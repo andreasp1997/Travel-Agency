@@ -186,8 +186,6 @@ public class HotelBookingController implements Initializable {
 
                     }
 
-                    System.out.println(Integer.parseInt(Singleton.getInstance().getUserIDnumber()));
-
                     rooms.clear();
 
                 }
@@ -202,11 +200,6 @@ public class HotelBookingController implements Initializable {
     }
 
     public void btn1(ActionEvent ae) {
-
-        System.out.println(hotelIds.get(0));
-        System.out.println(Integer.parseInt(combo1.getSelectionModel().getSelectedItem().toString()));
-        System.out.println(checkin.getValue().toString());
-        System.out.println(checkout.getValue().toString());
 
         try {
             booking = new HotelBooking(hotelIds.get(0), Integer.parseInt(combo1.getSelectionModel().getSelectedItem().toString()), checkin.getValue().toString(), checkout.getValue().toString());
