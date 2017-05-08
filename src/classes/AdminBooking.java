@@ -66,7 +66,7 @@ public class AdminBooking implements BookingTypes {
     public void makeHotelBooking(HotelBooking hotel) {
 
         dbh.getUserID(Singleton.getInstance().getPickedUser());
-        dbh.setHotelBooking(hotel, Integer.parseInt(Singleton.getInstance().getPickedUser()));
+        dbh.setHotelBooking(hotel, Integer.parseInt(Singleton.getInstance().getUserID()));
     }
 
     @Override

@@ -102,13 +102,13 @@ public class DBHandler {
 
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select user_id, username, password, role_id from users where username ='" + username + "'");
+            ResultSet rs = statement.executeQuery("select user_id, username, password, role from users where username ='" + username + "'");
 
             while (rs.next()){
 
                 s = rs.getString("password");
 
-                Singleton.getInstance().setUserRole(rs.getString("role_id"));
+                Singleton.getInstance().setUserRole(rs.getString("role"));
                 Singleton.getInstance().setUserID(rs.getString("user_id"));
                 Singleton.getInstance().setUsername(rs.getString("username"));
 

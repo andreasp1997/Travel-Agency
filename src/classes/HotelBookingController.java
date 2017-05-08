@@ -30,8 +30,8 @@ public class HotelBookingController implements Initializable {
 
     DBHandler dbh = new DBHandler();
     HotelBooking booking;
-    AdminBooking admin;
-    NormalUserBooking normalUser;
+    AdminBooking admin = new AdminBooking();
+    NormalUserBooking normalUser = new NormalUserBooking();
 
     Singleton singleton = new Singleton();
 
@@ -71,6 +71,29 @@ public class HotelBookingController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        LocalDate today = LocalDate.now();
+        LocalDate next = today.plusMonths(8);
+        LocalDate tomorrow = today.plusDays(1);
+
+        checkin.setValue(today);
+        checkout.setValue(tomorrow);
+
+        checkin.setDayCellFactory((p) -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate ld, boolean bln) {
+                super.updateItem(ld, bln);
+                setDisable(ld.isBefore(today) || ld.isAfter(next));
+            }
+        });
+
+        checkout.setDayCellFactory((p) -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate ld, boolean bln) {
+                super.updateItem(ld, bln);
+                setDisable(ld.isBefore(tomorrow) || ld.isAfter(next));
+            }
+        });
 
         dbh.getCities();
         allCities = Singleton.getInstance().getCities();
@@ -162,6 +185,9 @@ public class HotelBookingController implements Initializable {
         name1.setVisible(false);
         name2.setVisible(false);
         name3.setVisible(false);
+        city1.setVisible(false);
+        city2.setVisible(false);
+        city3.setVisible(false);
 
         try {
 
@@ -193,6 +219,7 @@ public class HotelBookingController implements Initializable {
                         combo1.setVisible(true);
                         room1.setVisible(true);
                         name1.setVisible(true);
+                        city1.setVisible(true);
 
                         name1.setText(hotels.get(i).hotelName);
                         city1.setText(hotels.get(i).hotelCity);
@@ -205,6 +232,7 @@ public class HotelBookingController implements Initializable {
                         combo2.setVisible(true);
                         room2.setVisible(true);
                         name2.setVisible(true);
+                        city2.setVisible(true);
 
                         name2.setText(hotels.get(i).hotelName);
                         city2.setText(hotels.get(i).hotelCity);
@@ -217,6 +245,7 @@ public class HotelBookingController implements Initializable {
                         combo3.setVisible(true);
                         room3.setVisible(true);
                         name3.setVisible(true);
+                        city3.setVisible(true);
 
                         name3.setText(hotels.get(i).hotelName);
                         city3.setText(hotels.get(i).hotelCity);
@@ -239,24 +268,18 @@ public class HotelBookingController implements Initializable {
 
     public void btn1(ActionEvent ae) {
 
-        System.out.println(hotelIds.get(0));
-        System.out.println(Integer.parseInt(combo1.getSelectionModel().getSelectedItem().toString()));
-        System.out.println(checkin.getValue().toString());
-        System.out.println(checkout.getValue().toString());
-
         try {
             booking = new HotelBooking(hotelIds.get(0), Integer.parseInt(combo1.getSelectionModel().getSelectedItem().toString()), checkin.getValue().toString(), checkout.getValue().toString());
 
             this.setHotelBooking(booking);
 
         } catch (NullPointerException e) {
-            System.out.println("ss");
-            /*
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Please enter all options.");
             alert.showAndWait();
-            */
+
         }
     }
 
