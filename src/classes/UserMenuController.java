@@ -69,11 +69,29 @@ public class UserMenuController {
     }
 
     public void gotoAccountSettings(ActionEvent ae){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/accountSettings.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setResizable(false);
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void gotoEditBookings(ActionEvent ae){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/viewEditBookings.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setResizable(false);
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void help(ActionEvent ae){
