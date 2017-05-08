@@ -1,0 +1,6 @@
+INSERT INTO `travelagency`.`cars` (`car_id`, `car`, `seats`, `location`, `price`) VALUES ('1', 'Ford', '4', '1', '799');
+INSERT INTO `travelagency`.`cars` (`car_id`, `car`, `seats`, `location`, `price`) VALUES ('2', 'Ford', '5', '1', '899');
+INSERT INTO `travelagency`.`cars` (`car_id`, `car`, `seats`, `location`, `price`) VALUES ('3', 'Ford', '7', '1', '999');
+INSERT INTO `travelagency`.`cars` (`car_id`, `car`, `seats`, `location`, `price`) VALUES ('4', 'BMW', '4', '2', '899');
+INSERT INTO `travelagency`.`cars` (`car_id`, `car`, `seats`, `location`, `price`) VALUES ('5', 'BMW', '5', '2', '1000');
+INSERT INTO `travelagency`.`cars` (`car_id`, `car`, `seats`, `location`, `price`) VALUES ('6', 'BMW', '7', '2', '1200');

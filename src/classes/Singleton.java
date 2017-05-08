@@ -31,6 +31,13 @@ public class Singleton {
     private SimpleStringProperty cruiseID = new SimpleStringProperty();
     private SimpleStringProperty cruisePrice = new SimpleStringProperty();
     private SimpleStringProperty cruiseRoom = new SimpleStringProperty();
+    private ArrayList<String> cars = new ArrayList<>();
+    private ArrayList<String> seatsNumber = new ArrayList<>();
+    private ArrayList<String> carsNumber4 = new ArrayList<>();
+    private ArrayList<String> carsNumber5 = new ArrayList<>();
+    private ArrayList<String> carsNumber7 = new ArrayList<>();
+    private SimpleStringProperty carID = new SimpleStringProperty();
+    private SimpleStringProperty bookedTicketsForCar = new SimpleStringProperty();
 
 
     public Singleton() {
@@ -114,7 +121,31 @@ public class Singleton {
 
     public String getBookedTicketsForFlight() { return bookedTicketsForFlight.get(); }
 
-    public void setBookedTicketsForFlight(String bookedTicketsForFlight) { this.bookedTicketsForFlight.set(bookedTicketsForFlight); }
+    public void setBookedTicketsForFlight(String bookedTicketsForFlight) { this.bookedTicketsForFlight.set(bookedTicketsForFlight);}
+
+    public void setCars (ArrayList<String> s) { this.cars = s; }
+
+    public ArrayList<String> getCars() { return cars; }
+
+    public String getCarID() { return carID.get(); }
+
+    public void setCarID(String carID) { this.carID.set(carID); }
+
+    public void setCarsNumber4 (ArrayList<String> s) { this.carsNumber4 = s; }
+
+    public ArrayList<String> getCarsNumber4() { return carsNumber4; }
+
+    public void setCarsNumber5 (ArrayList<String> s) { this.carsNumber5 = s; }
+
+    public ArrayList<String> getCarsNumber5() { return carsNumber5; }
+
+    public void setCarsNumber7 (ArrayList<String> s) { this.carsNumber7 = s; }
+
+    public ArrayList<String> getCarsNumber7() { return carsNumber7; }
+
+    public String getBookedTicketsForCar() { return bookedTicketsForCar.get(); }
+
+    public void setBookedTicketsForCar(String bookedTicketsForCar) { this.bookedTicketsForCar.set(bookedTicketsForCar); }
 
     public String getCruiseID() { return cruiseID.get(); }
 

@@ -439,6 +439,111 @@ public class DBHandler {
         }
     }
 
+    /**/
+    public void getCars(){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select car from cars order by car");
+
+            ArrayList <String> result = new ArrayList<String>();
+
+            while(rs.next()){
+                result.add(rs.getString(1));
+                continue;
+            }
+
+            Singleton.getInstance().setCars(result);
+
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void getCarsNumber4(){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select car from cars where seats in ('4')");
+
+            ArrayList <String> result = new ArrayList<String>();
+
+            while(rs.next()){
+                result.add(rs.getString(1));
+                continue;
+            }
+
+            Singleton.getInstance().setCarsNumber4(result);
+
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void getCarsNumber5(){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select car from cars where seats in ('5')");
+
+            ArrayList <String> result = new ArrayList<String>();
+
+            while(rs.next()){
+                result.add(rs.getString(1));
+                continue;
+            }
+            Singleton.getInstance().setCarsNumber5(result);
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+    public void getCarsNumber7(){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select car from cars where seats in ('7')");
+
+            ArrayList <String> result = new ArrayList<String>();
+
+            while(rs.next()){
+                result.add(rs.getString(1));
+                continue;
+            }
+            Singleton.getInstance().setCarsNumber7(result);
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void bookingForCar (String starts, String ends, String city){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select count(booking_id) from car_bookings left join cars on car_bookings.car_id = cars.car_id where car_bookings.starts = '" + starts + "' and car_bookings.ends = '" + ends + "' and cities.city = '" + city + "'");
+
+            while(rs.next()){
+                String s = rs.getString(1);
+                Singleton.getInstance().setBookedTicketsForCar(s);
+            }
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    /*public void getCarID(String carName){
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select car_id from cars where car = '" + carName + "'");
+
+            while(rs.next()){
+                String s = rs.getString(1);
+                Singleton.getInstance().setCarID(s);
+            }
+        }
+        catch (SQLException ex){
+            System.out.println("Error on executing the query");
+        }
+    }*/
 
     public void cruiseInformation(String cruiseID) {
         try (Connection conn = DriverManager.getConnection(connectionURL)) {
