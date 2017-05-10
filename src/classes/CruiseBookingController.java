@@ -33,6 +33,8 @@ public class CruiseBookingController implements Initializable {
     @FXML private Button bookButton;
     @FXML private DatePicker datePicker;
     @FXML private Rectangle rectangle;
+    @FXML private Text priceValue;
+    @FXML private Text roomsLeftValue;
 
     NormalUserBooking normalUserBooking = new NormalUserBooking();
     AdminBooking adminBooking = new AdminBooking();
@@ -42,6 +44,8 @@ public class CruiseBookingController implements Initializable {
     Singleton singleton = new Singleton();
     private ObservableList<Integer> roomOption;
     private String usernameList;
+    private String originID;
+    private String destinationID;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -51,6 +55,8 @@ public class CruiseBookingController implements Initializable {
         selectRoom.setVisible(false);
         roomText.setVisible(false);
         bookButton.setVisible(false);
+        priceValue.setVisible(false);
+        roomsLeftValue.setVisible(false);
 
         dbHandler.checkUserRole(singleton.getInstance().getUsername());
 
@@ -87,32 +93,70 @@ public class CruiseBookingController implements Initializable {
 
     public void search() {
         if (tour.getValue().equals("London -> New York")) {
-            dbHandler.cruiseSearch( "New York",datePicker.getValue());
-        }else if (tour.getValue().equals("New York -> London")) {
-            dbHandler.cruiseSearch( "London",datePicker.getValue());
-        }else if (tour.getValue().equals("Los Angeles -> Sydney")){
-            dbHandler.cruiseSearch( "Sydney",datePicker.getValue());
-        }else{
-            dbHandler.cruiseSearch( "Los Angeles",datePicker.getValue());
+            priceValue.setText(String.valueOf(Integer.parseInt(priceValue.getText()) + 7000));
+            CruiseBooking.getInstance().setPrice(Double.parseDouble(priceValue.getText()));
+            CruiseBooking.getInstance().setOrigin("London");
+            CruiseBooking.getInstance().setDestination("New York");
 
+            dbHandler.getCityID(CruiseBooking.getInstance().getOrigin());
+            originID = Singleton.getInstance().getCityID();
+            CruiseBooking.getInstance().setOrigin(originID);
+
+            dbHandler.getCityID(CruiseBooking.getInstance().getDestination());
+            destinationID = Singleton.getInstance().getCityID();
+            CruiseBooking.getInstance().setDestination(destinationID);
+
+        }else if (tour.getValue().equals("New York -> London")) {
+            priceValue.setText(String.valueOf(Integer.parseInt(priceValue.getText()) + 7500));
+            CruiseBooking.getInstance().setPrice(Double.parseDouble(priceValue.getText()));
+            CruiseBooking.getInstance().setOrigin("New York");
+            CruiseBooking.getInstance().setDestination("London");
+
+            dbHandler.getCityID(CruiseBooking.getInstance().getOrigin());
+            originID = Singleton.getInstance().getCityID();
+            CruiseBooking.getInstance().setOrigin(originID);
+
+            dbHandler.getCityID(CruiseBooking.getInstance().getDestination());
+            destinationID = Singleton.getInstance().getCityID();
+            CruiseBooking.getInstance().setDestination(destinationID);
+
+        }else if (tour.getValue().equals("Los Angeles -> Sydney")){
+            priceValue.setText(String.valueOf(Integer.parseInt(priceValue.getText()) + 8000));
+            CruiseBooking.getInstance().setPrice(Double.parseDouble(priceValue.getText()));
+            CruiseBooking.getInstance().setOrigin("Los Angeles");
+            CruiseBooking.getInstance().setDestination("Sydney");
+
+            dbHandler.getCityID(CruiseBooking.getInstance().getOrigin());
+            originID = Singleton.getInstance().getCityID();
+            CruiseBooking.getInstance().setOrigin(originID);
+
+            dbHandler.getCityID(CruiseBooking.getInstance().getDestination());
+            destinationID = Singleton.getInstance().getCityID();
+            CruiseBooking.getInstance().setDestination(destinationID);
+
+        }else if (tour.getValue().equals("Sydney -> Los Angeles")){
+            priceValue.setText(String.valueOf(Integer.parseInt(priceValue.getText()) + 8250));
+            CruiseBooking.getInstance().setPrice(Double.parseDouble(priceValue.getText()));
+            CruiseBooking.getInstance().setOrigin("Sydney");
+            CruiseBooking.getInstance().setDestination("Los Angeles");
+
+            dbHandler.getCityID(CruiseBooking.getInstance().getOrigin());
+            originID = Singleton.getInstance().getCityID();
+            CruiseBooking.getInstance().setOrigin(originID);
+
+            dbHandler.getCityID(CruiseBooking.getInstance().getDestination());
+            destinationID = Singleton.getInstance().getCityID();
+            CruiseBooking.getInstance().setDestination(destinationID);
         }
+
         if (datePicker.getValue() == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Please enter a date");
             alert.showAndWait();
 
-        } else if (Singleton.getInstance().getCruiseID() == null) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Your tour was not found please choose another date");
-            alert.showAndWait();
-        }
-        else {
+        } else {
 
-            dbHandler.cruiseInformation(Singleton.getInstance().getCruiseID());
-            priceText.setText("Price: " + Singleton.getInstance().getCruisePrice());
-            roomLeftText.setText("Room: " + Singleton.getInstance().getCruiseRoom());
             selectRoom.setItems(roomOption);
             selectRoom.getSelectionModel().selectFirst();
             rectangle.setVisible(true);
@@ -121,16 +165,25 @@ public class CruiseBookingController implements Initializable {
             selectRoom.setVisible(true);
             roomText.setVisible(true);
             bookButton.setVisible(true);
+            priceValue.setVisible(true);
+            roomsLeftValue.setVisible(true);
 
+            dbHandler.cruiseRoomsLeft(CruiseBooking.getInstance().getOrigin(), CruiseBooking.getInstance().getDestination(), datePicker.getValue().toString());
+
+            if(Singleton.getInstance().getRoomsBooked() != null){
+                roomsLeftValue.setText(String.valueOf(150 - Integer.parseInt(Singleton.getInstance().getRoomsBooked())));
+            } else {
+                roomsLeftValue.setText("150");
+            }
         }
-
     }
     public void book() {
-        int updatedRooms;
-        CruiseBooking.getInstance().setRoom(selectRoom.getValue().toString());
+
+        CruiseBooking.getInstance().setRoom(selectRoom.getSelectionModel().getSelectedItem().toString());
+
         CruiseBooking.getInstance().setDate(datePicker.getValue().toString());
-        updatedRooms = Integer.parseInt(Singleton.getInstance().getCruiseRoom()) - Integer.parseInt(CruiseBooking.getInstance().getRoom().toString());
-        if (updatedRooms < 0) {
+
+        if (Integer.parseInt(roomsLeftValue.getText()) == -1 || Integer.parseInt(roomsLeftValue.getText()) == -2 || Integer.parseInt(roomsLeftValue.getText()) == -3) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Not enough rooms available");
@@ -140,7 +193,6 @@ public class CruiseBookingController implements Initializable {
 
             if(singleton.getInstance().getUserRole().equals("2")) {
                 normalUserBooking.makeCruiseBooking();
-                dbHandler.updateCruises(Singleton.getInstance().getCruiseID(), updatedRooms);
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Booking registered!");
@@ -148,7 +200,7 @@ public class CruiseBookingController implements Initializable {
                 alert.showAndWait();
             } else {
                 adminBooking.makeCruiseBooking();
-                dbHandler.updateCruises(Singleton.getInstance().getCruiseID(), updatedRooms);
+
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Booking registered!");
                 alert.setHeaderText("The booking has now been registered and can be viewed in the 'Edit Bookings' menu!");

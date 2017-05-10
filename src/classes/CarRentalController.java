@@ -227,4 +227,5 @@ public class CarRentalController implements Initializable {
         dbh.bookingForCar(CarRentalBooking.getInstance().getCity(), CarRentalBooking.getInstance().getHireCarDate(), CarRentalBooking.getInstance().getReturnCarDate());
         normalUserBooking.makeCarRentalBooking();
     }
+
 }

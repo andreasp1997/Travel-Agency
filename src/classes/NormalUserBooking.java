@@ -11,6 +11,8 @@ public class NormalUserBooking implements BookingTypes {
 
     int flightIDCount;
     int flightBookingIDCount;
+    int cruiseIDCount;
+    int cruiseBookingIDCount;
 
     @Override
     public void makeFlightBooking() {
@@ -75,10 +77,52 @@ public class NormalUserBooking implements BookingTypes {
 
     @Override
     public void makeCruiseBooking() {
-        dbh.getUserID(Singleton.getInstance().getUsername());
-        dbh.bookCruise(Singleton.getInstance().getCruiseID(),Singleton.getInstance().getUserID(),CruiseBooking.getInstance().getRoom());
-        System.out.println(Singleton.getInstance().getCruiseID());
-        System.out.println(Singleton.getInstance().getUserID());
-        System.out.println(CruiseBooking.getInstance().getRoom());
+
+        dbh.checkForCruise(CruiseBooking.getInstance().getOrigin(), CruiseBooking.getInstance().getDestination(), CruiseBooking.getInstance().getDate());
+        dbh.cruiseIDCount();
+        dbh.cruiseBookingIDCount();
+
+        if(Singleton.getInstance().getCheckedCruise() == null){
+
+            if(Singleton.getInstance().getCruiseIDcount() == null){
+                cruiseIDCount = 1;
+            } else {
+                cruiseIDCount = Integer.parseInt(Singleton.getInstance().getCruiseIDcount());
+                cruiseIDCount++;
+            }
+
+            if(Singleton.getInstance().getCruiseBookingsIDAmount() == null){
+                cruiseBookingIDCount = 1;
+            } else {
+                cruiseBookingIDCount = Integer.parseInt(Singleton.getInstance().getCruiseBookingsIDAmount());
+                cruiseBookingIDCount++;
+            }
+
+            dbh.addCruise(cruiseIDCount, CruiseBooking.getInstance().getOrigin(), CruiseBooking.getInstance().getDestination(), CruiseBooking.getInstance().getDate(), 150, CruiseBooking.getInstance().getPrice());
+            dbh.getCruiseID(CruiseBooking.getInstance().getOrigin(), CruiseBooking.getInstance().getDestination(), CruiseBooking.getInstance().getDate());
+            dbh.getUserID(Singleton.getInstance().getUsername());
+            dbh.bookCruise(cruiseBookingIDCount, Singleton.getInstance().getCruiseID(),Singleton.getInstance().getUserID(),CruiseBooking.getInstance().getRoom());
+
+        } else if (Singleton.getInstance().getCheckedCruise() != null){
+
+            if(Singleton.getInstance().getCruiseIDcount() == null){
+                cruiseIDCount = 1;
+            } else {
+                cruiseIDCount = Integer.parseInt(Singleton.getInstance().getCruiseIDcount());
+                cruiseIDCount++;
+            }
+
+            if(Singleton.getInstance().getCruiseBookingsIDAmount() == null){
+                cruiseBookingIDCount = 1;
+            } else {
+                cruiseBookingIDCount = Integer.parseInt(Singleton.getInstance().getCruiseBookingsIDAmount());
+                cruiseBookingIDCount++;
+            }
+
+            dbh.getCruiseID(CruiseBooking.getInstance().getOrigin(), CruiseBooking.getInstance().getDestination(), CruiseBooking.getInstance().getDate());
+            dbh.getUserID(Singleton.getInstance().getUsername());
+            dbh.bookCruise(cruiseBookingIDCount, Singleton.getInstance().getCruiseID(),Singleton.getInstance().getUserID(),CruiseBooking.getInstance().getRoom());
+        }
+
     }
 }

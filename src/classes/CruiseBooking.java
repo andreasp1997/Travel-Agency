@@ -9,6 +9,7 @@ public class CruiseBooking   {
     private String destination;
     private String date;
     private String room;
+    private double price;
 
     public static CruiseBooking getInstance() {
         if(instance == null) {
@@ -48,4 +49,8 @@ public class CruiseBooking   {
     public void setRoom(String rooms) {
         this.room = rooms;
     }
+
+    public double getPrice() { return price; }
+
+    public void setPrice(double price) { this.price = price; }
 }

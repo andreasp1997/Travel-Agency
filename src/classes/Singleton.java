@@ -29,8 +29,6 @@ public class Singleton {
     private SimpleStringProperty airlines = new SimpleStringProperty();
     private SimpleStringProperty bookedTicketsForFlight = new SimpleStringProperty();
     private SimpleStringProperty cruiseID = new SimpleStringProperty();
-    private SimpleStringProperty cruisePrice = new SimpleStringProperty();
-    private SimpleStringProperty cruiseRoom = new SimpleStringProperty();
     private ArrayList<String> cars = new ArrayList<>();
     private ArrayList<String> seatsNumber = new ArrayList<>();
     private ArrayList<String> carsNumber4 = new ArrayList<>();
@@ -38,6 +36,12 @@ public class Singleton {
     private ArrayList<String> carsNumber7 = new ArrayList<>();
     private SimpleStringProperty carID = new SimpleStringProperty();
     private SimpleStringProperty bookedTicketsForCar = new SimpleStringProperty();
+    private SimpleStringProperty checkedCruise = new SimpleStringProperty();
+    private SimpleStringProperty cruiseIDcount = new SimpleStringProperty();
+    private SimpleStringProperty cruiseBookingsIDAmount = new SimpleStringProperty();
+    private SimpleStringProperty roomsBooked = new SimpleStringProperty();
+
+
 
 
     public Singleton() {
@@ -151,11 +155,35 @@ public class Singleton {
 
     public void setCruiseID(String cruiseID) { this.cruiseID.set(cruiseID); }
 
-    public String getCruisePrice() { return cruisePrice.get(); }
+    public String getCheckedCruise() {
+        return checkedCruise.get();
+    }
 
-    public void setCruisePrice(String cruisePrice) { this.cruisePrice.set(cruisePrice); }
+    public void setCheckedCruise(String checkedCruise) {
+        this.checkedCruise.set(checkedCruise);
+    }
 
-    public String getCruiseRoom() { return cruiseRoom.get(); }
+    public String getCruiseIDcount() {
+        return cruiseIDcount.get();
+    }
 
-    public void setCruiseRoom(String cruiseRoom) { this.cruiseRoom.set(cruiseRoom); }
+    public void setCruiseIDcount(String cruiseIDcount) {
+        this.cruiseIDcount.set(cruiseIDcount);
+    }
+
+    public String getCruiseBookingsIDAmount() {
+        return cruiseBookingsIDAmount.get();
+    }
+
+    public void setCruiseBookingsIDAmount(String cruiseBookingsIDAmount) {
+        this.cruiseBookingsIDAmount.set(cruiseBookingsIDAmount);
+    }
+
+    public String getRoomsBooked() {
+        return roomsBooked.get();
+    }
+
+    public void setRoomsBooked(String roomsBooked) {
+        this.roomsBooked.set(roomsBooked);
+    }
 }
