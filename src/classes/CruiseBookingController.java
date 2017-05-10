@@ -92,6 +92,9 @@ public class CruiseBookingController implements Initializable {
     }
 
     public void search() {
+
+        priceValue.setText("5000");
+
         if (tour.getValue().equals("London -> New York")) {
             priceValue.setText(String.valueOf(Integer.parseInt(priceValue.getText()) + 7000));
             CruiseBooking.getInstance().setPrice(Double.parseDouble(priceValue.getText()));

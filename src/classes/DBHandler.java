@@ -545,22 +545,16 @@ public class DBHandler {
         }
     }*/
 
+    public void bookCruise(int bookingID, String cruiseID, String userID, String rooms) {
 
+        String command = String.format("INSERT INTO cruise_bookings (booking_id, cruise_id, user_id, rooms) values ('" + bookingID + "', '" + cruiseID + "', '" + userID + "', '" + rooms + "')");
 
-    public void bookCruise(double booking_id, String cruiseID, String userID, String room) {
         try (Connection conn = DriverManager.getConnection(connectionURL)) {
-            String sql = "INSERT INTO cruise_bookings (bookings_id, cruise_id, user_id, rooms) values (?, ?, ?, ?)";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, String.valueOf(booking_id));
-            statement.setString(1, cruiseID);
-            statement.setString(2,userID);
-            statement.setString(3,room);
+            Statement statement = conn.createStatement();
+            statement.executeUpdate(command);
 
-            statement.execute();
-
-
-        }catch (SQLException e) {
-            System.out.print("Error on executing the query");
+        } catch (SQLException e) {
+            System.out.println("Error executing the query");
         }
     }
 
