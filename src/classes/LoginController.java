@@ -7,20 +7,22 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
     @FXML private TextField username;
     @FXML private PasswordField password;
+    @FXML private CheckBox checkBox;
     @FXML private Label loginError;
 
     //Password from database
@@ -37,7 +39,8 @@ public class LoginController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         dbh = new DBHandler();
-
+        Properties properties = loadProperties();
+        username.setText(properties.getProperty("username"));
     }
 
     @FXML
@@ -47,6 +50,7 @@ public class LoginController implements Initializable {
 
         dbPass = dbh.checkLogin(username.getText());
         pass = password.getText();
+        Properties properties = loadProperties();
 
 
         if (username.getText().isEmpty() || password.getText().isEmpty()) {
@@ -64,6 +68,20 @@ public class LoginController implements Initializable {
                 Scene scene = new Scene(root);
                 Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
                 stage.setScene(scene);
+
+                if (checkBox.isSelected()) {
+                    FileOutputStream fileOutputStream = new FileOutputStream("app.properties");
+                    properties.setProperty("username", username.getText());
+                    properties.store(fileOutputStream, null);
+                    fileOutputStream.close();
+                } else {
+                    FileOutputStream fileOutputStream = new FileOutputStream("app.properties");
+                    properties.setProperty("username","");
+                    properties.store(fileOutputStream, null);
+                    fileOutputStream.close();
+                }
+
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -88,6 +106,18 @@ public class LoginController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private Properties loadProperties() {
+        Properties appProp = new Properties();
+        try (FileInputStream fis = new FileInputStream("app.properties")) {
+            appProp.load(fis);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return appProp;
     }
 
 }
