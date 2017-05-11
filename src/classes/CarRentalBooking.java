@@ -7,7 +7,7 @@ public class CarRentalBooking {
     private static CarRentalBooking instance = null;
     private String hireCarDate;
     private String returnCarDate;
-    private int seats;
+    private String seats;
     private String city;
     private String car;
     private double price;
@@ -43,11 +43,11 @@ public class CarRentalBooking {
         this.returnCarDate = returnCarDate;
     }
 
-    public int getSeats() {
+    public String getSeats() {
         return seats;
     }
 
-    public void setSeats(int seats) {
+    public void setSeats(String seats) {
         this.seats = seats;
     }
 

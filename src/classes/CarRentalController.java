@@ -9,9 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -24,7 +22,7 @@ import java.util.ResourceBundle;
  * Created by safaa on 2017-05-01.
  */
 public class CarRentalController implements Initializable {
-    DBHandler dbh = new DBHandler();
+    DBHandler dbHandler = new DBHandler();
     Singleton singleton = new Singleton();
     AdminBooking adminBooking = new AdminBooking();
     NormalUserBooking normalUserBooking = new NormalUserBooking();
@@ -36,6 +34,7 @@ public class CarRentalController implements Initializable {
     private boolean isSeatsNumber4 = false;
     private boolean isSeatsNumber5 = false;
     private boolean isSeatsNumber7 = false;
+    private String usernameList;
 
     private ArrayList<String> cities;
     private ArrayList<String> cars;
@@ -51,20 +50,18 @@ public class CarRentalController implements Initializable {
     private ObservableList<String> citiesObservable;
     private ObservableList<String> carsObservable;
 
-    @FXML
-    ComboBox<String> city;
+    @FXML ComboBox<String> city;
     @FXML ComboBox<String> seats;
     @FXML ComboBox<String> seatsNr;
-    @FXML
-    DatePicker hireDate;
+    @FXML DatePicker hireDate;
     @FXML DatePicker returnDate;
-    @FXML
-    Text priceText;
+    @FXML Text priceText;
     @FXML Text seatsText;
     @FXML Text type;
-    @FXML
-    Label price;
+    @FXML Label price;
     @FXML Label carInfo;
+    @FXML private TextField pickUserField;
+    @FXML private Button pickUserBtn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -73,22 +70,22 @@ public class CarRentalController implements Initializable {
         priceText.setVisible(false);
         price.setVisible(false);
 
-        dbh.getCities();
+        dbHandler.getCities();
         cities = Singleton.getInstance().getCities();
         citiesObservable = FXCollections.observableArrayList(cities);
         city.setItems(citiesObservable);
         city.getSelectionModel().selectFirst();
 
-        dbh.getCars();
+        dbHandler.getCars();
         cars = Singleton.getInstance().getCars();
         carsObservable = FXCollections.observableArrayList(cars);
         seats.setItems(carsObservable);
         seats.getSelectionModel().selectFirst();
 
 
-        dbh.getCarsNumber4();
-        dbh.getCarsNumber5();
-        dbh.getCarsNumber7();
+        dbHandler.getCarsNumber4();
+        dbHandler.getCarsNumber5();
+        dbHandler.getCarsNumber7();
 
         carNumber4List = Singleton.getInstance().getCarsNumber4();
         carNumber5List = Singleton.getInstance().getCarsNumber5();
@@ -99,10 +96,10 @@ public class CarRentalController implements Initializable {
         System.out.println(carNumber7List);
 
 
-        dbh.getEuropeanCities();
-        dbh.getAustralianCities();
-        dbh.getNorthAmericanCities();
-        dbh.getAsianCities();
+        dbHandler.getEuropeanCities();
+        dbHandler.getAustralianCities();
+        dbHandler.getNorthAmericanCities();
+        dbHandler.getAsianCities();
 
         europeanCitiesList = Singleton.getInstance().getEuropeanCities();
         australianCitiesList = Singleton.getInstance().getAustralianCities();
@@ -212,7 +209,7 @@ public class CarRentalController implements Initializable {
                 price.setText(String.valueOf(Integer.parseInt(price.getText()) + 999));
             }
 
-            dbh.getCityID(city.getSelectionModel().getSelectedItem());
+            dbHandler.getCityID(city.getSelectionModel().getSelectedItem());
             CarRentalBooking.getInstance().setCity(Singleton.getInstance().getCityID());
 
             CarRentalBooking.getInstance().setHireCarDate(hireDate.getValue().toString());
@@ -220,12 +217,51 @@ public class CarRentalController implements Initializable {
         }
     }
 
-    public void carBooking(ActionEvent ae){
+   /* public void carBooking(ActionEvent ae){
 
         CarRentalBooking.getInstance().setCar("1");
-        CarRentalBooking.getInstance().setPrice(Double.parseDouble(price.getText()));
-        dbh.bookingForCar(CarRentalBooking.getInstance().getCity(), CarRentalBooking.getInstance().getHireCarDate(), CarRentalBooking.getInstance().getReturnCarDate());
+        dbHandler.bookingForCar(CarRentalBooking.getInstance().getCity(), CarRentalBooking.getInstance().getHireCarDate(), CarRentalBooking.getInstance().getReturnCarDate());
         normalUserBooking.makeCarRentalBooking();
-    }
+    }*/
 
+    public void book() {
+
+        CarRentalBooking.getInstance().setSeats(seats.getSelectionModel().getSelectedItem().toString());
+        CarRentalBooking.getInstance().setPrice(Double.parseDouble(price.getText()));
+        CarRentalBooking.getInstance().setHireCarDate(hireDate.getValue().toString());
+        CarRentalBooking.getInstance().setHireCarDate(returnDate.getValue().toString());
+
+        dbHandler.checkUserRole(singleton.getInstance().getUsername());
+
+            if(singleton.getInstance().getUserRole().equals("2")) {
+                normalUserBooking.makeCarRentalBooking();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Booking registered!");
+                alert.setHeaderText("The booking has now been registered and can be viewed in the 'Edit Bookings' menu!");
+                alert.showAndWait();
+            } else {
+                adminBooking.makeCarRentalBooking();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Booking registered!");
+                alert.setHeaderText("The booking has now been registered and can be viewed in the 'Edit Bookings' menu!");
+                alert.showAndWait();
+            }
+        }
+
+    public void pickUser() {
+        dbHandler.checkIfUsernameExists();
+        usernameList = Singleton.getInstance().getUsernameList();
+
+        if(usernameList.contains(pickUserField.getText())){
+            Singleton.getInstance().setPickedUser(pickUserField.getText());
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("The username you entered does not exist");
+            alert.showAndWait();
+            Singleton.getInstance().setPickedUser(null);
+        }
+    }
 }

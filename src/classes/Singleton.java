@@ -36,6 +36,10 @@ public class Singleton {
     private ArrayList<String> carsNumber7 = new ArrayList<>();
     private SimpleStringProperty carID = new SimpleStringProperty();
     private SimpleStringProperty bookedTicketsForCar = new SimpleStringProperty();
+    private SimpleStringProperty checkedCar = new SimpleStringProperty();
+    private SimpleStringProperty carIDcount = new SimpleStringProperty();
+    private SimpleStringProperty carBookingsIDAmount = new SimpleStringProperty();
+
     private SimpleStringProperty checkedCruise = new SimpleStringProperty();
     private SimpleStringProperty cruiseIDcount = new SimpleStringProperty();
     private SimpleStringProperty cruiseBookingsIDAmount = new SimpleStringProperty();
@@ -151,6 +155,27 @@ public class Singleton {
 
     public void setBookedTicketsForCar(String bookedTicketsForCar) { this.bookedTicketsForCar.set(bookedTicketsForCar); }
 
+    public String getCheckedCar() {
+        return checkedCar.get();
+    }
+
+    public void setCheckedCar(String checkedCar) {
+        this.checkedCar.set(checkedCar);
+    }
+
+    public String getCarIDcount() {
+        return carIDcount.get();
+    }
+
+    public void setCarIDcount(String carIDcount) { this.carIDcount.set(carIDcount);}
+
+    public String getCarBookingsIDAmount() {
+        return carBookingsIDAmount.get();
+    }
+
+    public void setCarBookingsIDAmount(String carBookingsIDAmount) { this.carBookingsIDAmount.set(carBookingsIDAmount);}
+
+
     public String getCruiseID() { return cruiseID.get(); }
 
     public void setCruiseID(String cruiseID) { this.cruiseID.set(cruiseID); }
@@ -167,17 +192,13 @@ public class Singleton {
         return cruiseIDcount.get();
     }
 
-    public void setCruiseIDcount(String cruiseIDcount) {
-        this.cruiseIDcount.set(cruiseIDcount);
-    }
+    public void setCruiseIDcount(String cruiseIDcount) {this.cruiseIDcount.set(cruiseIDcount);}
 
     public String getCruiseBookingsIDAmount() {
         return cruiseBookingsIDAmount.get();
     }
 
-    public void setCruiseBookingsIDAmount(String cruiseBookingsIDAmount) {
-        this.cruiseBookingsIDAmount.set(cruiseBookingsIDAmount);
-    }
+    public void setCruiseBookingsIDAmount(String cruiseBookingsIDAmount) {this.cruiseBookingsIDAmount.set(cruiseBookingsIDAmount);}
 
     public String getRoomsBooked() {
         return roomsBooked.get();
