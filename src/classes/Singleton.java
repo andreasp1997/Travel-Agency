@@ -30,23 +30,15 @@ public class Singleton {
     private SimpleStringProperty bookedTicketsForFlight = new SimpleStringProperty();
     private SimpleStringProperty cruiseID = new SimpleStringProperty();
     private ArrayList<String> cars = new ArrayList<>();
-    private ArrayList<String> seatsNumber = new ArrayList<>();
-    private ArrayList<String> carsNumber4 = new ArrayList<>();
-    private ArrayList<String> carsNumber5 = new ArrayList<>();
-    private ArrayList<String> carsNumber7 = new ArrayList<>();
     private SimpleStringProperty carID = new SimpleStringProperty();
-    private SimpleStringProperty bookedTicketsForCar = new SimpleStringProperty();
-    private SimpleStringProperty checkedCar = new SimpleStringProperty();
-    private SimpleStringProperty carIDcount = new SimpleStringProperty();
     private SimpleStringProperty carBookingsIDAmount = new SimpleStringProperty();
-
     private SimpleStringProperty checkedCruise = new SimpleStringProperty();
     private SimpleStringProperty cruiseIDcount = new SimpleStringProperty();
     private SimpleStringProperty cruiseBookingsIDAmount = new SimpleStringProperty();
     private SimpleStringProperty roomsBooked = new SimpleStringProperty();
-
-
-
+    private SimpleStringProperty carPrice = new SimpleStringProperty();
+    private SimpleStringProperty carBookingsForDate = new SimpleStringProperty();
+    private SimpleStringProperty carAmount = new SimpleStringProperty();
 
     public Singleton() {
 
@@ -139,42 +131,11 @@ public class Singleton {
 
     public void setCarID(String carID) { this.carID.set(carID); }
 
-    public void setCarsNumber4 (ArrayList<String> s) { this.carsNumber4 = s; }
-
-    public ArrayList<String> getCarsNumber4() { return carsNumber4; }
-
-    public void setCarsNumber5 (ArrayList<String> s) { this.carsNumber5 = s; }
-
-    public ArrayList<String> getCarsNumber5() { return carsNumber5; }
-
-    public void setCarsNumber7 (ArrayList<String> s) { this.carsNumber7 = s; }
-
-    public ArrayList<String> getCarsNumber7() { return carsNumber7; }
-
-    public String getBookedTicketsForCar() { return bookedTicketsForCar.get(); }
-
-    public void setBookedTicketsForCar(String bookedTicketsForCar) { this.bookedTicketsForCar.set(bookedTicketsForCar); }
-
-    public String getCheckedCar() {
-        return checkedCar.get();
-    }
-
-    public void setCheckedCar(String checkedCar) {
-        this.checkedCar.set(checkedCar);
-    }
-
-    public String getCarIDcount() {
-        return carIDcount.get();
-    }
-
-    public void setCarIDcount(String carIDcount) { this.carIDcount.set(carIDcount);}
-
     public String getCarBookingsIDAmount() {
         return carBookingsIDAmount.get();
     }
 
     public void setCarBookingsIDAmount(String carBookingsIDAmount) { this.carBookingsIDAmount.set(carBookingsIDAmount);}
-
 
     public String getCruiseID() { return cruiseID.get(); }
 
@@ -207,4 +168,16 @@ public class Singleton {
     public void setRoomsBooked(String roomsBooked) {
         this.roomsBooked.set(roomsBooked);
     }
+
+    public String getCarPrice() { return carPrice.get(); }
+
+    public void setCarPrice(String carPrice) { this.carPrice.set(carPrice); }
+
+    public String getCarBookingsForDate() { return carBookingsForDate.get(); }
+
+    public void setCarBookingsForDate(String carBookingsForDate) { this.carBookingsForDate.set(carBookingsForDate); }
+
+    public String getCarAmount() { return carAmount.get(); }
+
+    public void setCarAmount(String carAmount) { this.carAmount.set(carAmount); }
 }

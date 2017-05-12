@@ -439,100 +439,74 @@ public class DBHandler {
         }
     }
 
-    /**/
-    public void getCars(){
-        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+    public void getCars(String seats, String city) {
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select car from cars order by car");
 
-            ArrayList <String> result = new ArrayList<String>();
+            String c = "select car from cars where seats = '" + seats + "' and location = '" + city + "'";
+            ResultSet rs = statement.executeQuery(c);
 
-            while(rs.next()){
+            ArrayList<String> result = new ArrayList<>();
+
+            while (rs.next()) {
                 result.add(rs.getString(1));
-                continue;
             }
 
             Singleton.getInstance().setCars(result);
 
-        }
-        catch (SQLException ex){
+        } catch (SQLException ex) {
             System.out.println("Error on executing the query");
         }
     }
 
-    public void getCarsNumber4(){
-        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+    public void getCarPrice(String carName, String city) {
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select car from cars where seats in ('4')");
+            String c = "select price from cars where car = '" + carName + "' and location = '" + city + "'";
+            ResultSet rs = statement.executeQuery(c);
 
-            ArrayList <String> result = new ArrayList<String>();
-
-            while(rs.next()){
-                result.add(rs.getString(1));
-                continue;
-            }
-
-            Singleton.getInstance().setCarsNumber4(result);
-
-        }
-        catch (SQLException ex){
-            System.out.println("Error on executing the query");
-        }
-    }
-
-    public void getCarsNumber5(){
-        try(Connection conn = DriverManager.getConnection(connectionURL)) {
-            Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select car from cars where seats in ('5')");
-
-            ArrayList <String> result = new ArrayList<String>();
-
-            while(rs.next()){
-                result.add(rs.getString(1));
-                continue;
-            }
-            Singleton.getInstance().setCarsNumber5(result);
-        }
-        catch (SQLException ex){
-            System.out.println("Error on executing the query");
-        }
-    }
-    public void getCarsNumber7(){
-        try(Connection conn = DriverManager.getConnection(connectionURL)) {
-            Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select car from cars where seats in ('7')");
-
-            ArrayList <String> result = new ArrayList<String>();
-
-            while(rs.next()){
-                result.add(rs.getString(1));
-                continue;
-            }
-            Singleton.getInstance().setCarsNumber7(result);
-        }
-        catch (SQLException ex){
-            System.out.println("Error on executing the query");
-        }
-    }
-
-    public void checkForCar(String from, String hireDate, String returnDate){
-        try(Connection conn = DriverManager.getConnection(connectionURL)) {
-            Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select car_id from car_bookings where car_bookings.starts = '" + hireDate + "' and car_bookings.ends = '" + returnDate + "'");
-
-            while(rs.next()){
+            while (rs.next()) {
                 String s = rs.getString(1);
-                Singleton.getInstance().setCheckedCar(s);
+                Singleton.getInstance().setCarPrice(s);
             }
-        }
-        catch (SQLException ex){
+
+        } catch (SQLException ex) {
             System.out.println("Error on executing the query");
         }
     }
 
-    public void bookCar(int bookingID, String carID, String userID, String starts, String ends) {
+    public void checkCarBookingsBetweenDates(String city, String carName, String hireDate, String returnDate) {
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select count(booking_id) from car_bookings left join cars on car_bookings.car_id = cars.car_id where car = '" + carName + "' and cars.location = '" + city + "' and starts and ends between '" + hireDate + "' and '" + returnDate + "'");
 
-        String command = String.format("INSERT INTO car_bookings (booking_id, car_id, user_id, starts, ends) values ('" + bookingID + "', '" + carID + "', '" + userID + "', '" + starts + "' , '" + ends + "')");
+            while (rs.next()) {
+                String s = rs.getString(1);
+                Singleton.getInstance().setCarBookingsForDate(s);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void getAmountOfCars(String city, String carName) {
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            String c = "select amount from cars where car = '" + carName + "' and location = '" + city + "'";
+            ResultSet rs = statement.executeQuery(c);
+
+            while (rs.next()) {
+                String s = rs.getString(1);
+                Singleton.getInstance().setCarAmount(s);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void bookCar(int bookingID, String carID, String userID, String starts, String ends, double price) {
+
+        String command = String.format("INSERT INTO car_bookings (booking_id, car_id, user_id, starts, ends, price) values ('" + bookingID + "', '" + carID + "', '" + userID + "', '" + starts + "' , '" + ends + "', '" + price + "')");
 
         try (Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
@@ -540,32 +514,6 @@ public class DBHandler {
 
         } catch (SQLException e) {
             System.out.println("Error executing the query");
-        }
-    }
-    public void addCar(int car_id, String car, String seats, String location, double price) {
-        String command = String.format("insert into cars (car_id, cars.car, cars.seats, location, price) values ('" + car_id + "', '" + car + "', '" + seats + "', '" + location + "', '" + price + "')");
-
-        try (Connection conn = DriverManager.getConnection(connectionURL)) {
-            Statement statement = conn.createStatement();
-            statement.executeUpdate(command);
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public void carIDCount(){
-        try(Connection conn = DriverManager.getConnection(connectionURL)) {
-            Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select count(car_id) from cars");
-
-            while(rs.next()){
-                String s = rs.getString(1);
-                Singleton.getInstance().setCarIDcount(s);
-            }
-        }
-        catch (SQLException ex){
-            System.out.println("Error on executing the query");
         }
     }
 
@@ -584,10 +532,10 @@ public class DBHandler {
         }
     }
 
-    public void getCarID( String hireDate, String returnDate){
+    public void getCarID(String carName, String city){
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select car_id from car_bookings where car_bookings.starts = '" + hireDate + "' and car_bookings.ends = '" + returnDate + "'");
+            ResultSet rs = statement.executeQuery("select car_id from cars where car = '" + carName + "' and location = '" + city + "'");
 
             while(rs.next()){
                 String s = rs.getString(1);
@@ -598,15 +546,6 @@ public class DBHandler {
             System.out.println("Error on executing the query");
         }
     }
-
-
-
-
-
-
-
-
-
 
     public void bookCruise(int bookingID, String cruiseID, String userID, String rooms) {
 

@@ -75,52 +75,26 @@ public class NormalUserBooking implements BookingTypes {
     @Override
     public void makeCarRentalBooking() {
 
-        dbh.checkForCar(CarRentalBooking.getInstance().getCity(), CarRentalBooking.getInstance().getHireCarDate(), CarRentalBooking.getInstance().getReturnCarDate());
-        dbh.carIDCount();
         dbh.carBookingIDCount();
+        dbh.getCityID(CarRentalBooking.getInstance().getCity());
+        dbh.getCarID(CarRentalBooking.getInstance().getCar(), Singleton.getInstance().getCityID());
+        dbh.getUserID(Singleton.getInstance().getUsername());
 
-        if(Singleton.getInstance().getCheckedCar() == null){
-
-            if(Singleton.getInstance().getCarIDcount() == null){
-                carIDCount = 1;
-            } else {
-                carIDCount = Integer.parseInt(Singleton.getInstance().getCarIDcount());
-                carIDCount++;
-            }
-
-            if(Singleton.getInstance().getCarBookingsIDAmount() == null){
-                carBookingIDCount = 1;
-            } else {
-                carBookingIDCount = Integer.parseInt(Singleton.getInstance().getCarBookingsIDAmount());
-                carBookingIDCount++;
-            }
-
-            dbh.addCar(carIDCount, CarRentalBooking.getInstance().getCar(), CarRentalBooking.getInstance().getSeats(), CarRentalBooking.getInstance().getCity(), CarRentalBooking.getInstance().getPrice());
-            dbh.getCarID( CarRentalBooking.getInstance().getHireCarDate(), CarRentalBooking.getInstance().getReturnCarDate());
-            dbh.getUserID(Singleton.getInstance().getUsername());
-            dbh.bookCar(carBookingIDCount, Singleton.getInstance().getCarID(),Singleton.getInstance().getUserID(),CarRentalBooking.getInstance().getHireCarDate(),CarRentalBooking.getInstance().getReturnCarDate());
-
-        } else if (Singleton.getInstance().getCheckedCar() != null){
-
-            if(Singleton.getInstance().getCarIDcount() == null){
-                carIDCount = 1;
-            } else {
-                carIDCount = Integer.parseInt(Singleton.getInstance().getCarIDcount());
-                carIDCount++;
-            }
-
-            if(Singleton.getInstance().getCarBookingsIDAmount() == null){
-                carBookingIDCount = 1;
-            } else {
-                carBookingIDCount = Integer.parseInt(Singleton.getInstance().getCarBookingsIDAmount());
-                carBookingIDCount++;
-            }
-
-            dbh.getCarID( CarRentalBooking.getInstance().getHireCarDate(), CarRentalBooking.getInstance().getReturnCarDate());
-            dbh.getUserID(Singleton.getInstance().getUsername());
-            dbh.bookCar(carBookingIDCount, Singleton.getInstance().getCarID(),Singleton.getInstance().getUserID(),CarRentalBooking.getInstance().getHireCarDate(),CarRentalBooking.getInstance().getReturnCarDate());
+        if(Singleton.getInstance().getCarBookingsIDAmount() == null){
+            carBookingIDCount = 1;
+        } else {
+            carBookingIDCount = Integer.parseInt(Singleton.getInstance().getCarBookingsIDAmount());
+            carBookingIDCount++;
         }
 
+        System.out.println(carBookingIDCount);
+        System.out.println(Singleton.getInstance().getCarID());
+        System.out.println(Singleton.getInstance().getUserID());
+        System.out.println(CarRentalBooking.getInstance().getHireCarDate());
+        System.out.println(CarRentalBooking.getInstance().getReturnCarDate());
+        System.out.println(CarRentalBooking.getInstance().getPrice());
+
+        dbh.bookCar(carBookingIDCount, Singleton.getInstance().getCarID(), Singleton.getInstance().getUserID(), CarRentalBooking.getInstance().getHireCarDate(), CarRentalBooking.getInstance().getReturnCarDate(), CarRentalBooking.getInstance().getPrice());
     }
 
     @Override
