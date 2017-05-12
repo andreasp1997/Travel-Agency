@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,61 +18,37 @@
             <Image url="@../images/ocean-796934_1280.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="147.0" layoutX="-4.0" layoutY="82.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="649.0" />
-      <Text fill="WHITE" layoutX="171.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Rental">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="172.0" layoutY="35.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="649.0" />
+      <Button layoutX="451.0" layoutY="519.0" mnemonicParsing="false" onAction="#back" prefHeight="48.0" prefWidth="180.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Back" />
+      <ComboBox fx:id="cityComboBox" layoutX="36.0" layoutY="158.0" prefWidth="150.0" />
+      <Text fill="WHITE" layoutX="36.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="214.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seats:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="seatsComboBox" layoutX="214.0" layoutY="158.0" prefWidth="150.0" />
+      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="37.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" width="262.0" />
+      <Button layoutX="451.0" layoutY="461.0" mnemonicParsing="false" onAction="#book" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Book" />
+      <Text fx:id="priceText" layoutX="198.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price: " />
+      <Text fill="WHITE" layoutX="38.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Rental Booking">
          <font>
             <Font name="PT Serif" size="66.0" />
          </font>
       </Text>
-      <ComboBox fx:id="city" layoutX="45.0" layoutY="343.0" prefHeight="27.0" prefWidth="180.0" />
-      <DatePicker fx:id="hireDate" layoutX="45.0" layoutY="275.0" prefHeight="27.0" prefWidth="180.0" />
-      <DatePicker fx:id="returnDate" layoutX="343.0" layoutY="275.0" prefHeight="27.0" prefWidth="180.0" />
-      <Button fx:id="bookCarBtn" layoutX="450.0" layoutY="484.0" mnemonicParsing="false" onAction="#book" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Book" />
-      <ComboBox fx:id="seats" layoutX="343.0" layoutY="343.0" prefHeight="27.0" prefWidth="180.0" />
-      <Text fill="WHITE" layoutX="45.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <Button layoutX="450.0" layoutY="542.0" mnemonicParsing="false" onAction="#back" prefHeight="48.0" prefWidth="180.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Back" />
-      <Text fill="WHITE" layoutX="45.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hire date:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="343.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return date:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <Text fx:id="seatsText" fill="WHITE" layoutX="343.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of seats:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <Button layoutX="45.0" layoutY="409.0" mnemonicParsing="false" onAction="#search" prefHeight="27.0" prefWidth="180.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Search" />
-      <Label fx:id="price" layoutX="45.0" layoutY="495.0" prefHeight="27.0" prefWidth="180.0" text="..." textFill="#f8f5f5">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Text fx:id="priceText" fill="WHITE" layoutX="45.0" layoutY="489.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <Label fx:id="carInfo" layoutX="45.0" layoutY="566.0" prefHeight="27.0" prefWidth="286.0" textFill="#f5f2f2">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="seatsNr" layoutY="577.0" prefHeight="27.0" prefWidth="180.0" />
-      <Text fx:id="type" fill="WHITE" layoutX="14.0" layoutY="595.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <TextField fx:id="pickUserField" layoutX="45.0" layoutY="542.0" />
-      <Button fx:id="pickUserBtn" layoutX="235.0" layoutY="532.0" mnemonicParsing="false" onAction="#pickUser" prefHeight="40.0" prefWidth="118.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Pick User" />
+      <TextField fx:id="pickUserField" layoutX="39.0" layoutY="529.0" />
+      <Button fx:id="pickUserBtn" layoutX="217.0" layoutY="524.0" mnemonicParsing="false" onAction="#pickUser" prefHeight="38.0" prefWidth="104.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Pick User" />
+      <Text fx:id="adminText" fill="WHITE" layoutX="594.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" />
+      <Button layoutX="453.0" layoutY="153.0" mnemonicParsing="false" onAction="#search" prefHeight="38.0" prefWidth="96.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Search" />
+      <Text fx:id="priceValue" layoutX="240.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1800" />
+      <ComboBox fx:id="carsComboBox" layoutX="48.0" layoutY="240.0" prefHeight="27.0" prefWidth="240.0" />
+      <DatePicker fx:id="hireDate" layoutX="26.0" layoutY="350.0" />
+      <DatePicker fx:id="returnDate" layoutX="247.0" layoutY="350.0" />
+      <Text fx:id="hireDateText" fill="WHITE" layoutX="26.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hire Date:" />
+      <Text fx:id="returnDateText" fill="WHITE" layoutX="247.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Date:" />
    </children>
 </AnchorPane>
