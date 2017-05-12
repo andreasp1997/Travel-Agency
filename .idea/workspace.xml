@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf3f572d-926b-4f6a-8f29-b71f6a79da64" name="Default" comment="Car rental completed">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/Car inserts.sql" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/some-cars-inserts.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/AdminBooking.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/AdminBooking.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/DBHandler.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/DBHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/LoginController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/NormalUserBooking.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/NormalUserBooking.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/Singleton.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/Singleton.class" />
+    <list default="true" id="bf3f572d-926b-4f6a-8f29-b71f6a79da64" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/EER-Diagram-2.mwb" afterPath="$PROJECT_DIR$/resources/EER-Diagram-2.mwb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/EER-Diagram-2.mwb.bak" afterPath="$PROJECT_DIR$/resources/EER-Diagram-2.mwb.bak" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/fxmlFiles/carRentalScreen.fxml" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/fxmlFiles/carRentalScreen.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/travelagency.sql" afterPath="$PROJECT_DIR$/resources/travelagency.sql" />
     </list>
     <ignored path="Travel-Agency-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,8 +57,8 @@
       <file leaf-file-name="CarRentalController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/classes/CarRentalController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="256" column="0" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
+            <state relative-caret-position="512">
+              <caret line="272" column="56" selection-start-line="272" selection-start-column="56" selection-end-line="272" selection-end-column="56" />
               <folding>
                 <element signature="e#5531#5792#0" expanded="true" />
                 <element signature="e#5791#5792#0" expanded="true" />
@@ -642,12 +636,19 @@
       <option name="project" value="LOCAL" />
       <updated>1494626253298</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Car inserts sql file added">
+      <created>1494626328888</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1494626328888</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="723" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -661,7 +662,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2375" sideWeight="0.49195403" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2375" sideWeight="0.49195403" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -725,7 +726,8 @@
     <MESSAGE value="SQL text file updated" />
     <MESSAGE value="Cruisebooking updated" />
     <MESSAGE value="Car rental completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Car rental completed" />
+    <MESSAGE value="Car inserts sql file added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Car inserts sql file added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1154,8 +1156,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/CarRentalController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="256" column="0" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
+        <state relative-caret-position="512">
+          <caret line="272" column="56" selection-start-line="272" selection-start-column="56" selection-end-line="272" selection-end-column="56" />
           <folding>
             <element signature="e#5531#5792#0" expanded="true" />
             <element signature="e#5791#5792#0" expanded="true" />

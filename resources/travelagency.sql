@@ -5,6 +5,9 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
 -- Schema travelagency
 -- -----------------------------------------------------
 
@@ -23,6 +26,40 @@ CREATE TABLE IF NOT EXISTS `travelagency`.`airlines` (
   PRIMARY KEY (`airline_id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `travelagency`.`cities`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `travelagency`.`cities` (
+  `city_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `city` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`city_id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 15
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `travelagency`.`cars`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `travelagency`.`cars` (
+  `car_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `car` VARCHAR(45) NOT NULL,
+  `seats` INT(11) NOT NULL,
+  `location` INT(11) NOT NULL,
+  `price` DOUBLE NOT NULL,
+  `amount` INT(11) NOT NULL,
+  PRIMARY KEY (`car_id`, `location`),
+  INDEX `fk_cars_cities1_idx` (`location` ASC),
+  CONSTRAINT `fk_cars_cities1`
+    FOREIGN KEY (`location`)
+    REFERENCES `travelagency`.`cities` (`city_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 43
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -56,61 +93,7 @@ CREATE TABLE IF NOT EXISTS `travelagency`.`users` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `travelagency`.`bookings`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `travelagency`.`bookings` (
-  `booking_id` INT(11) NOT NULL AUTO_INCREMENT,
-  `user_id` INT(11) NOT NULL,
-  `listing_id` INT(11) NOT NULL,
-  `from_date` DATE NOT NULL,
-  `to_date` DATE NOT NULL,
-  `seats` INT(11) NOT NULL COMMENT 'Seats/Rooms',
-  `created_at` DATE NOT NULL,
-  PRIMARY KEY (`booking_id`, `user_id`, `listing_id`),
-  INDEX `fk_bookings_users1_idx` (`user_id` ASC),
-  CONSTRAINT `fk_bookings_users1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `travelagency`.`users` (`user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `travelagency`.`cities`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `travelagency`.`cities` (
-  `city_id` INT(11) NOT NULL AUTO_INCREMENT,
-  `city` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`city_id`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 15
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `travelagency`.`cars`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `travelagency`.`cars` (
-  `car_id` INT(11) NOT NULL AUTO_INCREMENT,
-  `car` VARCHAR(45) NOT NULL,
-  `seats` INT(11) NOT NULL,
-  `location` INT(11) NOT NULL,
-  `price` DOUBLE NOT NULL,
-  PRIMARY KEY (`car_id`, `location`),
-  INDEX `fk_cars_cities1_idx` (`location` ASC),
-  CONSTRAINT `fk_cars_cities1`
-    FOREIGN KEY (`location`)
-    REFERENCES `travelagency`.`cities` (`city_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -123,6 +106,7 @@ CREATE TABLE IF NOT EXISTS `travelagency`.`car_bookings` (
   `user_id` INT(11) NOT NULL,
   `starts` DATE NOT NULL,
   `ends` DATE NOT NULL,
+  `price` DOUBLE NOT NULL,
   PRIMARY KEY (`booking_id`, `car_id`, `user_id`),
   INDEX `fk_cars_bookings_cars1_idx` (`car_id` ASC),
   INDEX `fk_cars_bookings_users1_idx` (`user_id` ASC),
@@ -137,6 +121,7 @@ CREATE TABLE IF NOT EXISTS `travelagency`.`car_bookings` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -158,6 +143,7 @@ CREATE TABLE IF NOT EXISTS `travelagency`.`cruises` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -183,6 +169,7 @@ CREATE TABLE IF NOT EXISTS `travelagency`.`cruise_bookings` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 10
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -211,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `travelagency`.`flights` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -236,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `travelagency`.`flight_bookings` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 11
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -303,7 +290,7 @@ CREATE TABLE IF NOT EXISTS `travelagency`.`hotel_bookings` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8;
 
 
