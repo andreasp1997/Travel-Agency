@@ -24,7 +24,7 @@
             <Font name="PT Serif" size="66.0" />
          </font>
       </Text>
-      <Button layoutX="336.0" layoutY="547.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="127.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Help" />
+      <Button fx:id="helpBtn" layoutX="336.0" layoutY="547.0" mnemonicParsing="false" onAction="#help" prefHeight="38.0" prefWidth="127.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Help" />
       <Button layoutX="482.0" layoutY="547.0" mnemonicParsing="false" onAction="#back" prefHeight="38.0" prefWidth="127.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Back" />
       <Text fill="WHITE" layoutX="259.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travel Agency">
          <font>
@@ -43,8 +43,8 @@
             <TableColumn fx:id="flightPrice" prefWidth="75.0" text="Price" />
          </columns>
       </TableView>
-      <Button layoutX="194.0" layoutY="400.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="96.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Delete" />
-      <Button layoutX="334.0" layoutY="400.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="96.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Edit" />
+      <Button layoutX="198.0" layoutY="408.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="96.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Delete" />
+      <Button layoutX="324.0" layoutY="408.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="96.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Edit" />
       <TableView fx:id="hotelTable" layoutX="127.0" layoutY="282.0" prefHeight="109.0" prefWidth="370.0">
          <columns>
             <TableColumn fx:id="hotel" prefWidth="75.0" text="Hotel" />
@@ -63,7 +63,7 @@
             <TableColumn fx:id="carPrice" prefWidth="60.0" text="Price" />
          </columns>
       </TableView>
-      <TableView fx:id="cruiseTable" layoutX="132.0" layoutY="282.0" prefHeight="109.0" prefWidth="370.0">
+      <TableView fx:id="cruiseTable" layoutX="132.0" layoutY="282.0" prefHeight="109.0" prefWidth="377.0">
          <columns>
             <TableColumn fx:id="cruiseOrigin" prefWidth="75.0" text="Origin" />
             <TableColumn fx:id="cruiseDestination" prefWidth="75.0" text="Destination" />

@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -56,6 +57,7 @@ public class EditBookingsController implements Initializable {
     @FXML private TableColumn flightDate;
     @FXML private TableColumn flightPrice;
     @FXML private TableColumn flightRooms;
+    @FXML private Button helpBtn;
 
     ArrayList<HotelBooking> hotelBooking;
     ArrayList<CarRentalBooking> carBooking;
@@ -78,6 +80,25 @@ public class EditBookingsController implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) ae.getSource()).getScene().getWindow();
             stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void help(ActionEvent ae){
+        Stage stage = new Stage();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/viewEditHelpScreen.fxml"));
+            stage.setScene(new Scene(root));
+            stage.show();
+            stage.setResizable(false);
+
+            helpBtn.setDisable(true);
+
+            stage.setOnCloseRequest(event -> {
+                helpBtn.setDisable(false);
+            });
+
         } catch (IOException e) {
             e.printStackTrace();
         }
