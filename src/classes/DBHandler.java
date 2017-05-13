@@ -102,13 +102,13 @@ public class DBHandler {
 
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select user_id, username, password, role_id from users where username ='" + username + "'");
+            ResultSet rs = statement.executeQuery("select user_id, username, password, role from users where username ='" + username + "'");
 
             while (rs.next()){
 
                 s = rs.getString("password");
 
-                Singleton.getInstance().setUserRole(rs.getString("role_id"));
+                Singleton.getInstance().setUserRole(rs.getString("role"));
                 Singleton.getInstance().setUserID(rs.getString("user_id"));
                 Singleton.getInstance().setUsername(rs.getString("username"));
 
@@ -647,5 +647,132 @@ public class DBHandler {
         }
     }
 
+    public ArrayList<HotelBooking> getHotelsBookings(int userID){
 
+        ArrayList <HotelBooking> bookings = new ArrayList<HotelBooking>();
+
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select h.hotel_name, r.for_people, b.from, b.to, r.price " +
+                                                  "from hotel_bookings b " +
+                                                  "left join rooms r on b.room_id = r.room_id " +
+                                                  "left join hotels h on r.hotel_id = h.hotel_id " +
+                                                  "where b.user_id = '" + userID + "'");
+
+            while(rs.next()){
+
+                HotelBooking booking = new HotelBooking(0, rs.getInt("for_people"), rs.getString("from"), rs.getString("to"));
+                booking.setHotelName(rs.getString("hotel_name"));
+                booking.setPrice(rs.getInt("price"));
+
+                bookings.add(booking);
+
+                continue;
+            }
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return bookings;
+    }
+
+    public ArrayList<CarRentalBooking> getCarBookings(int userID){
+
+        ArrayList <CarRentalBooking> bookings = new ArrayList<CarRentalBooking>();
+
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select a.city, c.price, c.car, b.starts, b.ends " +
+                    "from car_bookings b " +
+                    "left join cars c on b.car_id = c.car_id " +
+                    "left join cities a on c.location = a.city_id " +
+                    "where b.user_id = '" + userID + "'");
+
+            while(rs.next()){
+
+                CarRentalBooking booking = new CarRentalBooking();
+                booking.setCity(rs.getString("city"));
+                booking.setCar(rs.getString("car"));
+                booking.setHireCarDate(rs.getString("starts"));
+                booking.setReturnCarDate(rs.getString("ends"));
+                booking.setPrice(rs.getDouble("price"));
+
+                bookings.add(booking);
+
+                continue;
+            }
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return bookings;
+    }
+
+    public ArrayList<CruiseBooking> getCruiseBookings(int userID){
+
+        ArrayList<CruiseBooking> bookings = new ArrayList<CruiseBooking>();
+
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select a.city, c.take_off, c.rooms, c.price " +
+                    "from cruise_bookings b " +
+                    "left join cruises c on b.cruise_id = c.cruise_id " +
+                    "left join cities a on c.from = a.city_id " +
+                    "where b.user_id = '" + userID + "'");
+
+            while(rs.next()){
+
+                CruiseBooking booking = new CruiseBooking();
+                booking.setOrigin(rs.getString("city"));
+                //booking.setDestination(rs.getString("to"));
+                booking.setDate(rs.getString("take_off"));
+                booking.setRoom(rs.getString("rooms"));
+                booking.setPrice(rs.getDouble("price"));
+
+                bookings.add(booking);
+
+                continue;
+            }
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return bookings;
+    }
+
+    public ArrayList<FlightBooking> getFlightBookings(int userID){
+
+        ArrayList<FlightBooking> bookings = new ArrayList<FlightBooking>();
+
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select a.city, c.take_off, c.price " +
+                    "from flight_bookings b " +
+                    "left join flights c on b.flight_id = c.flight_id " +
+                    "left join cities a on c.from = a.city_id " +
+                    "where b.user_id = '" + userID + "'");
+
+            while(rs.next()){
+
+                FlightBooking booking = new FlightBooking();
+                booking.setOrigin(rs.getString("city"));
+                //booking.setDestination(rs.getString("to"));
+                booking.setDate(rs.getString("take_off"));
+                //booking.setRoom(rs.getString("rooms"));
+                booking.setPrice(rs.getDouble("price"));
+
+                bookings.add(booking);
+
+                continue;
+            }
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return bookings;
+    }
 }

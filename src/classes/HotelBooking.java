@@ -6,10 +6,12 @@ package classes;
 public class HotelBooking {
     //Variables
     private int hotelId;
+    private String hotelName;
     private int roomId;
     private int roomSize;
     private String checkinDate;
     private String checkoutDate;
+    private int price;
 
     public HotelBooking(int hotelId, int roomSize, String checkinDate, String checkoutDate) {
 
@@ -18,6 +20,14 @@ public class HotelBooking {
         this.checkinDate = checkinDate;
         this.checkoutDate = checkoutDate;
 
+    }
+
+    public String getHotelName() {
+        return hotelName;
+    }
+
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
     }
 
     public int getHotelId() {
@@ -58,5 +68,13 @@ public class HotelBooking {
 
     public void setCheckoutDate(String checkoutDate) {
         this.checkoutDate = checkoutDate;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

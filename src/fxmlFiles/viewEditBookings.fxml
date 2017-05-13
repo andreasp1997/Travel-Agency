@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.EditBookingsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.EditBookingsController">
    <children>
       <ImageView fitHeight="604.0" fitWidth="644.0" opacity="0.82" pickOnBounds="true">
          <image>
@@ -34,47 +34,47 @@
       <TextField layoutX="35.0" layoutY="533.0" />
       <Button layoutX="213.0" layoutY="528.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="104.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Pick User" />
       <Text fill="WHITE" layoutX="590.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" />
-      <TableView layoutX="127.0" layoutY="282.0" prefHeight="109.0" prefWidth="370.0">
+      <TableView fx:id="flightTable" layoutX="127.0" layoutY="282.0" prefHeight="109.0" prefWidth="370.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="Airline" />
-            <TableColumn prefWidth="75.0" text="Origin" />
-            <TableColumn prefWidth="82.0" text="Destination" />
-            <TableColumn prefWidth="68.0" text="Date" />
-            <TableColumn prefWidth="75.0" text="Price" />
+            <TableColumn fx:id="flightOrigin" prefWidth="75.0" text="Origin" />
+            <TableColumn fx:id="flightDestination" prefWidth="75.0" text="Destination" />
+            <TableColumn fx:id="flightDate" prefWidth="82.0" text="date" />
+            <TableColumn fx:id="flightRooms" prefWidth="68.0" text="Room(s)" />
+            <TableColumn fx:id="flightPrice" prefWidth="75.0" text="Price" />
          </columns>
       </TableView>
       <Button layoutX="194.0" layoutY="400.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="96.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Delete" />
       <Button layoutX="334.0" layoutY="400.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="96.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Edit" />
-      <TableView layoutX="127.0" layoutY="282.0" prefHeight="109.0" prefWidth="370.0">
+      <TableView fx:id="hotelTable" layoutX="127.0" layoutY="282.0" prefHeight="109.0" prefWidth="370.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="Hotel" />
-            <TableColumn prefWidth="75.0" text="room" />
-            <TableColumn prefWidth="82.0" text="Check in" />
-            <TableColumn prefWidth="74.0" text="Check out" />
-            <TableColumn prefWidth="69.0" text="Price" />
+            <TableColumn fx:id="hotel" prefWidth="75.0" text="Hotel" />
+            <TableColumn fx:id="hotelRoom" prefWidth="75.0" text="room" />
+            <TableColumn fx:id="hotelCheckin" prefWidth="82.0" text="Check in" />
+            <TableColumn fx:id="hotelCheckout" prefWidth="74.0" text="Check out" />
+            <TableColumn fx:id="hotelPrice" prefWidth="69.0" text="Price" />
          </columns>
       </TableView>
-      <TableView layoutX="127.0" layoutY="282.0" prefHeight="109.0" prefWidth="370.0">
+      <TableView fx:id="carTable" layoutX="127.0" layoutY="282.0" prefHeight="109.0" prefWidth="370.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="City" />
-            <TableColumn prefWidth="75.0" text="Car" />
-            <TableColumn prefWidth="82.0" text="Hire Date" />
-            <TableColumn prefWidth="83.0" text="Return Date" />
-            <TableColumn prefWidth="60.0" text="Price" />
+            <TableColumn fx:id="carCity" prefWidth="75.0" text="City" />
+            <TableColumn fx:id="car" prefWidth="75.0" text="Car" />
+            <TableColumn fx:id="carHireDate" prefWidth="82.0" text="Hire Date" />
+            <TableColumn fx:id="carReturnDate" prefWidth="83.0" text="Return Date" />
+            <TableColumn fx:id="carPrice" prefWidth="60.0" text="Price" />
          </columns>
       </TableView>
-      <TableView layoutX="132.0" layoutY="282.0" prefHeight="109.0" prefWidth="370.0">
+      <TableView fx:id="cruiseTable" layoutX="132.0" layoutY="282.0" prefHeight="109.0" prefWidth="370.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="Origin" />
-            <TableColumn prefWidth="75.0" text="Destination" />
-            <TableColumn prefWidth="82.0" text="Date" />
-            <TableColumn prefWidth="83.0" text="Room(s)" />
-            <TableColumn prefWidth="60.0" text="Price" />
+            <TableColumn fx:id="cruiseOrigin" prefWidth="75.0" text="Origin" />
+            <TableColumn fx:id="cruiseDestination" prefWidth="75.0" text="Destination" />
+            <TableColumn fx:id="cruiseDate" prefWidth="82.0" text="Date" />
+            <TableColumn fx:id="cruiseRooms" prefWidth="83.0" text="Room(s)" />
+            <TableColumn fx:id="cruisePrice" prefWidth="60.0" text="Price" />
          </columns>
       </TableView>
-      <Button layoutX="86.0" layoutY="167.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="224.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Show Flight Bookings" />
-      <Button layoutX="324.0" layoutY="167.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="224.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Show Car Rental Bookings" />
-      <Button layoutX="86.0" layoutY="215.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="224.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Show Hotel Bookings" />
-      <Button layoutX="324.0" layoutY="215.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="224.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Show Cruise Bookings" />
+      <Button layoutX="86.0" layoutY="167.0" mnemonicParsing="false" onAction="#showFlightBookings" prefHeight="38.0" prefWidth="224.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Show Flight Bookings" />
+      <Button layoutX="324.0" layoutY="167.0" mnemonicParsing="false" onAction="#showCarBookings" prefHeight="38.0" prefWidth="224.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Show Car Rental Bookings" />
+      <Button layoutX="86.0" layoutY="215.0" mnemonicParsing="false" onAction="#showHotelBookings" prefHeight="38.0" prefWidth="224.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Show Hotel Bookings" />
+      <Button layoutX="324.0" layoutY="215.0" mnemonicParsing="false" onAction="#showCruiseBookings" prefHeight="38.0" prefWidth="224.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Show Cruise Bookings" />
    </children>
 </AnchorPane>
