@@ -29,7 +29,7 @@ import java.util.ResourceBundle;
 /**
  * Created by andreas on 2017-04-24.
  */
-public class FlightBookingController implements Initializable {
+public class FlightBookingController implements Initializable, ChangeCurrency {
 
     DBHandler dbh = new DBHandler();
     Singleton singleton = new Singleton();
@@ -67,6 +67,17 @@ public class FlightBookingController implements Initializable {
     @FXML private ComboBox<String> travelOrigin;
     @FXML private ComboBox<String> travelDestination;
     @FXML private DatePicker date;
+    @FXML private ComboBox<String> currencyComboBox;
+    @FXML private Text priceEUR1;
+    @FXML private Text priceEUR2;
+    @FXML private Text priceEUR3;
+    @FXML private Text priceUSD1;
+    @FXML private Text priceUSD2;
+    @FXML private Text priceUSD3;
+    @FXML private Text priceGBP1;
+    @FXML private Text priceGBP2;
+    @FXML private Text priceGBP3;
+    @FXML private Button selectCurrencyBtn;
 
     private ArrayList<String> cities;
     private ObservableList<String> citiesObservable;
@@ -94,6 +105,20 @@ public class FlightBookingController implements Initializable {
         img1.setVisible(false);
         img2.setVisible(false);
         img3.setVisible(false);
+        priceEUR1.setVisible(false);
+        priceEUR2.setVisible(false);
+        priceEUR3.setVisible(false);
+        priceUSD1.setVisible(false);
+        priceUSD2.setVisible(false);
+        priceUSD3.setVisible(false);
+        priceGBP1.setVisible(false);
+        priceGBP2.setVisible(false);
+        priceGBP3.setVisible(false);
+        currencyComboBox.setVisible(false);
+        selectCurrencyBtn.setVisible(false);
+
+        currencyComboBox.getItems().addAll("SEK", "USD", "GBP", "EUR");
+        currencyComboBox.getSelectionModel().selectFirst();
 
         dbh.checkUserRole(singleton.getInstance().getUsername());
 
@@ -178,6 +203,17 @@ public class FlightBookingController implements Initializable {
         priceAmount2.setText("1500");
         priceAmount3.setText("2100");
 
+        currencyComboBox.getSelectionModel().select("SEK");
+        priceEUR1.setVisible(false);
+        priceEUR2.setVisible(false);
+        priceEUR3.setVisible(false);
+        priceUSD1.setVisible(false);
+        priceUSD2.setVisible(false);
+        priceUSD3.setVisible(false);
+        priceGBP1.setVisible(false);
+        priceGBP2.setVisible(false);
+        priceGBP3.setVisible(false);
+
         if(travelOrigin.getSelectionModel().getSelectedItem() != null && travelDestination.getSelectionModel().getSelectedItem() != null && date.getValue().toString() != null){
 
             bookAirline1Btn.setVisible(true);
@@ -195,6 +231,8 @@ public class FlightBookingController implements Initializable {
             img1.setVisible(true);
             img2.setVisible(true);
             img3.setVisible(true);
+            currencyComboBox.setVisible(true);
+            selectCurrencyBtn.setVisible(true);
 
             if(europeanCitiesList.contains(travelOrigin.getSelectionModel().getSelectedItem()) || europeanCitiesList.contains(travelDestination.getSelectionModel().getSelectedItem())){
                 isEuropeanCity = true;
@@ -224,61 +262,150 @@ public class FlightBookingController implements Initializable {
                 priceAmount1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) + 1200));
                 priceAmount2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) + 1200));
                 priceAmount3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) + 1200));
+                priceEUR1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.10354).split("\\.")[0]);
+                priceUSD1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.11272).split("\\.")[0]);
+                priceGBP1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.08752).split("\\.")[0]);
             }
 
             if(isEuropeanCity == true && isAsianCity == true){
                 priceAmount1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) + 1800));
                 priceAmount2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) + 1800));
                 priceAmount3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) + 1800));
+                priceEUR1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.10354).split("\\.")[0]);
+                priceUSD1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.11272).split("\\.")[0]);
+                priceGBP1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.08752).split("\\.")[0]);
             }
 
             if(isEuropeanCity == true && isAustralianCity == true){
                 priceAmount1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) + 2000));
                 priceAmount2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) + 2000));
                 priceAmount3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) + 2000));
+                priceEUR1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.10354).split("\\.")[0]);
+                priceUSD1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.11272).split("\\.")[0]);
+                priceGBP1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.08752).split("\\.")[0]);
             }
 
             if(isNorthAmericanCity == true && isAsianCity == true){
                 priceAmount1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) + 2100));
                 priceAmount2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) + 2100));
                 priceAmount3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) + 2100));
+                priceEUR1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.10354).split("\\.")[0]);
+                priceUSD1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.11272).split("\\.")[0]);
+                priceGBP1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.08752).split("\\.")[0]);
             }
 
             if(isNorthAmericanCity == true && isAustralianCity == true){
                 priceAmount1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) + 1500));
                 priceAmount2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) + 1500));
                 priceAmount3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) + 1500));
+                priceEUR1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.10354).split("\\.")[0]);
+                priceUSD1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.11272).split("\\.")[0]);
+                priceGBP1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.08752).split("\\.")[0]);
             }
 
             if(isAsianCity == true && isAustralianCity == true){
                 priceAmount1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) + 2050));
                 priceAmount2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) + 2050));
                 priceAmount3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) + 2050));
-
+                priceEUR1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.10354).split("\\.")[0]);
+                priceUSD1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.11272).split("\\.")[0]);
+                priceGBP1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.08752).split("\\.")[0]);
             }
 
             if(isEuropeanCity == true && isAsianCity == false && isNorthAmericanCity == false && isAustralianCity == false){
                 priceAmount1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) + 500));
                 priceAmount2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) + 500));
                 priceAmount3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) + 500));
+                priceEUR1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.10354).split("\\.")[0]);
+                priceUSD1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.11272).split("\\.")[0]);
+                priceGBP1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.08752).split("\\.")[0]);
             }
 
             if(isNorthAmericanCity == true && isAsianCity == false && isEuropeanCity == false && isAustralianCity == false){
                 priceAmount1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) + 300));
                 priceAmount2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) + 300));
                 priceAmount3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) + 300));
+                priceEUR1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.10354).split("\\.")[0]);
+                priceUSD1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.11272).split("\\.")[0]);
+                priceGBP1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.08752).split("\\.")[0]);
             }
 
             if(isAsianCity == true && isEuropeanCity == false && isNorthAmericanCity == false && isAustralianCity == false){
                 priceAmount1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) + 600));
                 priceAmount2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) + 600));
                 priceAmount3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) + 600));
+                priceEUR1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.10354).split("\\.")[0]);
+                priceUSD1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.11272).split("\\.")[0]);
+                priceGBP1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.08752).split("\\.")[0]);
             }
 
             if(isAustralianCity == true && isAsianCity == false && isNorthAmericanCity == false && isEuropeanCity == false){
                 priceAmount1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) + 400));
                 priceAmount2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) + 400));
                 priceAmount3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) + 400));
+                priceEUR1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.10354).split("\\.")[0]);
+                priceEUR3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.10354).split("\\.")[0]);
+                priceUSD1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.11272).split("\\.")[0]);
+                priceUSD3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.11272).split("\\.")[0]);
+                priceGBP1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP2.setText(String.valueOf(Integer.parseInt(priceAmount2.getText()) * 0.08752).split("\\.")[0]);
+                priceGBP3.setText(String.valueOf(Integer.parseInt(priceAmount3.getText()) * 0.08752).split("\\.")[0]);
             }
 
             dbh.getCityID(travelOrigin.getSelectionModel().getSelectedItem());
@@ -420,6 +547,72 @@ public class FlightBookingController implements Initializable {
                 alert.setHeaderText("The booking has now been registered and can be viewed in the 'Edit Bookings' menu!");
                 alert.showAndWait();
             }
+        }
+    }
+
+    @Override
+    public void selectCurrency() {
+
+        if(currencyComboBox.getSelectionModel().getSelectedItem().equals("SEK")){
+
+            priceEUR1.setVisible(false);
+            priceEUR2.setVisible(false);
+            priceEUR3.setVisible(false);
+            priceUSD1.setVisible(false);
+            priceUSD2.setVisible(false);
+            priceUSD3.setVisible(false);
+            priceGBP1.setVisible(false);
+            priceGBP2.setVisible(false);
+            priceGBP3.setVisible(false);
+            priceAmount1.setVisible(true);
+            priceAmount2.setVisible(true);
+            priceAmount3.setVisible(true);
+
+        } else if (currencyComboBox.getSelectionModel().getSelectedItem().equals("USD")){
+
+            priceEUR1.setVisible(false);
+            priceEUR2.setVisible(false);
+            priceEUR3.setVisible(false);
+            priceUSD1.setVisible(true);
+            priceUSD2.setVisible(true);
+            priceUSD3.setVisible(true);
+            priceGBP1.setVisible(false);
+            priceGBP2.setVisible(false);
+            priceGBP3.setVisible(false);
+            priceAmount1.setVisible(false);
+            priceAmount2.setVisible(false);
+            priceAmount3.setVisible(false);
+
+        } else if (currencyComboBox.getSelectionModel().getSelectedItem().equals("GBP")){
+
+            priceEUR1.setVisible(false);
+            priceEUR2.setVisible(false);
+            priceEUR3.setVisible(false);
+            priceUSD1.setVisible(false);
+            priceUSD2.setVisible(false);
+            priceUSD3.setVisible(false);
+            priceGBP1.setVisible(true);
+            priceGBP2.setVisible(true);
+            priceGBP3.setVisible(true);
+            priceAmount1.setVisible(false);
+            priceAmount2.setVisible(false);
+            priceAmount3.setVisible(false);
+
+        } else if (currencyComboBox.getSelectionModel().getSelectedItem().equals("EUR")){
+
+            priceEUR1.setVisible(true);
+            priceEUR2.setVisible(true);
+            priceEUR3.setVisible(true);
+            priceUSD1.setVisible(false);
+            priceUSD2.setVisible(false);
+            priceUSD3.setVisible(false);
+            priceGBP1.setVisible(false);
+            priceGBP2.setVisible(false);
+            priceGBP3.setVisible(false);
+            priceAmount1.setVisible(false);
+            priceAmount2.setVisible(false);
+            priceAmount3.setVisible(false);
+
         }
     }
 }

@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 /**
  * Created by Jun on 2017-05-07.
  */
-public class CruiseBookingController implements Initializable {
+public class CruiseBookingController implements Initializable, ChangeCurrency {
     @FXML private ComboBox tour;
     @FXML private ComboBox selectRoom;
     @FXML private Text priceText;
@@ -35,6 +35,11 @@ public class CruiseBookingController implements Initializable {
     @FXML private Rectangle rectangle;
     @FXML private Text priceValue;
     @FXML private Text roomsLeftValue;
+    @FXML private Text priceEUR;
+    @FXML private Text priceUSD;
+    @FXML private Text priceGBP;
+    @FXML private ComboBox<String> currencyComboBox;
+    @FXML private Button selectCurrencyBtn;
 
     NormalUserBooking normalUserBooking = new NormalUserBooking();
     AdminBooking adminBooking = new AdminBooking();
@@ -57,6 +62,11 @@ public class CruiseBookingController implements Initializable {
         bookButton.setVisible(false);
         priceValue.setVisible(false);
         roomsLeftValue.setVisible(false);
+        priceEUR.setVisible(false);
+        priceUSD.setVisible(false);
+        priceGBP.setVisible(false);
+        currencyComboBox.setVisible(false);
+        selectCurrencyBtn.setVisible(false);
 
         dbHandler.checkUserRole(singleton.getInstance().getUsername());
 
@@ -71,6 +81,9 @@ public class CruiseBookingController implements Initializable {
             pickUserBtn.setVisible(false);
             adminText.setVisible(false);
         }
+
+        currencyComboBox.getItems().addAll("SEK", "USD", "GBP", "EUR");
+        currencyComboBox.getSelectionModel().selectFirst();
 
         travels = FXCollections.observableArrayList("London -> New York","New York -> London","Los Angeles -> Sydney",
                 "Sydney -> Los Angeles");
@@ -94,9 +107,16 @@ public class CruiseBookingController implements Initializable {
     public void search() {
 
         priceValue.setText("5000");
+        currencyComboBox.getSelectionModel().select("SEK");
+        priceEUR.setVisible(false);
+        priceUSD.setVisible(false);
+        priceGBP.setVisible(false);
 
         if (tour.getValue().equals("London -> New York")) {
             priceValue.setText(String.valueOf(Integer.parseInt(priceValue.getText()) + 7000));
+            priceEUR.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.10354).split("\\.")[0]);
+            priceUSD.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.11272).split("\\.")[0]);
+            priceGBP.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.08752).split("\\.")[0]);
             CruiseBooking.getInstance().setPrice(Double.parseDouble(priceValue.getText()));
             CruiseBooking.getInstance().setOrigin("London");
             CruiseBooking.getInstance().setDestination("New York");
@@ -111,6 +131,9 @@ public class CruiseBookingController implements Initializable {
 
         }else if (tour.getValue().equals("New York -> London")) {
             priceValue.setText(String.valueOf(Integer.parseInt(priceValue.getText()) + 7500));
+            priceEUR.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.10354).split("\\.")[0]);
+            priceUSD.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.11272).split("\\.")[0]);
+            priceGBP.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.08752).split("\\.")[0]);
             CruiseBooking.getInstance().setPrice(Double.parseDouble(priceValue.getText()));
             CruiseBooking.getInstance().setOrigin("New York");
             CruiseBooking.getInstance().setDestination("London");
@@ -125,6 +148,9 @@ public class CruiseBookingController implements Initializable {
 
         }else if (tour.getValue().equals("Los Angeles -> Sydney")){
             priceValue.setText(String.valueOf(Integer.parseInt(priceValue.getText()) + 8000));
+            priceEUR.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.10354).split("\\.")[0]);
+            priceUSD.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.11272).split("\\.")[0]);
+            priceGBP.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.08752).split("\\.")[0]);
             CruiseBooking.getInstance().setPrice(Double.parseDouble(priceValue.getText()));
             CruiseBooking.getInstance().setOrigin("Los Angeles");
             CruiseBooking.getInstance().setDestination("Sydney");
@@ -139,6 +165,9 @@ public class CruiseBookingController implements Initializable {
 
         }else if (tour.getValue().equals("Sydney -> Los Angeles")){
             priceValue.setText(String.valueOf(Integer.parseInt(priceValue.getText()) + 8250));
+            priceEUR.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.10354).split("\\.")[0]);
+            priceUSD.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.11272).split("\\.")[0]);
+            priceGBP.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.08752).split("\\.")[0]);
             CruiseBooking.getInstance().setPrice(Double.parseDouble(priceValue.getText()));
             CruiseBooking.getInstance().setOrigin("Sydney");
             CruiseBooking.getInstance().setDestination("Los Angeles");
@@ -170,6 +199,8 @@ public class CruiseBookingController implements Initializable {
             bookButton.setVisible(true);
             priceValue.setVisible(true);
             roomsLeftValue.setVisible(true);
+            currencyComboBox.setVisible(true);
+            selectCurrencyBtn.setVisible(true);
 
             dbHandler.cruiseRoomsLeft(CruiseBooking.getInstance().getOrigin(), CruiseBooking.getInstance().getDestination(), datePicker.getValue().toString());
 
@@ -225,6 +256,33 @@ public class CruiseBookingController implements Initializable {
             alert.showAndWait();
             Singleton.getInstance().setPickedUser(null);
         }
+    }
+
+    @Override
+    public void selectCurrency() {
+
+        if(currencyComboBox.getSelectionModel().getSelectedItem().equals("SEK")){
+            priceValue.setVisible(true);
+            priceGBP.setVisible(false);
+            priceUSD.setVisible(false);
+            priceEUR.setVisible(false);
+        } else if (currencyComboBox.getSelectionModel().getSelectedItem().equals("USD")){
+            priceValue.setVisible(false);
+            priceGBP.setVisible(false);
+            priceUSD.setVisible(true);
+            priceEUR.setVisible(false);
+        } else if(currencyComboBox.getSelectionModel().getSelectedItem().equals("GBP")){
+            priceValue.setVisible(false);
+            priceGBP.setVisible(true);
+            priceUSD.setVisible(false);
+            priceEUR.setVisible(false);
+        } else if (currencyComboBox.getSelectionModel().getSelectedItem().equals("EUR")){
+            priceValue.setVisible(false);
+            priceGBP.setVisible(false);
+            priceUSD.setVisible(false);
+            priceEUR.setVisible(true);
+        }
+
     }
 }
 

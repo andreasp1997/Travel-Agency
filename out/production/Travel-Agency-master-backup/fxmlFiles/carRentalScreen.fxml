@@ -50,5 +50,10 @@
       <DatePicker fx:id="returnDate" layoutX="247.0" layoutY="350.0" />
       <Text fx:id="hireDateText" fill="WHITE" layoutX="26.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hire Date:" />
       <Text fx:id="returnDateText" fill="WHITE" layoutX="247.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Date:" />
+      <Text fx:id="priceEUR" layoutX="240.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1800" />
+      <Text fx:id="priceUSD" layoutX="240.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1800" />
+      <Text fx:id="priceGBP" layoutX="240.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1800" />
+      <Button fx:id="selectCurrencyBtn" layoutX="202.0" layoutY="396.0" mnemonicParsing="false" onAction="#selectCurrency" prefHeight="38.0" prefWidth="150.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Select Currency" />
+      <ComboBox fx:id="currencyComboBox" layoutX="26.0" layoutY="401.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

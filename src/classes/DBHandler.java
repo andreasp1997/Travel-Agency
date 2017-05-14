@@ -111,10 +111,10 @@ public class DBHandler {
                 Singleton.getInstance().setUserRole(rs.getString("role_id"));
                 Singleton.getInstance().setUserID(rs.getString("user_id"));
                 Singleton.getInstance().setUsername(rs.getString("username"));
-
             }
         }
         catch (SQLException ex){
+            ex.printStackTrace();
             System.out.println("Error on executing the query");
         }
 

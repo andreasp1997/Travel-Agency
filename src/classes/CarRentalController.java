@@ -27,7 +27,7 @@ import static java.time.temporal.ChronoUnit.DAYS;
 /**
  * Created by safaa on 2017-05-01.
  */
-public class CarRentalController implements Initializable {
+public class CarRentalController implements Initializable, ChangeCurrency {
     DBHandler dbh = new DBHandler();
     AdminBooking adminBooking = new AdminBooking();
     NormalUserBooking normalUserBooking = new NormalUserBooking();
@@ -55,6 +55,11 @@ public class CarRentalController implements Initializable {
     @FXML private Button pickUserBtn;
     @FXML private Text adminText;
     @FXML private Rectangle rectangle;
+    @FXML private Text priceEUR;
+    @FXML private Text priceUSD;
+    @FXML private Text priceGBP;
+    @FXML private ComboBox<String> currencyComboBox;
+    @FXML private Button selectCurrencyBtn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,6 +72,14 @@ public class CarRentalController implements Initializable {
         hireDateText.setVisible(false);
         returnDateText.setVisible(false);
         carsComboBox.setVisible(false);
+        priceEUR.setVisible(false);
+        priceUSD.setVisible(false);
+        priceGBP.setVisible(false);
+        currencyComboBox.setVisible(false);
+        selectCurrencyBtn.setVisible(false);
+
+        currencyComboBox.getItems().addAll("SEK", "USD", "GBP", "EUR");
+        currencyComboBox.getSelectionModel().selectFirst();
 
         dbh.checkUserRole(Singleton.getInstance().getUsername());
 
@@ -104,6 +117,11 @@ public class CarRentalController implements Initializable {
 
     public void search(ActionEvent ae) {
 
+        currencyComboBox.getSelectionModel().select("SEK");
+        priceEUR.setVisible(false);
+        priceUSD.setVisible(false);
+        priceGBP.setVisible(false);
+
         if(cityComboBox.getSelectionModel().getSelectedItem() != null && seatsComboBox.getSelectionModel().getSelectedItem() != null){
 
             hireDate.setVisible(true);
@@ -114,6 +132,8 @@ public class CarRentalController implements Initializable {
             hireDateText.setVisible(true);
             returnDateText.setVisible(true);
             carsComboBox.setVisible(true);
+            currencyComboBox.setVisible(true);
+            selectCurrencyBtn.setVisible(true);
 
             CarRentalBooking.getInstance().setCity(cityComboBox.getSelectionModel().getSelectedItem());
             CarRentalBooking.getInstance().setSeats(String.valueOf(Integer.parseInt(seatsComboBox.getSelectionModel().getSelectedItem())));
@@ -129,12 +149,18 @@ public class CarRentalController implements Initializable {
 
             dbh.getCarPrice(carsComboBox.getSelectionModel().getSelectedItem(), Singleton.getInstance().getCityID());
             priceValue.setText(Singleton.getInstance().getCarPrice());
+            priceEUR.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.10354).split("\\.")[0]);
+            priceUSD.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.11272).split("\\.")[0]);
+            priceGBP.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.08752).split("\\.")[0]);
 
             carsComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
                 @Override
                 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                     dbh.getCarPrice(carsComboBox.getSelectionModel().getSelectedItem(), Singleton.getInstance().getCityID());
                     priceValue.setText(Singleton.getInstance().getCarPrice());
+                    priceEUR.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.10354).split("\\.")[0]);
+                    priceUSD.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.11272).split("\\.")[0]);
+                    priceGBP.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.08752).split("\\.")[0]);
                 }
             });
 
@@ -187,6 +213,9 @@ public class CarRentalController implements Initializable {
                     returnCarDate = returnDate.getValue();
                     daysBetween = (int) DAYS.between(hireCarDate, returnCarDate);
                     priceValue.setText(String.valueOf(Integer.parseInt(Singleton.getInstance().getCarPrice()) * daysBetween));
+                    priceEUR.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.10354).split("\\.")[0]);
+                    priceUSD.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.11272).split("\\.")[0]);
+                    priceGBP.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.08752).split("\\.")[0]);
 
                 }
             });
@@ -215,6 +244,9 @@ public class CarRentalController implements Initializable {
                     returnCarDate = returnDate.getValue();
                     daysBetween = (int) DAYS.between(hireCarDate, returnCarDate);
                     priceValue.setText(String.valueOf(Integer.parseInt(Singleton.getInstance().getCarPrice()) * daysBetween));
+                    priceEUR.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.10354).split("\\.")[0]);
+                    priceUSD.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.11272).split("\\.")[0]);
+                    priceGBP.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.08752).split("\\.")[0]);
 
                 }
             });
@@ -289,6 +321,32 @@ public class CarRentalController implements Initializable {
             alert.setHeaderText("The username you entered does not exist");
             alert.showAndWait();
             Singleton.getInstance().setPickedUser(null);
+        }
+    }
+
+    @Override
+    public void selectCurrency() {
+
+        if(currencyComboBox.getSelectionModel().getSelectedItem().equals("SEK")){
+            priceValue.setVisible(true);
+            priceGBP.setVisible(false);
+            priceUSD.setVisible(false);
+            priceEUR.setVisible(false);
+        } else if (currencyComboBox.getSelectionModel().getSelectedItem().equals("USD")){
+            priceValue.setVisible(false);
+            priceGBP.setVisible(false);
+            priceUSD.setVisible(true);
+            priceEUR.setVisible(false);
+        } else if(currencyComboBox.getSelectionModel().getSelectedItem().equals("GBP")){
+            priceValue.setVisible(false);
+            priceGBP.setVisible(true);
+            priceUSD.setVisible(false);
+            priceEUR.setVisible(false);
+        } else if (currencyComboBox.getSelectionModel().getSelectedItem().equals("EUR")){
+            priceValue.setVisible(false);
+            priceGBP.setVisible(false);
+            priceUSD.setVisible(false);
+            priceEUR.setVisible(true);
         }
     }
 }
