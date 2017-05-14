@@ -21,7 +21,7 @@
             <Font name="PT Serif" size="66.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="179.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Settings ">
+      <Text fill="WHITE" layoutX="172.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Rental Booking">
          <font>
             <Font name="PT Serif" size="20.0" />
          </font>
@@ -31,6 +31,6 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <TextArea fx:id="helpText" editable="false" layoutX="58.0" layoutY="189.0" prefHeight="231.0" prefWidth="398.0" text="When clicking on Account Settings have the following in mind:&#10;&#10;1. You can view your account information and make changes&#10;to them.&#10;&#10;2. You can fill in the new information in the fields and commit&#10;them by clicking on Make Changes button.&#10;&#10;3. Note that you can delete the entire account by clicking the&#10;Delete Account button.&#10;&#10;If you’re done with viewing/changing your account settings&#10;successfully, you can click on Back to return to the user menu. &#10;&#10;&#10;" />
+      <TextArea fx:id="helpText" editable="false" layoutX="58.0" layoutY="189.0" prefHeight="231.0" prefWidth="398.0" text="To make a Car Rental Booking you need to:&#10;&#10;1. First choose the number of seats and city of where you want &#10;to get the car then click on Search button.&#10;&#10;2. after searching you will get information about the car and&#10;its price. Then select a hire date and a return date. After doing&#10;that you can successfully confirm the booking.&#10;&#10;3. Note that you can change currency by choosing the one you &#10;desire and pressing the Select Currency button.&#10;&#10;If you’re done with your booking, you can click on Back to return&#10;to the user menu. &#10;" />
    </children>
 </AnchorPane>

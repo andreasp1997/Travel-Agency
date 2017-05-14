@@ -19,7 +19,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="172.0" layoutY="35.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="649.0" />
-      <Button layoutX="451.0" layoutY="519.0" mnemonicParsing="false" onAction="#back" prefHeight="48.0" prefWidth="180.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Back" />
+      <Button layoutX="451.0" layoutY="518.0" mnemonicParsing="false" onAction="#back" prefHeight="48.0" prefWidth="180.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Back" />
       <ComboBox fx:id="cityComboBox" layoutX="36.0" layoutY="158.0" prefWidth="150.0" />
       <Text fill="WHITE" layoutX="36.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
          <font>
@@ -33,17 +33,17 @@
       </Text>
       <ComboBox fx:id="seatsComboBox" layoutX="214.0" layoutY="158.0" prefWidth="150.0" />
       <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="37.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" width="262.0" />
-      <Button layoutX="451.0" layoutY="461.0" mnemonicParsing="false" onAction="#book" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Book" />
+      <Button layoutX="334.0" layoutY="252.0" mnemonicParsing="false" onAction="#book" prefHeight="40.0" prefWidth="96.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Book" />
       <Text fx:id="priceText" layoutX="198.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price: " />
       <Text fill="WHITE" layoutX="38.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Rental Booking">
          <font>
             <Font name="PT Serif" size="66.0" />
          </font>
       </Text>
-      <TextField fx:id="pickUserField" layoutX="39.0" layoutY="529.0" />
-      <Button fx:id="pickUserBtn" layoutX="217.0" layoutY="524.0" mnemonicParsing="false" onAction="#pickUser" prefHeight="38.0" prefWidth="104.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Pick User" />
+      <TextField fx:id="pickUserField" layoutX="26.0" layoutY="537.0" />
+      <Button fx:id="pickUserBtn" layoutX="195.0" layoutY="522.0" mnemonicParsing="false" onAction="#pickUser" prefHeight="38.0" prefWidth="104.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Pick User" />
       <Text fx:id="adminText" fill="WHITE" layoutX="594.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" />
-      <Button layoutX="453.0" layoutY="153.0" mnemonicParsing="false" onAction="#search" prefHeight="38.0" prefWidth="96.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Search" />
+      <Button layoutX="430.0" layoutY="151.0" mnemonicParsing="false" onAction="#search" prefHeight="38.0" prefWidth="96.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Search" />
       <Text fx:id="priceValue" layoutX="240.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1800" />
       <ComboBox fx:id="carsComboBox" layoutX="48.0" layoutY="240.0" prefHeight="27.0" prefWidth="240.0" />
       <DatePicker fx:id="hireDate" layoutX="26.0" layoutY="350.0" />
@@ -55,5 +55,6 @@
       <Text fx:id="priceGBP" layoutX="240.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1800" />
       <Button fx:id="selectCurrencyBtn" layoutX="202.0" layoutY="396.0" mnemonicParsing="false" onAction="#selectCurrency" prefHeight="38.0" prefWidth="150.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Select Currency" />
       <ComboBox fx:id="currencyComboBox" layoutX="26.0" layoutY="401.0" prefWidth="150.0" />
+      <Button fx:id="helpBtn" layoutX="451.0" layoutY="463.0" mnemonicParsing="false" onAction="#help" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Help" />
    </children>
 </AnchorPane>

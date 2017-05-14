@@ -139,6 +139,26 @@ public class HotelBookingController implements Initializable {
         }
     }
 
+    @FXML private Button helpBtn;
+    public void help(ActionEvent ae){
+        Stage stage = new Stage();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/hotelHelpScreen.fxml"));
+            stage.setScene(new Scene(root));
+            stage.show();
+            stage.setResizable(false);
+
+            helpBtn.setDisable(true);
+
+            stage.setOnCloseRequest(event -> {
+                helpBtn.setDisable(false);
+            });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void pickUser(ActionEvent ae){
         dbh.checkIfUsernameExists();
         usernameList = Singleton.getInstance().getUsernameList();

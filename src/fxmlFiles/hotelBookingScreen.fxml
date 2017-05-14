@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.HotelBookingController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.HotelBookingController">
    <children>
       <ImageView fitHeight="604.0" fitWidth="644.0" opacity="0.82" pickOnBounds="true">
          <image>
@@ -20,7 +20,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="172.0" layoutY="35.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="649.0" />
-      <Button layoutX="451.0" layoutY="542.0" mnemonicParsing="false" onAction="#back" prefHeight="48.0" prefWidth="180.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Back" />
+      <Button layoutX="451.0" layoutY="530.0" mnemonicParsing="false" onAction="#back" prefHeight="48.0" prefWidth="180.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Back" />
       <Text fill="WHITE" layoutX="410.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City">
          <font>
             <Font size="14.0" />
@@ -67,5 +67,6 @@
       <Label fx:id="room1" layoutX="376.0" layoutY="235.0" prefHeight="21.0" prefWidth="68.0" text="Rooms" />
       <Label fx:id="room2" layoutX="376.0" layoutY="318.0" prefHeight="21.0" prefWidth="52.0" text="Rooms" />
       <Label fx:id="room3" layoutX="376.0" layoutY="402.0" prefHeight="21.0" prefWidth="58.0" text="Rooms" />
+      <Button fx:id="helpBtn" layoutX="451.0" layoutY="478.0" mnemonicParsing="false" onAction="#help" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Help" />
    </children>
 </AnchorPane>

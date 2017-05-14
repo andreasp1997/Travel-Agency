@@ -80,5 +80,6 @@
       <Text fx:id="priceEUR3" layoutX="191.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2100" />
       <Text fx:id="priceUSD3" layoutX="191.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2100" />
       <Text fx:id="priceGBP3" layoutX="191.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2100" />
+      <Button fx:id="helpBtn" layoutX="451.0" layoutY="488.0" mnemonicParsing="false" onAction="#help" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Help" />
    </children>
 </AnchorPane>
