@@ -9,10 +9,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import sun.management.jmxremote.SingleEntryRegistry;
 
@@ -28,7 +27,13 @@ import java.util.ResourceBundle;
 public class EditBookingsController implements Initializable {
 
     DBHandler dbh = new DBHandler();
-    Singleton singelton = new Singleton();
+    Singleton singleton = new Singleton();
+
+    @FXML TextField pickUserField;
+    @FXML Button pickUserBtn;
+    @FXML Text adminText;
+
+    private String usernameList;
 
     @FXML private TableView hotelTable;
     @FXML private TableColumn hotel;
@@ -72,6 +77,18 @@ public class EditBookingsController implements Initializable {
         carTable.setVisible(false);
         cruiseTable.setVisible(false);
 
+        if(singleton.getInstance().getUserRole().equals("1")){
+
+            pickUserField.setVisible(true);
+            pickUserBtn.setVisible(true);
+            adminText.setVisible(true);
+
+        } else if (singleton.getInstance().getUserRole().equals("2")) {
+            pickUserField.setVisible(false);
+            pickUserBtn.setVisible(false);
+            adminText.setVisible(false);
+        }
+
     }
 
     public void back(ActionEvent ae){
@@ -82,6 +99,30 @@ public class EditBookingsController implements Initializable {
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void pickUser(ActionEvent ae){
+        dbh.checkIfUsernameExists();
+        usernameList = Singleton.getInstance().getUsernameList();
+
+        if(usernameList.contains(pickUserField.getText())){
+            Singleton.getInstance().setPickedUser(pickUserField.getText());
+
+            dbh.getUserID(pickUserField.getText());
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText("You have picked a user");
+            alert.showAndWait();
+
+        } else {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("The username you entered does not exist");
+            alert.showAndWait();
+            Singleton.getInstance().setPickedUser(null);
         }
     }
 
@@ -109,7 +150,7 @@ public class EditBookingsController implements Initializable {
 
         hotelTable.setVisible(true);
 
-        hotelBooking = dbh.getHotelsBookings(Integer.parseInt(singelton.getInstance().getUserID()));
+        hotelBooking = dbh.getHotelsBookings(Integer.parseInt(singleton.getInstance().getUserID()));
 
         final ObservableList<HotelBooking> data = FXCollections.observableArrayList(hotelBooking);
 
@@ -144,7 +185,7 @@ public class EditBookingsController implements Initializable {
 
         carTable.setVisible(true);
 
-        carBooking = dbh.getCarBookings(Integer.parseInt(singelton.getInstance().getUserID()));
+        carBooking = dbh.getCarBookings(Integer.parseInt(singleton.getInstance().getUserID()));
 
         final ObservableList<CarRentalBooking> data = FXCollections.observableArrayList(carBooking);
 
@@ -179,18 +220,18 @@ public class EditBookingsController implements Initializable {
 
         cruiseTable.setVisible(true);
 
-        cruiseBooking = dbh.getCruiseBookings(Integer.parseInt(singelton.getInstance().getUserID()));
+        cruiseBooking = dbh.getCruiseBookings(Integer.parseInt(singleton.getInstance().getUserID()));
 
         final ObservableList<CruiseBooking> data = FXCollections.observableArrayList(cruiseBooking);
 
         cruiseOrigin.setCellValueFactory(
                 new PropertyValueFactory<CruiseBooking,String>("origin")
         );
-/*
+
         cruiseDestination.setCellValueFactory(
                 new PropertyValueFactory<CruiseBooking,String>("destination")
         );
-*/
+
         cruiseDate.setCellValueFactory(
                 new PropertyValueFactory<CruiseBooking,String>("date")
         );
@@ -205,7 +246,7 @@ public class EditBookingsController implements Initializable {
 
         cruiseTable.setItems(data);
         cruiseTable.getColumns().clear();
-        cruiseTable.getColumns().addAll(cruiseOrigin, cruiseDate, cruiseRooms, cruisePrice);
+        cruiseTable.getColumns().addAll(cruiseOrigin, cruiseDestination, cruiseDate, cruiseRooms, cruisePrice);
 
     }
 
@@ -214,33 +255,29 @@ public class EditBookingsController implements Initializable {
 
         flightTable.setVisible(true);
 
-        flightBooking = dbh.getFlightBookings(Integer.parseInt(singelton.getInstance().getUserID()));
+        flightBooking = dbh.getFlightBookings(Integer.parseInt(singleton.getInstance().getUserID()));
 
         final ObservableList<FlightBooking> data = FXCollections.observableArrayList(flightBooking);
 
         flightOrigin.setCellValueFactory(
-                new PropertyValueFactory<CruiseBooking,String>("origin")
+                new PropertyValueFactory<FlightBooking,String>("origin")
         );
-/*
-        cruiseDestination.setCellValueFactory(
-                new PropertyValueFactory<CruiseBooking,String>("destination")
+
+        flightDestination.setCellValueFactory(
+                new PropertyValueFactory<FlightBooking,String>("destination")
         );
-*/
+
         flightDate.setCellValueFactory(
-                new PropertyValueFactory<CruiseBooking,String>("date")
+                new PropertyValueFactory<FlightBooking,String>("date")
         );
-/*
-        flightRooms.setCellValueFactory(
-                new PropertyValueFactory<CruiseBooking,String>("rooms")
-        );
-*/
+
         flightPrice.setCellValueFactory(
-                new PropertyValueFactory<CruiseBooking,Double>("price")
+                new PropertyValueFactory<FlightBooking,Double>("price")
         );
 
         flightTable.setItems(data);
         flightTable.getColumns().clear();
-        flightTable.getColumns().addAll(flightOrigin, flightDate, flightPrice);
+        flightTable.getColumns().addAll(flightOrigin, flightDestination, flightDate, flightPrice);
 
     }
 }

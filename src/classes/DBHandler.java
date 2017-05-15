@@ -716,17 +716,18 @@ public class DBHandler {
 
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select a.city, c.take_off, c.rooms, c.price " +
+            ResultSet rs = statement.executeQuery("select a.city as origin, d.city as destination, c.take_off, b.rooms, c.price " +
                     "from cruise_bookings b " +
                     "left join cruises c on b.cruise_id = c.cruise_id " +
                     "left join cities a on c.from = a.city_id " +
+                    "left join cities d on c.to = d.city_id " +
                     "where b.user_id = '" + userID + "'");
 
             while(rs.next()){
 
                 CruiseBooking booking = new CruiseBooking();
-                booking.setOrigin(rs.getString("city"));
-                //booking.setDestination(rs.getString("to"));
+                booking.setOrigin(rs.getString("origin"));
+                booking.setDestination(rs.getString("destination"));
                 booking.setDate(rs.getString("take_off"));
                 booking.setRoom(rs.getString("rooms"));
                 booking.setPrice(rs.getDouble("price"));
@@ -749,17 +750,18 @@ public class DBHandler {
 
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select a.city, c.take_off, c.price " +
+            ResultSet rs = statement.executeQuery("select a.city as origin, d.city as destination, c.take_off, c.price " +
                     "from flight_bookings b " +
                     "left join flights c on b.flight_id = c.flight_id " +
                     "left join cities a on c.from = a.city_id " +
+                    "left join cities d on c.to = d.city_id " +
                     "where b.user_id = '" + userID + "'");
 
             while(rs.next()){
 
                 FlightBooking booking = new FlightBooking();
-                booking.setOrigin(rs.getString("city"));
-                //booking.setDestination(rs.getString("to"));
+                booking.setOrigin(rs.getString("origin"));
+                booking.setDestination(rs.getString("destination"));
                 booking.setDate(rs.getString("take_off"));
                 //booking.setRoom(rs.getString("rooms"));
                 booking.setPrice(rs.getDouble("price"));
