@@ -750,7 +750,7 @@ public class DBHandler {
 
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("select a.city as origin, d.city as destination, c.take_off, c.price " +
+            ResultSet rs = statement.executeQuery("select a.city as origin, d.city as destination, c.take_off, c.price, c.airline_id " +
                     "from flight_bookings b " +
                     "left join flights c on b.flight_id = c.flight_id " +
                     "left join cities a on c.from = a.city_id " +
@@ -765,6 +765,7 @@ public class DBHandler {
                 booking.setDate(rs.getString("take_off"));
                 //booking.setRoom(rs.getString("rooms"));
                 booking.setPrice(rs.getDouble("price"));
+                booking.setAirline(rs.getString("airline_id"));
 
                 bookings.add(booking);
 
@@ -979,6 +980,131 @@ public class DBHandler {
 
         } catch (SQLException ex) {
             System.out.println("Error on executing the query");
+        }
+    }
+
+    public void getCarRentalBookingID(String carID,String userID,String hireCarDate,String returnCarDate) {
+
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("Select booking_id from car_bookings where car_id = '" + carID + "' and user_id = '" + userID + "' and starts = '" +hireCarDate +"' and ends = '" + returnCarDate +"'");
+            while (rs.next()) {
+                String s = rs.getString(1);
+                Singleton.getInstance().setCarRentalBookingID(s);
+            }
+        }catch (SQLException ex) {
+            System.out.print("Error executing the query");
+        }
+
+
+    }
+    public void deleteCarRentalBooking(String bookingID) {
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            String query = "Delete from car_bookings where booking_id = '" + bookingID +"'";
+            String updateQuery = "update car_bookings set booking_id = booking_id - 1 where booking_id > '" +bookingID +"'" ;
+            Statement statement = conn.createStatement();
+            statement.executeUpdate(query);
+            statement.executeUpdate(updateQuery);
+
+        } catch (SQLException ex) {
+            System.out.print("Error executing the query");
+        }
+    }
+
+    public void getHotelID(String hotelName) {
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("select hotel_id from hotels where hotel_name = '" + hotelName + "'");
+            while (rs.next()) {
+                String s = rs.getString(1);
+                Singleton.getInstance().setHotelID(s);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error on executing the query");
+        }
+    }
+
+    public void getHotelBookingID(String userID,int roomID ,String checkInDate,String checkOutDate) {
+
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("Select booking_id from hotel_bookings where user_id = '" + userID + "' and room_id = '" + roomID + "' and hotel_bookings.from = '" +checkInDate +"' and hotel_bookings.to = '" + checkOutDate +"'");
+            while (rs.next()) {
+                String s = rs.getString(1);
+                Singleton.getInstance().setHotelBookingID(s);
+            }
+        }catch (SQLException ex) {
+            System.out.print("Error executing the query");
+        }
+
+    }
+
+    public void deleteHotelBooking(String bookingID) {
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            String query = "Delete from hotel_bookings where booking_id = '" + bookingID +"'";
+            String updateQuery = "update hotel_bookings set booking_id = booking_id - 1 where booking_id > '" +bookingID +"'" ;
+            Statement statement = conn.createStatement();
+            statement.executeUpdate(query);
+            statement.executeUpdate(updateQuery);
+
+        } catch (SQLException ex) {
+            System.out.print("Error executing the query");
+        }
+    }
+
+    public void getFlightBookingID(String userID, String flightID) {
+
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("Select booking_id from flight_bookings where user_id = '" + userID + "' and flight_id = '" + flightID+"'");
+            while (rs.next()) {
+                String s = rs.getString(1);
+                Singleton.getInstance().setFlightBookingID(s);
+            }
+        }catch (SQLException ex) {
+            System.out.print("Error executing the query");
+        }
+
+    }
+
+    public void deleteFlightBooking(String bookingID) {
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            String query = "Delete from flight_bookings where booking_id = '" + bookingID +"'";
+            String updateQuery = "update flight_bookings set booking_id = booking_id - 1 where booking_id > '" +bookingID +"'" ;
+            Statement statement = conn.createStatement();
+            statement.executeUpdate(query);
+            statement.executeUpdate(updateQuery);
+
+        } catch (SQLException ex) {
+            System.out.print("Error executing the query");
+        }
+    }
+
+    public void getCruiseBookingID(String userID, String cruiseID) {
+
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("Select booking_id from cruise_bookings where user_id = '" + userID + "' and cruise_id = '" +cruiseID+"'");
+            while (rs.next()) {
+                String s = rs.getString(1);
+                Singleton.getInstance().setCruiseBookingID(s);
+            }
+        }catch (SQLException ex) {
+            System.out.print("Error executing the query");
+        }
+
+    }
+
+    public void deleteCruiseBooking(String bookingID) {
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            String query = "Delete from cruise_bookings where booking_id = '" + bookingID +"'";
+            String updateQuery = "update cruise_bookings set booking_id = booking_id - 1 where booking_id > '" +bookingID +"'" ;
+            Statement statement = conn.createStatement();
+            statement.executeUpdate(query);
+            statement.executeUpdate(updateQuery);
+
+        } catch (SQLException ex) {
+            System.out.print("Error executing the query");
         }
     }
 

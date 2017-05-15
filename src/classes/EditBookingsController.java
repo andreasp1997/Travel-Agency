@@ -13,9 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import sun.management.jmxremote.SingleEntryRegistry;
 
-import javax.swing.text.View;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,6 +26,8 @@ public class EditBookingsController implements Initializable {
 
     DBHandler dbh = new DBHandler();
     Singleton singleton = new Singleton();
+    AdminAccountEditBooking adminAccountEditBooking = new AdminAccountEditBooking();
+    NormalAccountEditBooking normalAccountEditBooking = new NormalAccountEditBooking();
 
     @FXML TextField pickUserField;
     @FXML Button pickUserBtn;
@@ -64,6 +64,7 @@ public class EditBookingsController implements Initializable {
     @FXML private TableColumn flightRooms;
     @FXML private Button helpBtn;
     @FXML private Button editBtn;
+    @FXML private Button deleteBtn;
     @FXML private DatePicker datePicker;
     @FXML private DatePicker datePicker2;
     @FXML private Button saveBtn;
@@ -119,6 +120,7 @@ public class EditBookingsController implements Initializable {
             Singleton.getInstance().setPickedUser(pickUserField.getText());
 
             dbh.getUserID(pickUserField.getText());
+            Singleton.getInstance().setPickedUser(Singleton.getInstance().getUserID());
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
@@ -158,6 +160,9 @@ public class EditBookingsController implements Initializable {
     public void showHotelBookings(ActionEvent ae) {
 
         hotelTable.setVisible(true);
+        carTable.setVisible(false);
+        flightTable.setVisible(false);
+        cruiseTable.setVisible(false);
 
         hotelBooking = dbh.getHotelsBookings(Integer.parseInt(singleton.getInstance().getUserID()));
 
@@ -191,12 +196,19 @@ public class EditBookingsController implements Initializable {
             editHotelBookingDate();
         });
 
+        deleteBtn.setOnAction(e -> {
+            deleteHotelBooking();
+        });
+
     }
 
     @FXML
     public void showCarBookings(ActionEvent ae) {
 
+        hotelTable.setVisible(false);
         carTable.setVisible(true);
+        flightTable.setVisible(false);
+        cruiseTable.setVisible(false);
 
         carBooking = dbh.getCarBookings(Integer.parseInt(singleton.getInstance().getUserID()));
 
@@ -230,11 +242,18 @@ public class EditBookingsController implements Initializable {
             editCarRentalBookingDate();
         });
 
+        deleteBtn.setOnAction(e -> {
+            deleteCarRentalBooking();
+        });
+
     }
 
     @FXML
     public void showCruiseBookings(ActionEvent ae) {
 
+        hotelTable.setVisible(false);
+        carTable.setVisible(false);
+        flightTable.setVisible(false);
         cruiseTable.setVisible(true);
 
         cruiseBooking = dbh.getCruiseBookings(Integer.parseInt(singleton.getInstance().getUserID()));
@@ -269,12 +288,19 @@ public class EditBookingsController implements Initializable {
             editCruiseBookingDate();
         });
 
+        deleteBtn.setOnAction(e -> {
+            deleteCruiseBooking();
+        });
+
     }
 
     @FXML
     public void showFlightBookings(ActionEvent ae) {
 
+        hotelTable.setVisible(false);
+        carTable.setVisible(false);
         flightTable.setVisible(true);
+        cruiseTable.setVisible(false);
 
         flightBooking = dbh.getFlightBookings(Integer.parseInt(singleton.getInstance().getUserID()));
 
@@ -302,6 +328,10 @@ public class EditBookingsController implements Initializable {
 
         editBtn.setOnAction(e -> {
             editFlightBookingDate();
+        });
+
+        deleteBtn.setOnAction(e -> {
+            deleteFlightBooking();
         });
 
     }
@@ -333,5 +363,144 @@ public class EditBookingsController implements Initializable {
         saveBtn.setVisible(true);
 
 
+    }
+
+    private void deleteFlightBooking() {
+        ObservableList<FlightBooking> flightBookingSelected, allFlightBookings;
+        allFlightBookings = flightTable.getItems();
+        flightBookingSelected = flightTable.getSelectionModel().getSelectedItems();
+
+        for (FlightBooking flightBooking : flightBookingSelected) {
+            FlightBooking.getInstance().setOrigin(flightBooking.getOrigin());
+            FlightBooking.getInstance().setDate(flightBooking.getDate());
+            FlightBooking.getInstance().setPrice(flightBooking.getPrice());
+            FlightBooking.getInstance().setDestination(flightBooking.getDestination());
+            FlightBooking.getInstance().setAirline(flightBooking.getAirline());
+
+            dbh.checkUserRole(singleton.getInstance().getUsername());
+
+            if(singleton.getInstance().getUserRole().equals("2")) {
+                normalAccountEditBooking.deleteFlightBooking();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText("You have successfully deleted a booking");
+                alert.showAndWait();
+
+            } else {
+                adminAccountEditBooking.deleteFlightBooking();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText("You have successfully deleted a booking");
+                alert.showAndWait();
+            }
+            allFlightBookings.remove(flightBooking);
+        }
+
+    }
+
+    public void deleteCruiseBooking(){
+        ObservableList<CruiseBooking> cruiseBookingSelected, allCruiseBookings;
+        allCruiseBookings = cruiseTable.getItems();
+        cruiseBookingSelected = cruiseTable.getSelectionModel().getSelectedItems();
+
+        for (CruiseBooking cruiseBooking : cruiseBookingSelected) {
+            CruiseBooking.getInstance().setOrigin(cruiseBooking.getOrigin());
+            CruiseBooking.getInstance().setDestination(cruiseBooking.getDestination());
+            CruiseBooking.getInstance().setDate(cruiseBooking.getDate());
+
+            dbh.checkUserRole(singleton.getInstance().getUsername());
+
+            if(singleton.getInstance().getUserRole().equals("2")) {
+                normalAccountEditBooking.deleteCruiseBooking();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText("You have successfully deleted a booking");
+                alert.showAndWait();
+
+            } else {
+                adminAccountEditBooking.deleteCarRentalBooking();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText("You have successfully deleted a booking");
+                alert.showAndWait();
+
+            }
+
+            allCruiseBookings.remove(cruiseBooking);
+        }
+    }
+
+    public void deleteCarRentalBooking() {
+        ObservableList<CarRentalBooking> carRentalBookingSelected, allCarRentalBookings;
+        allCarRentalBookings = carTable.getItems();
+        carRentalBookingSelected = carTable.getSelectionModel().getSelectedItems();
+
+        for (CarRentalBooking carRentalBooking: carRentalBookingSelected) {
+            carRentalBooking.getInstance().setCity(carRentalBooking.getCity());
+            carRentalBooking.getInstance().setCar(carRentalBooking.getCar());
+            carRentalBooking.getInstance().setHireCarDate(carRentalBooking.getHireCarDate());
+            carRentalBooking.getInstance().setReturnCarDate(carRentalBooking.getReturnCarDate());
+            carRentalBooking.getInstance().setPrice(carRentalBooking.getPrice());
+            carRentalBooking.getInstance().setSeats(carRentalBooking.getSeats());
+
+            dbh.checkUserRole(singleton.getInstance().getUsername());
+
+            if(singleton.getInstance().getUserRole().equals("2")) {
+                normalAccountEditBooking.deleteCarRentalBooking();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText("You have successfully deleted a booking");
+                alert.showAndWait();
+
+            } else {
+                adminAccountEditBooking.deleteCarRentalBooking();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText("You have successfully deleted a booking");
+                alert.showAndWait();
+
+            }
+            allCarRentalBookings.remove(carRentalBooking);
+        }
+    }
+
+    public void deleteHotelBooking() {
+        ObservableList<HotelBooking> hotelBookingSelected, allHotelBookings;
+        allHotelBookings = hotelTable.getItems();
+        hotelBookingSelected = hotelTable.getSelectionModel().getSelectedItems();
+
+        for (HotelBooking hotelBooking : hotelBookingSelected) {
+            Singleton.getInstance().setHotelCheckInDate(hotelBooking.getCheckinDate());
+            Singleton.getInstance().setHotelName(hotelBooking.getHotelName());
+            Singleton.getInstance().setHotelCheckOutDate(hotelBooking.getCheckoutDate());
+            Singleton.getInstance().setHotelRoomSize(String.valueOf(hotelBooking.getRoomSize()));
+            dbh.checkUserRole(singleton.getInstance().getUsername());
+
+
+
+
+            if(singleton.getInstance().getUserRole().equals("2")) {
+                normalAccountEditBooking.deleteHotelBooking();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText("You have successfully deleted a booking");
+                alert.showAndWait();
+
+            } else {
+                adminAccountEditBooking.deleteHotelBooking();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText("You have successfully deleted a booking");
+                alert.showAndWait();
+            }
+
+            allHotelBookings.remove(hotelBooking);
+
+        }
     }
 }

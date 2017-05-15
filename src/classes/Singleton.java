@@ -43,6 +43,16 @@ public class Singleton {
     private ArrayList<String> cruiseBookingIDforUser = new ArrayList<>();
     private ArrayList<String> carRentalBookingIDforUser = new ArrayList<>();
     private ArrayList<String> hotelBookingIDforUser = new ArrayList<>();
+    private SimpleStringProperty carRentalBookingID = new SimpleStringProperty();
+    private SimpleStringProperty hotelCheckInDate = new SimpleStringProperty();
+    private SimpleStringProperty hotelName = new SimpleStringProperty();
+    private SimpleStringProperty hotelCheckOutDate = new SimpleStringProperty();
+    private SimpleStringProperty hotelRoomSize = new SimpleStringProperty();
+    private SimpleStringProperty hotelID = new SimpleStringProperty();
+    private SimpleStringProperty hotelBookingID = new SimpleStringProperty();
+    private SimpleStringProperty flightBookingID = new SimpleStringProperty();
+    private SimpleStringProperty cruiseBookingID = new SimpleStringProperty();
+
 
 
     public Singleton() {
@@ -203,4 +213,40 @@ public class Singleton {
     public ArrayList<String> getHotelBookingIDforUser() { return hotelBookingIDforUser; }
 
     public void setHotelBookingIDforUser(ArrayList<String> hotelBookingIDforUser) { this.hotelBookingIDforUser = hotelBookingIDforUser; }
+
+    public String getCarRentalBookingID() {return carRentalBookingID.get(); }
+
+    public void setCarRentalBookingID(String carRentalBookingID) { this.carRentalBookingID.set(carRentalBookingID); }
+
+    public String getHotelCheckInDate() {return hotelCheckInDate.get();}
+
+    public void setHotelCheckInDate(String hotelCheckInDate) {this.hotelCheckInDate.set(hotelCheckInDate);}
+
+    public String getHotelCheckOutDate() {return hotelCheckOutDate.get();}
+
+    public void setHotelCheckOutDate(String hotelCheckOutDate) {this.hotelCheckOutDate.set(hotelCheckOutDate);}
+
+    public String getHotelName() {return hotelName.get();}
+
+    public void setHotelName(String hotelName) {this.hotelName.set(hotelName);}
+
+    public String getHotelRoomSize() {return hotelRoomSize.get();}
+
+    public void setHotelRoomSize(String hotelRoomSize) { this.hotelRoomSize.set(hotelRoomSize);}
+
+    public String getHotelID() {return hotelID.get();}
+
+    public void setHotelID(String hotelID) {this.hotelID.set(hotelID);}
+
+    public String getHotelBookingID() {return hotelBookingID.get(); }
+
+    public void setHotelBookingID(String hotelBookingID) { this.hotelBookingID.set(hotelBookingID); }
+
+    public String getFlightBookingID() {return flightBookingID.get();}
+
+    public void setFlightBookingID(String flightBookingID) {this.flightBookingID.set(flightBookingID);}
+
+    public String getCruiseBookingID() {return cruiseBookingID.get();}
+
+    public void setCruiseBookingID(String cruiseBookingID) {this.cruiseBookingID.set(cruiseBookingID);}
 }
