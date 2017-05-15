@@ -9,14 +9,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.AccountSettingsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="644.0" style="-fx-background-color: #b6a19e;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classes.AccountSettingsController">
    <children>
       <ImageView fitHeight="604.0" fitWidth="644.0" opacity="0.82" pickOnBounds="true">
          <image>
             <Image url="@../images/ocean-796934_1280.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="115.0" layoutX="-2.0" layoutY="57.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="649.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="115.0" layoutX="-2.0" layoutY="57.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="646.0" />
       <Text fill="WHITE" layoutX="72.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Settings">
          <font>
             <Font name="PT Serif" size="66.0" />
@@ -29,9 +29,9 @@
             <Font name="PT Serif" size="20.0" />
          </font>
       </Text>
-      <TextField layoutX="35.0" layoutY="221.0" />
-      <TextField layoutX="239.0" layoutY="221.0" />
-      <TextField layoutX="35.0" layoutY="297.0" />
+      <TextField fx:id="usernameField" layoutX="35.0" layoutY="221.0" />
+      <TextField fx:id="passwordField" layoutX="239.0" layoutY="221.0" />
+      <TextField fx:id="emailField" layoutX="35.0" layoutY="297.0" />
       <Text fill="WHITE" layoutX="85.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
          <font>
             <Font name="PT Serif" size="15.0" />
@@ -42,8 +42,8 @@
             <Font name="PT Serif" size="15.0" />
          </font>
       </Text>
-      <TextField layoutX="35.0" layoutY="372.0" />
-      <TextField layoutX="35.0" layoutY="448.0" />
+      <TextField fx:id="firstNameField" layoutX="35.0" layoutY="372.0" />
+      <TextField fx:id="lastNameField" layoutX="35.0" layoutY="448.0" />
       <Text fill="WHITE" layoutX="85.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name">
          <font>
             <Font name="PT Serif" size="15.0" />
@@ -59,10 +59,10 @@
             <Font name="PT Serif" size="15.0" />
          </font>
       </Text>
-      <Button layoutX="450.0" layoutY="324.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Make Changes" />
+      <Button layoutX="450.0" layoutY="324.0" mnemonicParsing="false" onAction="#updateSettings" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Make Changes" />
       <TextField fx:id="pickUserField" layoutX="35.0" layoutY="551.0" />
-      <Button layoutX="213.0" layoutY="546.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="104.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Pick User" />
-      <Text fill="WHITE" layoutX="589.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" />
-      <Button layoutX="450.0" layoutY="385.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Delete Account" />
+      <Button fx:id="pickUserBtn" layoutX="213.0" layoutY="546.0" mnemonicParsing="false" onAction="#pickUser" prefHeight="38.0" prefWidth="104.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Pick User" />
+      <Text fx:id="adminText" fill="WHITE" layoutX="591.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" />
+      <Button layoutX="450.0" layoutY="385.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Delete Account" />
    </children>
 </AnchorPane>

@@ -39,6 +39,11 @@ public class Singleton {
     private SimpleStringProperty carPrice = new SimpleStringProperty();
     private SimpleStringProperty carBookingsForDate = new SimpleStringProperty();
     private SimpleStringProperty carAmount = new SimpleStringProperty();
+    private ArrayList<String> flightBookingIDforUser = new ArrayList<>();
+    private ArrayList<String> cruiseBookingIDforUser = new ArrayList<>();
+    private ArrayList<String> carRentalBookingIDforUser = new ArrayList<>();
+    private ArrayList<String> hotelBookingIDforUser = new ArrayList<>();
+
 
     public Singleton() {
 
@@ -180,4 +185,22 @@ public class Singleton {
     public String getCarAmount() { return carAmount.get(); }
 
     public void setCarAmount(String carAmount) { this.carAmount.set(carAmount); }
+
+    public ArrayList<String> getFlightBookingIDforUser() { return flightBookingIDforUser; }
+
+    public void setFlightBookingIDforUser(ArrayList<String> flightBookingIDforUser) { this.flightBookingIDforUser = flightBookingIDforUser; }
+
+    public ArrayList<String> getCruiseBookingIDforUser() { return cruiseBookingIDforUser; }
+
+    public void setCruiseBookingIDforUser(ArrayList<String> cruiseBookingIDforUser) {
+        this.cruiseBookingIDforUser = cruiseBookingIDforUser;
+    }
+
+    public ArrayList<String> getCarRentalBookingIDforUser() { return carRentalBookingIDforUser; }
+
+    public void setCarRentalBookingIDforUser(ArrayList<String> carRentalBookingIDforUser) { this.carRentalBookingIDforUser = carRentalBookingIDforUser; }
+
+    public ArrayList<String> getHotelBookingIDforUser() { return hotelBookingIDforUser; }
+
+    public void setHotelBookingIDforUser(ArrayList<String> hotelBookingIDforUser) { this.hotelBookingIDforUser = hotelBookingIDforUser; }
 }
