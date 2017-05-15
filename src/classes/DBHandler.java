@@ -1107,5 +1107,16 @@ public class DBHandler {
             System.out.print("Error executing the query");
         }
     }
+    public void editCarRental(String bookingID, String hireDate, String returnDate) {
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            String query = "Update car_bookings set starts = '"+hireDate+"' , ends ='"+returnDate+"' where booking_id = '"+bookingID+"'";
+            Statement statement = conn.createStatement();
+            statement.executeUpdate(query);
+
+
+        } catch (SQLException ex) {
+            System.out.print("Error executing the query");
+        }
+    }
 
 }

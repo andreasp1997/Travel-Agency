@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.Signature;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -339,6 +340,29 @@ public class EditBookingsController implements Initializable {
         datePicker.setVisible(true);
         saveBtn.setVisible(true);
 
+        ObservableList<FlightBooking> flightBookingSelected, allFlightBookings;
+        allFlightBookings = flightTable.getItems();
+        flightBookingSelected = flightTable.getSelectionModel().getSelectedItems();
+        for (FlightBooking flightBooking : flightBookingSelected) {
+            FlightBooking.getInstance().setOrigin(flightBooking.getOrigin());
+            FlightBooking.getInstance().setDate(flightBooking.getDate());
+            FlightBooking.getInstance().setPrice(flightBooking.getPrice());
+            FlightBooking.getInstance().setDestination(flightBooking.getDestination());
+            FlightBooking.getInstance().setAirline(flightBooking.getAirline());
+            saveBtn.setOnAction(e -> {Singleton.getInstance().setNewFlightBookingDate(String.valueOf(datePicker.getValue()));});
+
+            dbh.checkUserRole(singleton.getInstance().getUsername());
+
+            if(singleton.getInstance().getUserRole().equals("2")) {
+                normalAccountEditBooking.commitChangesForFlightBooking();
+
+
+            } else {
+                adminAccountEditBooking.commitChangesForCarRentalBooking();
+
+            }
+
+        }
 
 
     }
@@ -361,6 +385,50 @@ public class EditBookingsController implements Initializable {
         datePicker.setVisible(true);
         datePicker2.setVisible(true);
         saveBtn.setVisible(true);
+
+        ObservableList<CarRentalBooking> carRentalBookingSelected, allCarRentalBookings;
+        allCarRentalBookings = carTable.getItems();
+        carRentalBookingSelected = carTable.getSelectionModel().getSelectedItems();
+
+        for (CarRentalBooking carRentalBooking: carRentalBookingSelected) {
+            carRentalBooking.getInstance().setCity(carRentalBooking.getCity());
+            carRentalBooking.getInstance().setCar(carRentalBooking.getCar());
+            carRentalBooking.getInstance().setHireCarDate(carRentalBooking.getHireCarDate());
+            carRentalBooking.getInstance().setReturnCarDate(carRentalBooking.getReturnCarDate());
+            carRentalBooking.getInstance().setPrice(carRentalBooking.getPrice());
+            carRentalBooking.getInstance().setSeats(carRentalBooking.getSeats());
+            saveBtn.setOnAction(e -> {
+               Singleton.getInstance().setNewCarRentalStartDate(String.valueOf(datePicker.getValue()));
+                Singleton.getInstance().setNewCarRentalReturnDate(String.valueOf(datePicker2.getValue()));
+
+                dbh.checkUserRole(singleton.getInstance().getUsername());
+
+
+                if(singleton.getInstance().getUserRole().equals("2")) {
+                    normalAccountEditBooking.commitChangesForCarRentalBooking();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText("You have successfully edited a booking");
+                    alert.showAndWait();
+
+
+                } else {
+                    adminAccountEditBooking.commitChangesForCarRentalBooking();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText("You have successfully edited a booking");
+                    alert.showAndWait();
+
+
+                }
+                datePicker.setVisible(false);
+                datePicker2.setVisible(false);
+
+            });
+
+
+        }
+
 
 
     }

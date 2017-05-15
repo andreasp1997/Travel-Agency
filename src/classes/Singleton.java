@@ -52,6 +52,10 @@ public class Singleton {
     private SimpleStringProperty hotelBookingID = new SimpleStringProperty();
     private SimpleStringProperty flightBookingID = new SimpleStringProperty();
     private SimpleStringProperty cruiseBookingID = new SimpleStringProperty();
+    private SimpleStringProperty newFlightBookingDate = new SimpleStringProperty();
+    private SimpleStringProperty newCarRentalStartDate = new SimpleStringProperty();
+    private SimpleStringProperty newCarRentalReturnDate = new SimpleStringProperty();
+
 
 
 
@@ -247,4 +251,16 @@ public class Singleton {
     public String getCruiseBookingID() {return cruiseBookingID.get();}
 
     public void setCruiseBookingID(String cruiseBookingID) {this.cruiseBookingID.set(cruiseBookingID);}
+
+    public String getNewFlightBookingDate() {return newFlightBookingDate.get();}
+
+    public void setNewFlightBookingDate(String newFlightBookingDate) {this.newFlightBookingDate.set(newFlightBookingDate);}
+
+    public String getNewCarRentalStartDate() {return newCarRentalStartDate.get();}
+
+    public void setNewCarRentalStartDate(String newCarRentalStartDate) {this.newCarRentalStartDate.set(newCarRentalStartDate);}
+
+    public String getNewCarRentalReturnDate() {return newCarRentalReturnDate.get();}
+
+    public void setNewCarRentalReturnDate(String newCarRentalReturnDate) {this.newCarRentalReturnDate.set(newCarRentalReturnDate);}
 }

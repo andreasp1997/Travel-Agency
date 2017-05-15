@@ -22,6 +22,11 @@ public class AdminAccountEditBooking extends EditBooking {
 
     @Override
     void commitChangesForCarRentalBooking() {
+        dbHandler.getCityID(CarRentalBooking.getInstance().getCity());
+        dbHandler.getCarID(CarRentalBooking.getInstance().getCar(),Singleton.getInstance().getCityID());
+        dbHandler.getCarRentalBookingID(Singleton.getInstance().getCarID(),Singleton.getInstance().getPickedUser(), CarRentalBooking.getInstance().getHireCarDate(),
+                CarRentalBooking.getInstance().getReturnCarDate());
+        dbHandler.editCarRental(Singleton.getInstance().getCarRentalBookingID(),Singleton.getInstance().getNewCarRentalStartDate(),Singleton.getInstance().getNewCarRentalReturnDate());
 
     }
 

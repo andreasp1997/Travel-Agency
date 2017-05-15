@@ -7,6 +7,14 @@ public class NormalAccountEditBooking extends EditBooking{
     DBHandler dbHandler = new DBHandler();
     @Override
     void commitChangesForFlightBooking() {
+        dbHandler.getCityID(FlightBooking.getInstance().getOrigin());
+        String origin = Singleton.getInstance().getCityID();
+        dbHandler.getCityID(FlightBooking.getInstance().getDestination());
+        String destination = Singleton.getInstance().getCityID();
+        dbHandler.getFlightID(FlightBooking.getInstance().getAirline(),origin,destination,FlightBooking.getInstance().getDate());
+        dbHandler.getUserID(Singleton.getInstance().getUsername());
+        dbHandler.getFlightBookingID(Singleton.getInstance().getUserID(),Singleton.getInstance().getFlightID());
+
 
     }
 
@@ -22,6 +30,14 @@ public class NormalAccountEditBooking extends EditBooking{
 
     @Override
     void commitChangesForCarRentalBooking() {
+        dbHandler.getCityID(CarRentalBooking.getInstance().getCity());
+        dbHandler.getCarID(CarRentalBooking.getInstance().getCar(),Singleton.getInstance().getCityID());
+        dbHandler.getUserID(Singleton.getInstance().getUsername());
+        dbHandler.getCarRentalBookingID(Singleton.getInstance().getCarID(),Singleton.getInstance().getUserID(), CarRentalBooking.getInstance().getHireCarDate(),
+                CarRentalBooking.getInstance().getReturnCarDate());
+        dbHandler.editCarRental(Singleton.getInstance().getCarRentalBookingID(),Singleton.getInstance().getNewCarRentalStartDate(),Singleton.getInstance().getNewCarRentalReturnDate());
+
+
 
     }
 
