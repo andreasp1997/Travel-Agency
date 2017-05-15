@@ -63,6 +63,11 @@ public class EditBookingsController implements Initializable {
     @FXML private TableColumn flightPrice;
     @FXML private TableColumn flightRooms;
     @FXML private Button helpBtn;
+    @FXML private Button editBtn;
+    @FXML private DatePicker datePicker;
+    @FXML private DatePicker datePicker2;
+    @FXML private Button saveBtn;
+
 
     ArrayList<HotelBooking> hotelBooking;
     ArrayList<CarRentalBooking> carBooking;
@@ -76,6 +81,10 @@ public class EditBookingsController implements Initializable {
         flightTable.setVisible(false);
         carTable.setVisible(false);
         cruiseTable.setVisible(false);
+        datePicker.setVisible(false);
+        datePicker2.setVisible(false);
+        saveBtn.setVisible(false);
+
 
         if(singleton.getInstance().getUserRole().equals("1")){
 
@@ -178,6 +187,10 @@ public class EditBookingsController implements Initializable {
         hotelTable.getColumns().clear();
         hotelTable.getColumns().addAll(hotel, hotelRoom, hotelCheckin, hotelCheckout, hotelPrice);
 
+        editBtn.setOnAction(e -> {
+            editHotelBookingDate();
+        });
+
     }
 
     @FXML
@@ -212,6 +225,10 @@ public class EditBookingsController implements Initializable {
         carTable.setItems(data);
         carTable.getColumns().clear();
         carTable.getColumns().addAll(carCity, car, carHireDate, carReturnDate, carPrice);
+
+        editBtn.setOnAction(e -> {
+            editCarRentalBookingDate();
+        });
 
     }
 
@@ -248,6 +265,10 @@ public class EditBookingsController implements Initializable {
         cruiseTable.getColumns().clear();
         cruiseTable.getColumns().addAll(cruiseOrigin, cruiseDestination, cruiseDate, cruiseRooms, cruisePrice);
 
+        editBtn.setOnAction(e -> {
+            editCruiseBookingDate();
+        });
+
     }
 
     @FXML
@@ -278,6 +299,39 @@ public class EditBookingsController implements Initializable {
         flightTable.setItems(data);
         flightTable.getColumns().clear();
         flightTable.getColumns().addAll(flightOrigin, flightDestination, flightDate, flightPrice);
+
+        editBtn.setOnAction(e -> {
+            editFlightBookingDate();
+        });
+
+    }
+    public void editFlightBookingDate(){
+        datePicker.setVisible(true);
+        saveBtn.setVisible(true);
+
+
+
+    }
+    public void editCruiseBookingDate(){
+        datePicker.setVisible(true);
+        saveBtn.setVisible(true);
+
+
+
+    }
+
+    public void editHotelBookingDate(){
+        datePicker.setVisible(true);
+        datePicker2.setVisible(true);
+        saveBtn.setVisible(true);
+
+
+    }
+    public void editCarRentalBookingDate(){
+        datePicker.setVisible(true);
+        datePicker2.setVisible(true);
+        saveBtn.setVisible(true);
+
 
     }
 }
