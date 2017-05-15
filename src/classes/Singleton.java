@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Singleton {
     private static Singleton instance = null;
 
-    private SimpleStringProperty usernameList = new SimpleStringProperty();
+    private ArrayList<String> usernameList = new ArrayList<>();
     private SimpleStringProperty userIDnumber = new SimpleStringProperty();
     private SimpleStringProperty userRole = new SimpleStringProperty();
     private SimpleStringProperty username = new SimpleStringProperty();
@@ -66,11 +66,9 @@ public class Singleton {
         return instance;
     }
 
-    public void setUsernameList (String s) { this.usernameList.set(s); }
+    public ArrayList<String> getUsernameList() { return usernameList; }
 
-    public String getUsernameList(){
-        return usernameList.get();
-    }
+    public void setUsernameList(ArrayList<String> usernameList) { this.usernameList = usernameList; }
 
     public void setUserIDnumber (String s){
         this.userIDnumber.set(s);

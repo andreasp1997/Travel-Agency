@@ -31,7 +31,7 @@ public class CarRentalController implements Initializable, ChangeCurrency {
     DBHandler dbh = new DBHandler();
     AdminBooking adminBooking = new AdminBooking();
     NormalUserBooking normalUserBooking = new NormalUserBooking();
-    private String usernameList;
+    private ArrayList<String> usernameList;
 
     private ArrayList<String> cities;
     private ArrayList<String> carList;

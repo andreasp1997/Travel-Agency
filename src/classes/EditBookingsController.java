@@ -33,7 +33,7 @@ public class EditBookingsController implements Initializable {
     @FXML Button pickUserBtn;
     @FXML Text adminText;
 
-    private String usernameList;
+    private ArrayList<String> usernameList;
 
     @FXML private TableView hotelTable;
     @FXML private TableColumn hotel;

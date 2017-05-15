@@ -40,7 +40,7 @@ public class HotelBookingController implements Initializable {
 
     private ArrayList<String> allCities;
 
-    private String usernameList;
+    private ArrayList<String> usernameList;
 
     @FXML TextField pickUserField;
     @FXML Button pickUserBtn;

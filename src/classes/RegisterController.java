@@ -17,6 +17,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class RegisterController{
@@ -34,7 +35,7 @@ public class RegisterController{
 
     DBHandler dbh = new DBHandler();
 
-    private String usernameList = Singleton.getInstance().getUsernameList();
+    private ArrayList<String> usernameList = Singleton.getInstance().getUsernameList();
 
     public void back(ActionEvent ae) {
         try {
@@ -86,7 +87,7 @@ public class RegisterController{
         register.setEmail(emailField.getText());
 
         if(Singleton.getInstance().getUsernameList() == null){
-            usernameList = "";
+            usernameList = null;
         } else {
             usernameList = Singleton.getInstance().getUsernameList();
         }

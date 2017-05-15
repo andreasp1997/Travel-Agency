@@ -58,7 +58,7 @@ public class DBHandler {
             }
 
             System.out.println(result.toString());
-            Singleton.getInstance().setUsernameList(result.toString());
+            Singleton.getInstance().setUsernameList(result);
         }
         catch (SQLException ex){
             System.out.println("Error on executing the query");

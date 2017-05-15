@@ -17,6 +17,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -34,7 +35,7 @@ public class AccountSettingsController implements Initializable {
     @FXML private Button pickUserBtn;
     @FXML private Text adminText;
 
-    private String usernameList;
+    private ArrayList<String> usernameList;
 
     DBHandler dbh = new DBHandler();
     NormalAccountSettings normalAccountSettings = new NormalAccountSettings();

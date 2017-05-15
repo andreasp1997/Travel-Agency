@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -48,7 +49,7 @@ public class CruiseBookingController implements Initializable, ChangeCurrency {
     private ObservableList<String> travels;
     Singleton singleton = new Singleton();
     private ObservableList<Integer> roomOption;
-    private String usernameList;
+    private ArrayList<String> usernameList;
     private String originID;
     private String destinationID;
 

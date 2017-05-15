@@ -41,7 +41,7 @@ public class FlightBookingController implements Initializable, ChangeCurrency {
     private boolean isAsianCity = false;
     private boolean isAustralianCity = false;
 
-    private String usernameList;
+    private ArrayList<String> usernameList;
 
     @FXML private TextField pickUserField;
     @FXML private Button pickUserBtn;
