@@ -266,10 +266,16 @@ public class CruiseBookingController implements Initializable, ChangeCurrency {
 
     public void pickUser() {
         dbHandler.checkIfUsernameExists();
+        dbHandler.checkUserRole(pickUserField.getText());
         usernameList = Singleton.getInstance().getUsernameList();
 
-        if(usernameList.contains(pickUserField.getText())){
+        if(usernameList.contains(pickUserField.getText()) && Singleton.getInstance().getUserRole().equals("2")){
             Singleton.getInstance().setPickedUser(pickUserField.getText());
+        } else if (Singleton.getInstance().getUserRole().equals("1")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("The username you entered is an administrator account");
+            alert.showAndWait();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");

@@ -1118,5 +1118,4 @@ public class DBHandler {
             System.out.print("Error executing the query");
         }
     }
-
 }
