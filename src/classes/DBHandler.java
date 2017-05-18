@@ -1118,4 +1118,16 @@ public class DBHandler {
             System.out.print("Error executing the query");
         }
     }
+    public void editHotel(String bookingID, String checkIn, String checkOut) {
+
+        try (Connection conn = DriverManager.getConnection(connectionURL)) {
+            String query = "Update hotel_bookings set hotel_bookings.from= '" + checkIn + "' , hotel_bookings.to ='" + checkOut + "' where booking_id = '" + bookingID + "'";
+            Statement statement = conn.createStatement();
+            statement.executeUpdate(query);
+        } catch (SQLException ex) {
+            System.out.print("Error executing the query");
+        }
+
+    }
+
 }

@@ -346,8 +346,7 @@ public class EditBookingsController implements Initializable {
         datePicker.setVisible(true);
         saveBtn.setVisible(true);
 
-        ObservableList<FlightBooking> flightBookingSelected, allFlightBookings;
-        allFlightBookings = flightTable.getItems();
+        ObservableList<FlightBooking> flightBookingSelected;
         flightBookingSelected = flightTable.getSelectionModel().getSelectedItems();
         for (FlightBooking flightBooking : flightBookingSelected) {
             FlightBooking.getInstance().setOrigin(flightBooking.getOrigin());
@@ -355,38 +354,127 @@ public class EditBookingsController implements Initializable {
             FlightBooking.getInstance().setPrice(flightBooking.getPrice());
             FlightBooking.getInstance().setDestination(flightBooking.getDestination());
             FlightBooking.getInstance().setAirline(flightBooking.getAirline());
-            saveBtn.setOnAction(e -> {Singleton.getInstance().setNewFlightBookingDate(String.valueOf(datePicker.getValue()));});
+            saveBtn.setOnAction(e -> {
+                Singleton.getInstance().setNewFlightBookingDate(String.valueOf(datePicker.getValue()));
+                dbh.checkUserRole(singleton.getInstance().getUsername());
 
-            dbh.checkUserRole(singleton.getInstance().getUsername());
+                if(singleton.getInstance().getUserRole().equals("2")) {
+                    normalAccountEditBooking.commitChangesForFlightBooking();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText("You have successfully edited a booking");
+                    alert.showAndWait();
 
-            if(singleton.getInstance().getUserRole().equals("2")) {
-                normalAccountEditBooking.commitChangesForFlightBooking();
 
 
-            } else {
-                adminAccountEditBooking.commitChangesForCarRentalBooking();
+                } else {
+                    adminAccountEditBooking.commitChangesForCarRentalBooking();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText("You have successfully edited a booking");
+                    alert.showAndWait();
 
-            }
+                }
+            });
+        }
+
+    }
+
+
+    public void editCruiseBookingDate(){
+        datePicker.setVisible(true);
+        saveBtn.setVisible(true);
+        datePicker.setVisible(true);
+        saveBtn.setVisible(true);
+        ObservableList<CruiseBooking> cruiseBookingSelected;
+        cruiseBookingSelected = cruiseTable.getSelectionModel().getSelectedItems();
+
+        for (CruiseBooking cruiseBooking : cruiseBookingSelected) {
+            CruiseBooking.getInstance().setOrigin(cruiseBooking.getOrigin());
+            CruiseBooking.getInstance().setDestination(cruiseBooking.getDestination());
+            CruiseBooking.getInstance().setDate(cruiseBooking.getDate());
+            CruiseBooking.getInstance().setPrice(cruiseBooking.getPrice());
+            saveBtn.setOnAction(e -> {
+                Singleton.getInstance().setNewCruiseBookingDate(String.valueOf(datePicker.getValue()));
+                dbh.checkUserRole(singleton.getInstance().getUsername());
+
+                if (singleton.getInstance().getUserRole().equals("2")) {
+                    normalAccountEditBooking.commitChangesForCruiseBooking();
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText("You have successfully deleted a booking");
+                    alert.showAndWait();
+
+                } else {
+                    adminAccountEditBooking.commitChangesForCruiseBooking();
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText("You have successfully deleted a booking");
+                    alert.showAndWait();
+
+                }
+                datePicker.setVisible(false);
+            });
+
 
         }
 
 
-    }
-    public void editCruiseBookingDate(){
-        datePicker.setVisible(true);
-        saveBtn.setVisible(true);
-
 
 
     }
+
 
     public void editHotelBookingDate(){
         datePicker.setVisible(true);
         datePicker2.setVisible(true);
         saveBtn.setVisible(true);
+        datePicker.setVisible(true);
+        datePicker2.setVisible(true);
+        saveBtn.setVisible(true);
+
+        ObservableList<HotelBooking> hotelBookingSelected, allHotelBookings;
+        allHotelBookings = hotelTable.getItems();
+        hotelBookingSelected = hotelTable.getSelectionModel().getSelectedItems();
+        for (HotelBooking hotelBooking : hotelBookingSelected) {
+            Singleton.getInstance().setHotelCheckInDate(hotelBooking.getCheckinDate());
+            Singleton.getInstance().setHotelName(hotelBooking.getHotelName());
+            Singleton.getInstance().setHotelCheckOutDate(hotelBooking.getCheckoutDate());
+            Singleton.getInstance().setHotelRoomSize(String.valueOf(hotelBooking.getRoomSize()));
 
 
+            saveBtn.setOnAction(e -> {
+                Singleton.getInstance().setNewHotelCheckInDate(String.valueOf(datePicker.getValue()));
+                Singleton.getInstance().setNewHotelCheckOutDate(String.valueOf(datePicker2.getValue()));
+                dbh.checkUserRole(singleton.getInstance().getUsername());
+
+                if (singleton.getInstance().getUserRole().equals("2")) {
+                    normalAccountEditBooking.commitChangesForHotelBooking();
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText("You have successfully edited a booking");
+                    alert.showAndWait();
+
+                } else {
+                    adminAccountEditBooking.commitChangesForHotelBooking();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText("You have successfully edited a booking");
+                    alert.showAndWait();
+                }
+
+                datePicker.setVisible(false);
+                datePicker2.setVisible(false);
+
+
+            });
+        }
     }
+
+
     public void editCarRentalBookingDate(){
         datePicker.setVisible(true);
         datePicker2.setVisible(true);

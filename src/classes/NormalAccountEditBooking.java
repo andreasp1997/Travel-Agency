@@ -7,24 +7,144 @@ public class NormalAccountEditBooking extends EditBooking{
     DBHandler dbHandler = new DBHandler();
     @Override
     void commitChangesForFlightBooking() {
+        int flightIDCount;
+        int flightBookingIDCount;
+
         dbHandler.getCityID(FlightBooking.getInstance().getOrigin());
         String origin = Singleton.getInstance().getCityID();
         dbHandler.getCityID(FlightBooking.getInstance().getDestination());
         String destination = Singleton.getInstance().getCityID();
-        dbHandler.getFlightID(FlightBooking.getInstance().getAirline(),origin,destination,FlightBooking.getInstance().getDate());
-        dbHandler.getUserID(Singleton.getInstance().getUsername());
-        dbHandler.getFlightBookingID(Singleton.getInstance().getUserID(),Singleton.getInstance().getFlightID());
+        dbHandler.checkForFlight(FlightBooking.getInstance().getAirline(),origin,destination, Singleton.getInstance().getNewFlightBookingDate());
+
+        dbHandler.flightIDCount();
+        dbHandler.flightBookingIDCount();
+
+        if(Singleton.getInstance().getCheckedFlight() == null) {
+
+            if (Singleton.getInstance().getFlightIDCount() == null) {
+                flightIDCount = 1;
+            } else {
+                flightIDCount = Integer.parseInt(Singleton.getInstance().getFlightIDCount());
+                flightIDCount++;
+            }
+
+            if (Singleton.getInstance().getFlightBookingIDCount() == null) {
+                flightBookingIDCount = 1;
+            } else {
+                flightBookingIDCount = Integer.parseInt(Singleton.getInstance().getFlightBookingIDCount());
+                flightBookingIDCount++;
+            }
+            dbHandler.getFlightID(FlightBooking.getInstance().getAirline(),origin,destination,FlightBooking.getInstance().getDate());
+            dbHandler.getUserID(Singleton.getInstance().getUsername());
+            dbHandler.getFlightBookingID(Singleton.getInstance().getUserID(),Singleton.getInstance().getFlightID());
+            dbHandler.deleteFlightBooking(Singleton.getInstance().getFlightBookingID());
+            dbHandler.addFlight(flightIDCount, FlightBooking.getInstance().getAirline(),origin, destination, 200, FlightBooking.getInstance().getPrice(),Singleton.getInstance().getNewFlightBookingDate());
+            dbHandler.getFlightID(FlightBooking.getInstance().getAirline(), origin, destination, Singleton.getInstance().getNewFlightBookingDate());
+            dbHandler.bookFlight(flightBookingIDCount, Singleton.getInstance().getFlightID(), Singleton.getInstance().getUserID());
+
+        } else if(Singleton.getInstance().getCheckedFlight() != null){
+
+            if(Singleton.getInstance().getFlightIDCount() == null){
+                flightIDCount = 1;
+            } else {
+                flightIDCount = Integer.parseInt(Singleton.getInstance().getFlightIDCount());
+                flightIDCount++;
+            }
+
+            if(Singleton.getInstance().getFlightBookingIDCount() == null){
+                flightBookingIDCount = 1;
+            } else {
+                flightBookingIDCount = Integer.parseInt(Singleton.getInstance().getFlightBookingIDCount());
+                flightBookingIDCount++;
+            }
+            dbHandler.getFlightID(FlightBooking.getInstance().getAirline(),origin,destination,FlightBooking.getInstance().getDate());
+            dbHandler.getUserID(Singleton.getInstance().getUsername());
+            dbHandler.getFlightBookingID(Singleton.getInstance().getUserID(),Singleton.getInstance().getFlightID());
+            dbHandler.deleteFlightBooking(Singleton.getInstance().getFlightBookingID());
+            dbHandler.getFlightID(FlightBooking.getInstance().getAirline(),origin, destination, Singleton.getInstance().getNewFlightBookingDate());
+            dbHandler.bookFlight(flightBookingIDCount, Singleton.getInstance().getFlightID(), Singleton.getInstance().getUserID());
+        }
+
 
 
     }
 
     @Override
     void commitChangesForCruiseBooking() {
+        int cruiseIDCount;
+        int cruiseBookingIDCount;
+        dbHandler.getCityID(CruiseBooking.getInstance().getOrigin());
+        String origin = Singleton.getInstance().getCityID();
+        dbHandler.getCityID(CruiseBooking.getInstance().getDestination());
+        String destination = Singleton.getInstance().getCityID();
+
+        dbHandler.checkForCruise(origin, destination,Singleton.getInstance().getNewCruiseBookingDate());
+        dbHandler.cruiseIDCount();
+        dbHandler.cruiseBookingIDCount();
+
+        if(Singleton.getInstance().getCheckedCruise() == null){
+
+            if(Singleton.getInstance().getCruiseIDcount() == null){
+                cruiseIDCount = 1;
+            } else {
+                cruiseIDCount = Integer.parseInt(Singleton.getInstance().getCruiseIDcount());
+                cruiseIDCount++;
+            }
+
+            if(Singleton.getInstance().getCruiseBookingsIDAmount() == null){
+                cruiseBookingIDCount = 1;
+            } else {
+                cruiseBookingIDCount = Integer.parseInt(Singleton.getInstance().getCruiseBookingsIDAmount());
+                cruiseBookingIDCount++;
+            }
+
+
+            dbHandler.getCruiseID(origin,destination,CruiseBooking.getInstance().getDate());
+            dbHandler.getUserID(Singleton.getInstance().getUsername());
+            dbHandler.getCruiseBookingID(Singleton.getInstance().getUserID(),Singleton.getInstance().getCruiseID());
+            dbHandler.deleteCruiseBooking(Singleton.getInstance().getCruiseBookingID());
+            dbHandler.addCruise(cruiseIDCount, origin, destination,Singleton.getInstance().getNewCruiseBookingDate(), 150, CruiseBooking.getInstance().getPrice());
+            dbHandler.getCruiseID(origin,destination,Singleton.getInstance().getNewCruiseBookingDate());
+            dbHandler.getUserID(Singleton.getInstance().getUsername());
+            dbHandler.bookCruise(cruiseBookingIDCount, Singleton.getInstance().getCruiseID(),Singleton.getInstance().getUserID(),CruiseBooking.getInstance().getRoom());
+
+        } else if (Singleton.getInstance().getCheckedCruise() != null){
+
+            if(Singleton.getInstance().getCruiseIDcount() == null){
+                cruiseIDCount = 1;
+            } else {
+                cruiseIDCount = Integer.parseInt(Singleton.getInstance().getCruiseIDcount());
+                cruiseIDCount++;
+            }
+
+            if(Singleton.getInstance().getCruiseBookingsIDAmount() == null){
+                cruiseBookingIDCount = 1;
+            } else {
+                cruiseBookingIDCount = Integer.parseInt(Singleton.getInstance().getCruiseBookingsIDAmount());
+                cruiseBookingIDCount++;
+            }
+            dbHandler.getCruiseID(origin,destination,CruiseBooking.getInstance().getDate());
+            dbHandler.getUserID(Singleton.getInstance().getUsername());
+            dbHandler.getCruiseBookingID(Singleton.getInstance().getUserID(),Singleton.getInstance().getCruiseID());
+            dbHandler.deleteCruiseBooking(Singleton.getInstance().getCruiseBookingID());
+            dbHandler.getCruiseID(origin, destination,Singleton.getInstance().getNewCruiseBookingDate());
+            dbHandler.getUserID(Singleton.getInstance().getUsername());
+            dbHandler.bookCruise(cruiseBookingIDCount, Singleton.getInstance().getCruiseID(),Singleton.getInstance().getUserID(),CruiseBooking.getInstance().getRoom());
+        }
+
 
     }
 
     @Override
     void commitChangesForHotelBooking() {
+        int roomID;
+        dbHandler.getHotelID(Singleton.getInstance().getHotelName());
+        roomID= dbHandler.getRoomId(Integer.parseInt(Singleton.getInstance().getHotelID()),Integer.parseInt(Singleton.getInstance().getHotelRoomSize()));
+
+        dbHandler.getUserID(Singleton.getInstance().getUsername());
+
+        dbHandler.getHotelBookingID(Singleton.getInstance().getUserID(),roomID,Singleton.getInstance().getHotelCheckInDate(),Singleton.getInstance().getHotelCheckOutDate());
+        dbHandler.editHotel(Singleton.getInstance().getHotelBookingID(),Singleton.getInstance().getNewHotelCheckInDate(),Singleton.getInstance().getNewHotelCheckOutDate());
 
     }
 
