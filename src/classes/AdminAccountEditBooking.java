@@ -1,5 +1,9 @@
 package classes;
 
+import java.time.LocalDate;
+
+import static java.time.temporal.ChronoUnit.DAYS;
+
 /**
  * Created by Paolo9517 on 2017-05-15.
  */
@@ -148,11 +152,22 @@ public class AdminAccountEditBooking extends EditBooking {
 
     @Override
     void commitChangesForCarRentalBooking() {
+        int carPrice;
+        int totalPrice;
+        LocalDate hireDate = LocalDate.parse(Singleton.getInstance().getNewCarRentalStartDate());
+        LocalDate returnDate = LocalDate.parse(Singleton.getInstance().getNewCarRentalReturnDate());
+        int daysBetween = (int) DAYS.between(hireDate,returnDate);
+
         dbHandler.getCityID(CarRentalBooking.getInstance().getCity());
         dbHandler.getCarID(CarRentalBooking.getInstance().getCar(),Singleton.getInstance().getCityID());
+        dbHandler.getCarPrice(Singleton.getInstance().getCarID());
+
+        carPrice = Integer.parseInt(Singleton.getInstance().getCarPrice());
+        totalPrice = carPrice * daysBetween;
+
         dbHandler.getCarRentalBookingID(Singleton.getInstance().getCarID(),Singleton.getInstance().getPickedUser(), CarRentalBooking.getInstance().getHireCarDate(),
                 CarRentalBooking.getInstance().getReturnCarDate());
-        dbHandler.editCarRental(Singleton.getInstance().getCarRentalBookingID(),Singleton.getInstance().getNewCarRentalStartDate(),Singleton.getInstance().getNewCarRentalReturnDate());
+        dbHandler.editCarRental(Singleton.getInstance().getCarRentalBookingID(),Singleton.getInstance().getNewCarRentalStartDate(),Singleton.getInstance().getNewCarRentalReturnDate(),totalPrice);
 
     }
 

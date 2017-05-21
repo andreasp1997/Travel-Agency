@@ -59,10 +59,6 @@ public class Singleton {
     private SimpleStringProperty newHotelCheckOutDate = new SimpleStringProperty();
     private SimpleStringProperty newCruiseBookingDate = new SimpleStringProperty();
 
-
-
-
-
     public Singleton() {
 
     }

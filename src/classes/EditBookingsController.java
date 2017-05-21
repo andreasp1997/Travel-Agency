@@ -394,6 +394,7 @@ public class EditBookingsController implements Initializable {
             CruiseBooking.getInstance().setDestination(cruiseBooking.getDestination());
             CruiseBooking.getInstance().setDate(cruiseBooking.getDate());
             CruiseBooking.getInstance().setPrice(cruiseBooking.getPrice());
+            CruiseBooking.getInstance().setRoom(cruiseBooking.getRoom());
             saveBtn.setOnAction(e -> {
                 Singleton.getInstance().setNewCruiseBookingDate(String.valueOf(datePicker.getValue()));
                 dbh.checkUserRole(singleton.getInstance().getUsername());
@@ -435,8 +436,7 @@ public class EditBookingsController implements Initializable {
         datePicker2.setVisible(true);
         saveBtn.setVisible(true);
 
-        ObservableList<HotelBooking> hotelBookingSelected, allHotelBookings;
-        allHotelBookings = hotelTable.getItems();
+        ObservableList<HotelBooking> hotelBookingSelected;
         hotelBookingSelected = hotelTable.getSelectionModel().getSelectedItems();
         for (HotelBooking hotelBooking : hotelBookingSelected) {
             Singleton.getInstance().setHotelCheckInDate(hotelBooking.getCheckinDate());
@@ -480,8 +480,7 @@ public class EditBookingsController implements Initializable {
         datePicker2.setVisible(true);
         saveBtn.setVisible(true);
 
-        ObservableList<CarRentalBooking> carRentalBookingSelected, allCarRentalBookings;
-        allCarRentalBookings = carTable.getItems();
+        ObservableList<CarRentalBooking> carRentalBookingSelected;
         carRentalBookingSelected = carTable.getSelectionModel().getSelectedItems();
 
         for (CarRentalBooking carRentalBooking: carRentalBookingSelected) {
@@ -581,7 +580,7 @@ public class EditBookingsController implements Initializable {
                 alert.showAndWait();
 
             } else {
-                adminAccountEditBooking.deleteCarRentalBooking();
+                adminAccountEditBooking.deleteCruiseBooking();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information");
