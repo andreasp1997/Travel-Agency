@@ -2,31 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf3f572d-926b-4f6a-8f29-b71f6a79da64" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/EditBookingsController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/EditBookingsController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/AccountSettings.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/AccountSettings.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/AccountSettingsController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/AccountSettingsController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/AdminBooking.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/AdminBooking.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/AdminChangeUserSettings.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/AdminChangeUserSettings.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$1.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$2.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$3.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$4$1.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$4$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$4$2.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$4$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$4.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$5$1.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$5$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$5$2.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$5$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$5.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CruiseBookingController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CruiseBookingController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/DBHandler.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/DBHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/FlightBooking.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/FlightBooking.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/FlightBookingController$1.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/FlightBookingController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/FlightBookingController$2.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/FlightBookingController$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/FlightBookingController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/FlightBookingController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/Hotel.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/Hotel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/HotelBookingController$1.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/HotelBookingController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/HotelBookingController$2.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/HotelBookingController$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/HotelBookingController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/HotelBookingController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/LoginController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/LoginController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/NormalAccountSettings.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/NormalAccountSettings.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/NormalUserBooking.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/NormalUserBooking.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/RegisterController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/RegisterController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/Singleton.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/Singleton.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/UserMenuController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/UserMenuController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/WelcomeScreen.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/WelcomeScreen.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.properties" afterPath="$PROJECT_DIR$/app.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/AccountSettings.java" afterPath="$PROJECT_DIR$/src/classes/AccountSettings.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/AccountSettingsController.java" afterPath="$PROJECT_DIR$/src/classes/AccountSettingsController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/AdminAccountEditBooking.java" afterPath="$PROJECT_DIR$/src/classes/AdminAccountEditBooking.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/AdminBooking.java" afterPath="$PROJECT_DIR$/src/classes/AdminBooking.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/AdminChangeUserSettings.java" afterPath="$PROJECT_DIR$/src/classes/AdminChangeUserSettings.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/CarRentalController.java" afterPath="$PROJECT_DIR$/src/classes/CarRentalController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/CruiseBookingController.java" afterPath="$PROJECT_DIR$/src/classes/CruiseBookingController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/DBHandler.java" afterPath="$PROJECT_DIR$/src/classes/DBHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/EditBooking.java" afterPath="$PROJECT_DIR$/src/classes/EditBooking.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/EditBookingsController.java" afterPath="$PROJECT_DIR$/src/classes/EditBookingsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/FlightBooking.java" afterPath="$PROJECT_DIR$/src/classes/FlightBooking.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/FlightBookingController.java" afterPath="$PROJECT_DIR$/src/classes/FlightBookingController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/Hotel.java" afterPath="$PROJECT_DIR$/src/classes/Hotel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/HotelBookingController.java" afterPath="$PROJECT_DIR$/src/classes/HotelBookingController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/LoginController.java" afterPath="$PROJECT_DIR$/src/classes/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/NormalAccountEditBooking.java" afterPath="$PROJECT_DIR$/src/classes/NormalAccountEditBooking.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/NormalAccountSettings.java" afterPath="$PROJECT_DIR$/src/classes/NormalAccountSettings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/NormalUserBooking.java" afterPath="$PROJECT_DIR$/src/classes/NormalUserBooking.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/RegisterController.java" afterPath="$PROJECT_DIR$/src/classes/RegisterController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/Singleton.java" afterPath="$PROJECT_DIR$/src/classes/Singleton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/UserMenuController.java" afterPath="$PROJECT_DIR$/src/classes/UserMenuController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/WelcomeScreen.java" afterPath="$PROJECT_DIR$/src/classes/WelcomeScreen.java" />
     </list>
     <ignored path="Travel-Agency-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,16 +123,16 @@
         <option value="$PROJECT_DIR$/src/classes/RegisterController.java" />
         <option value="$PROJECT_DIR$/src/classes/WelcomeScreen.java" />
         <option value="$PROJECT_DIR$/src/classes/UserMenuController.java" />
+        <option value="$PROJECT_DIR$/src/classes/CruiseBookingController.java" />
+        <option value="$PROJECT_DIR$/src/classes/EditBookingsController.java" />
+        <option value="$PROJECT_DIR$/src/classes/HotelBookingController.java" />
+        <option value="$PROJECT_DIR$/src/classes/LoginController.java" />
         <option value="$PROJECT_DIR$/src/classes/AccountSettingsController.java" />
         <option value="$PROJECT_DIR$/src/classes/AdminAccountEditBooking.java" />
         <option value="$PROJECT_DIR$/src/classes/AdminBooking.java" />
         <option value="$PROJECT_DIR$/src/classes/AdminChangeUserSettings.java" />
         <option value="$PROJECT_DIR$/src/classes/CarRentalController.java" />
-        <option value="$PROJECT_DIR$/src/classes/CruiseBookingController.java" />
-        <option value="$PROJECT_DIR$/src/classes/EditBookingsController.java" />
         <option value="$PROJECT_DIR$/src/classes/FlightBookingController.java" />
-        <option value="$PROJECT_DIR$/src/classes/HotelBookingController.java" />
-        <option value="$PROJECT_DIR$/src/classes/LoginController.java" />
       </list>
     </option>
   </component>
@@ -597,7 +610,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495469016192</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Variable names + access levels fixed">
+      <created>1495471684814</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1495471684814</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -654,7 +674,8 @@
     <MESSAGE value="Car inserts sql file added" />
     <MESSAGE value="Date Pickers for bookings fixed" />
     <MESSAGE value="Date Pickers for edit bookings fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Date Pickers for edit bookings fixed" />
+    <MESSAGE value="Variable names + access levels fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Variable names + access levels fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -819,14 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/RegisterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/WelcomeScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -839,46 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/AccountSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/AccountSettingsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/AdminAccountEditBooking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/AdminBooking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/AdminChangeUserSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -899,14 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/CarRentalController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/ChangeCurrency.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -919,14 +884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="54" column="61" selection-start-line="54" selection-start-column="61" selection-end-line="54" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/CruiseBookingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -959,14 +916,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/FlightBookingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1015,6 +964,78 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/AccountSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/AccountSettingsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="238" column="65" selection-start-line="238" selection-start-column="65" selection-end-line="238" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/AdminAccountEditBooking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="145" column="172" selection-start-line="145" selection-start-column="172" selection-end-line="145" selection-end-column="172" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/AdminBooking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1416">
+          <caret line="31" column="120" selection-start-line="31" selection-start-column="120" selection-end-line="31" selection-end-column="120" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/AdminChangeUserSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-285">
+          <caret line="50" column="67" selection-start-line="50" selection-start-column="67" selection-end-line="50" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/CarRentalController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1815">
+          <caret line="178" column="37" selection-start-line="178" selection-start-column="37" selection-end-line="178" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/CruiseBookingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1455">
+          <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/RegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/FlightBookingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3270">
+          <caret line="273" column="47" selection-start-line="273" selection-start-column="47" selection-end-line="273" selection-end-column="47" />
           <folding />
         </state>
       </provider>

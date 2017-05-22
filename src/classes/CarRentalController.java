@@ -176,6 +176,7 @@ public class CarRentalController implements Initializable, ChangeCurrency {
 
             dbHandler.getCarPrice(carsComboBox.getSelectionModel().getSelectedItem(), Singleton.getInstance().getCityID());
             priceValue.setText(Singleton.getInstance().getCarPrice());
+            //Calculation of currency
             priceEUR.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.10354).split("\\.")[0]);
             priceUSD.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.11272).split("\\.")[0]);
             priceGBP.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.08752).split("\\.")[0]);

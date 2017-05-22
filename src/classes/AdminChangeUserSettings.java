@@ -21,7 +21,7 @@ public class AdminChangeUserSettings extends AccountSettings {
     private ArrayList<String> hotelBookingForUser;
     private ArrayList<String> carRentalBookingForUser;
 
-    private DBHandler dbh = new DBHandler();
+    private DBHandler dbHandler = new DBHandler();
 
     public AdminChangeUserSettings() {
 
@@ -37,8 +37,8 @@ public class AdminChangeUserSettings extends AccountSettings {
     @Override
     public void commitChange() {
 
-        dbh.getUserID(Singleton.getInstance().getPickedUser());
-        dbh.updateUserInfo(Singleton.getInstance().getUserID(), AdminChangeUserSettings.getInstance().getUserName(),
+        dbHandler.getUserID(Singleton.getInstance().getPickedUser());
+        dbHandler.updateUserInfo(Singleton.getInstance().getUserID(), AdminChangeUserSettings.getInstance().getUserName(),
                 AdminChangeUserSettings.getInstance().getPassword(), AdminChangeUserSettings.getInstance().getEmail(),
                 AdminChangeUserSettings.getInstance().getFirstName(), AdminChangeUserSettings.getInstance().getLastName());
 
@@ -46,38 +46,40 @@ public class AdminChangeUserSettings extends AccountSettings {
 
     public void deleteUser() {
 
-        dbh.getUserID(Singleton.getInstance().getPickedUser());
+        dbHandler.getUserID(Singleton.getInstance().getPickedUser());
+
+        //Deletes all booking for the user before deleting the user
 
         if(flightBookingForUser != null){
             for(int i = 0; i < flightBookingForUser.size(); i++){
-                dbh.removeFlightBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(flightBookingForUser.get(i)));
+                dbHandler.removeFlightBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(flightBookingForUser.get(i)));
                 flightBookingForUser.remove(i);
             }
         }
 
         if(cruiseBookingForUser != null){
             for(int i = 0; i < cruiseBookingForUser.size(); i++){
-                dbh.removeCruiseBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(cruiseBookingForUser.get(i)));
+                dbHandler.removeCruiseBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(cruiseBookingForUser.get(i)));
                 cruiseBookingForUser.remove(i);
             }
         }
 
         if(hotelBookingForUser != null){
             for(int i = 0; i < hotelBookingForUser.size(); i++){
-                dbh.removeHotelBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(hotelBookingForUser.get(i)));
+                dbHandler.removeHotelBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(hotelBookingForUser.get(i)));
                 hotelBookingForUser.remove(i);
             }
         }
 
         if(carRentalBookingForUser != null){
             for(int i = 0; i < carRentalBookingForUser.size(); i++){
-                dbh.removeCarRentalBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(carRentalBookingForUser.get(i)));
+                dbHandler.removeCarRentalBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(carRentalBookingForUser.get(i)));
                 carRentalBookingForUser.remove(i);
             }
         }
 
-        dbh.deleteUser(Singleton.getInstance().getUserID());
-        dbh.updateUserID(Singleton.getInstance().getUserID());
+        dbHandler.deleteUser(Singleton.getInstance().getUserID());
+        dbHandler.updateUserID(Singleton.getInstance().getUserID());
 
     }
 

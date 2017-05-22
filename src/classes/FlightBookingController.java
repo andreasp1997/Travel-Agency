@@ -48,9 +48,6 @@ public class FlightBookingController implements Initializable, ChangeCurrency {
     @FXML private Rectangle rectangle1;
     @FXML private Rectangle rectangle2;
     @FXML private Rectangle rectangle3;
-    @FXML private Text seatsAvailable1;
-    @FXML private Text seatsAvailable2;
-    @FXML private Text seatsAvailable3;
     @FXML private Text price1;
     @FXML private Text price2;
     @FXML private Text price3;
@@ -273,6 +270,8 @@ public class FlightBookingController implements Initializable, ChangeCurrency {
             } else{
                 isAustralianCity = false;
             }
+
+            //Calculation of price for airlines
 
             if(isEuropeanCity == true && isNorthAmericanCity == true){
                 priceAmount1.setText(String.valueOf(Integer.parseInt(priceAmount1.getText()) + 1200));

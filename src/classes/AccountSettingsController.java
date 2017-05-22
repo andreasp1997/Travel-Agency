@@ -105,6 +105,8 @@ public class AccountSettingsController implements Initializable {
 
     public void updateSettings(ActionEvent ae){
 
+        //Checks if any fields are left empty
+
         if(usernameField.getText().trim().isEmpty() || usernameField.getText() == null || passwordField.getText().trim().isEmpty()
                 || passwordField.getText() == null || firstNameField.getText().trim().isEmpty() || firstNameField.getText() == null
                 || lastNameField.getText() == null || lastNameField.getText().trim().isEmpty() || emailField.getText().trim().isEmpty()
@@ -118,6 +120,8 @@ public class AccountSettingsController implements Initializable {
         } else {
 
             if(Singleton.getInstance().getUserRole().equals("1")){
+
+                //If user making changes is administrator:
 
                 AdminChangeUserSettings.getInstance().setUserName(usernameField.getText());
                 AdminChangeUserSettings.getInstance().setPassword(passwordField.getText());
@@ -153,6 +157,8 @@ public class AccountSettingsController implements Initializable {
                 }
 
             } else if (Singleton.getInstance().getUserRole().equals("2")){
+
+                //If user making changes is a normal user:
 
                 NormalAccountSettings.getInstance().setUsername(usernameField.getText());
                 NormalAccountSettings.getInstance().setPassword(passwordField.getText());

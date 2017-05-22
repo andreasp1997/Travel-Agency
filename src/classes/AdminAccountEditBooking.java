@@ -25,7 +25,7 @@ public class AdminAccountEditBooking extends EditBooking {
         dbHandler.flightIDCount();
         dbHandler.flightBookingIDCount();
 
-        if(Singleton.getInstance().getCheckedFlight() == null) {
+        if(Singleton.getInstance().getCheckedFlight() == null) {  //Checks if flight exists in database. If not, the flight is added.
 
             if (Singleton.getInstance().getFlightIDCount() == null) {
                 flightIDCount = 1;
@@ -85,7 +85,7 @@ public class AdminAccountEditBooking extends EditBooking {
         dbHandler.cruiseIDCount();
         dbHandler.cruiseBookingIDCount();
 
-        if(Singleton.getInstance().getCheckedCruise() == null){
+        if(Singleton.getInstance().getCheckedCruise() == null){  //Checks if cruise exists in database. If not, the cruise is added
 
             if(Singleton.getInstance().getCruiseIDcount() == null){
                 cruiseIDCount = 1;
@@ -137,9 +137,6 @@ public class AdminAccountEditBooking extends EditBooking {
 
     }
 
-
-
-
     @Override
     void commitChangeForHotelBooking() {
         int roomID;
@@ -148,9 +145,7 @@ public class AdminAccountEditBooking extends EditBooking {
         dbHandler.getHotelBookingID(Singleton.getInstance().getPickedUser(),roomID,Singleton.getInstance().getHotelCheckInDate(),Singleton.getInstance().getHotelCheckOutDate());
         dbHandler.editHotel(Singleton.getInstance().getHotelBookingID(),Singleton.getInstance().getNewHotelCheckInDate(),Singleton.getInstance().getNewHotelCheckOutDate());
 
-
     }
-
 
     @Override
     void commitChangeForCarRentalBooking() {

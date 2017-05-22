@@ -22,19 +22,21 @@ public class AdminBooking implements BookingTypes {
 
             if(Singleton.getInstance().getCheckedFlight() == null){
 
-                if(Singleton.getInstance().getFlightIDCount() == null){
+                if(Singleton.getInstance().getFlightIDCount() == null){ // Used for setting the id of the flight
                     flightIDCount = 1;
                 } else {
                     flightIDCount = Integer.parseInt(Singleton.getInstance().getFlightIDCount());
                     flightIDCount++;
                 }
 
-                if(Singleton.getInstance().getFlightBookingIDCount() == null){
+                if(Singleton.getInstance().getFlightBookingIDCount() == null){ // Used for setting the id of the booking
                     flightBookingIDCount = 1;
                 } else {
                     flightBookingIDCount = Integer.parseInt(Singleton.getInstance().getFlightBookingIDCount());
                     flightBookingIDCount++;
                 }
+
+                //Adds flight if it doesn't exist in the database
 
                 dbHandler.addFlight(flightIDCount, FlightBooking.getInstance().getAirline(), FlightBooking.getInstance().getOrigin(), FlightBooking.getInstance().getDestination(), 200, FlightBooking.getInstance().getPrice(), FlightBooking.getInstance().getDate());
                 dbHandler.getFlightID(FlightBooking.getInstance().getAirline(), FlightBooking.getInstance().getOrigin(), FlightBooking.getInstance().getDestination(), FlightBooking.getInstance().getDate());
