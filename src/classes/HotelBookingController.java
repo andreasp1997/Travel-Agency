@@ -213,6 +213,10 @@ public class HotelBookingController implements Initializable {
         hotelIds.clear();
         rooms.clear();
 
+        combo1.getItems().clear();
+        combo2.getItems().clear();
+        combo3.getItems().clear();
+
         btn1.setVisible(false);
         btn2.setVisible(false);
         btn3.setVisible(false);
