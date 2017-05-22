@@ -54,7 +54,7 @@ public class DBHandler {
 
             while(rs.next()){
                 result.add(rs.getString(1));
-                continue;
+
             }
 
             System.out.println(result.toString());
@@ -130,7 +130,6 @@ public class DBHandler {
 
             while(rs.next()){
                 result.add(rs.getString(1));
-                continue;
             }
 
             Singleton.getInstance().setCities(result);
@@ -239,7 +238,6 @@ public class DBHandler {
 
             while(rs.next()){
                 result.add(rs.getString(1));
-                continue;
             }
 
             Singleton.getInstance().setEuropeanCities(result);
@@ -259,7 +257,6 @@ public class DBHandler {
 
             while(rs.next()){
                 result.add(rs.getString(1));
-                continue;
             }
 
             Singleton.getInstance().setNorthAmericanCities(result);
@@ -279,7 +276,6 @@ public class DBHandler {
 
             while(rs.next()){
                 result.add(rs.getString(1));
-                continue;
             }
 
             Singleton.getInstance().setAsianCities(result);
@@ -299,7 +295,6 @@ public class DBHandler {
 
             while(rs.next()){
                 result.add(rs.getString(1));
-                continue;
             }
 
             Singleton.getInstance().setAustralianCities(result);
@@ -1125,22 +1120,6 @@ public class DBHandler {
             Statement statement = conn.createStatement();
             statement.executeUpdate(query);
         } catch (SQLException ex) {
-            System.out.print("Error executing the query");
-        }
-
-    }
-    public void getRoomsForCruiseBooking(String userID, String cruiseID){
-
-        try(Connection conn = DriverManager.getConnection(connectionURL)) {
-            Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery("Select rooms from cruise_bookings where user_id = '" + userID + "' and cruise_id = '" + cruiseID+ "'");
-            while (rs.next()) {
-                String s = rs.getString(1);
-                Singleton.getInstance().setFlightBookingID(s);
-
-            }
-
-        }catch (SQLException ex) {
             System.out.print("Error executing the query");
         }
 

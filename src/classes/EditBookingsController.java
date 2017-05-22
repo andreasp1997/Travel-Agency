@@ -1,5 +1,7 @@
 package classes;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,6 +19,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.security.Signature;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -33,6 +36,10 @@ public class EditBookingsController implements Initializable {
     @FXML TextField pickUserField;
     @FXML Button pickUserBtn;
     @FXML Text adminText;
+
+    private LocalDate today = LocalDate.now();
+    private LocalDate next = today.plusMonths(8);
+    private LocalDate tomorrow = today.plusDays(1);
 
     private ArrayList<String> usernameList;
 
@@ -99,6 +106,48 @@ public class EditBookingsController implements Initializable {
             pickUserBtn.setVisible(false);
             adminText.setVisible(false);
         }
+
+        datePicker.setValue(today);
+        datePicker2.setValue(tomorrow);
+
+        datePicker.setDayCellFactory((p) -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate ld, boolean bln) {
+                super.updateItem(ld, bln);
+                setDisable(ld.isBefore(today) || ld.isAfter(next));
+            }
+        });
+
+        datePicker2.setDayCellFactory((p) -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate ld, boolean bln) {
+                super.updateItem(ld, bln);
+                setDisable(ld.isBefore(tomorrow) || ld.isAfter(next));
+            }
+        });
+
+        datePicker.valueProperty().addListener(new ChangeListener<LocalDate>() {
+            @Override
+            public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue, LocalDate newValue) {
+                datePicker.setDayCellFactory((p) -> new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate ld, boolean bln) {
+                        super.updateItem(ld, bln);
+                        setDisable(ld.isBefore(today) || ld.isAfter(next));
+                        datePicker2.setValue(datePicker.getValue().plusDays(1));
+                    }
+                });
+
+                datePicker2.setDayCellFactory((p) -> new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate ld, boolean bln) {
+                        super.updateItem(ld, bln);
+                        setDisable(ld.isBefore(tomorrow) || ld.isAfter(next));
+                        setDisable(ld.isBefore(datePicker2.getValue()));
+                    }
+                });
+            }
+        });
 
     }
 
@@ -418,15 +467,8 @@ public class EditBookingsController implements Initializable {
                 }
                 datePicker.setVisible(false);
             });
-
-
         }
-
-
-
-
     }
-
 
     public void editHotelBookingDate(){
         datePicker.setVisible(true);
@@ -518,12 +560,7 @@ public class EditBookingsController implements Initializable {
                 datePicker2.setVisible(false);
 
             });
-
-
         }
-
-
-
     }
 
     private void deleteFlightBooking() {
