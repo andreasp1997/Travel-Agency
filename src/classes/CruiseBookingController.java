@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -52,6 +53,8 @@ public class CruiseBookingController implements Initializable, ChangeCurrency {
     private ArrayList<String> usernameList;
     private String originID;
     private String destinationID;
+    LocalDate today = LocalDate.now();
+    LocalDate next = today.plusMonths(8);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -68,6 +71,14 @@ public class CruiseBookingController implements Initializable, ChangeCurrency {
         priceGBP.setVisible(false);
         currencyComboBox.setVisible(false);
         selectCurrencyBtn.setVisible(false);
+
+        datePicker.setDayCellFactory((p) -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate ld, boolean bln) {
+                super.updateItem(ld, bln);
+                setDisable(ld.isBefore(today) || ld.isAfter(next));
+            }
+        });
 
         dbHandler.checkUserRole(singleton.getInstance().getUsername());
 

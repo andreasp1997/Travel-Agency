@@ -1,5 +1,7 @@
 package classes;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -92,6 +94,29 @@ public class HotelBookingController implements Initializable {
             public void updateItem(LocalDate ld, boolean bln) {
                 super.updateItem(ld, bln);
                 setDisable(ld.isBefore(tomorrow) || ld.isAfter(next));
+            }
+        });
+
+        checkin.valueProperty().addListener(new ChangeListener<LocalDate>() {
+            @Override
+            public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue, LocalDate newValue) {
+                checkin.setDayCellFactory((p) -> new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate ld, boolean bln) {
+                        super.updateItem(ld, bln);
+                        setDisable(ld.isBefore(today) || ld.isAfter(next));
+                        checkout.setValue(checkin.getValue().plusDays(1));
+                    }
+                });
+
+                checkout.setDayCellFactory((p) -> new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate ld, boolean bln) {
+                        super.updateItem(ld, bln);
+                        setDisable(ld.isBefore(tomorrow) || ld.isAfter(next));
+                        setDisable(ld.isBefore(checkout.getValue()));
+                    }
+                });
             }
         });
 

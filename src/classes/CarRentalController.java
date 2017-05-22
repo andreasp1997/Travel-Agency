@@ -60,6 +60,7 @@ public class CarRentalController implements Initializable, ChangeCurrency {
     @FXML private Text priceGBP;
     @FXML private ComboBox<String> currencyComboBox;
     @FXML private Button selectCurrencyBtn;
+    @FXML private Button book;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -77,6 +78,7 @@ public class CarRentalController implements Initializable, ChangeCurrency {
         priceGBP.setVisible(false);
         currencyComboBox.setVisible(false);
         selectCurrencyBtn.setVisible(false);
+        book.setVisible(false);
 
         currencyComboBox.getItems().addAll("SEK", "USD", "GBP", "EUR");
         currencyComboBox.getSelectionModel().selectFirst();
@@ -153,6 +155,7 @@ public class CarRentalController implements Initializable, ChangeCurrency {
             carsComboBox.setVisible(true);
             currencyComboBox.setVisible(true);
             selectCurrencyBtn.setVisible(true);
+            book.setVisible(true);
 
             CarRentalBooking.getInstance().setCity(cityComboBox.getSelectionModel().getSelectedItem());
             CarRentalBooking.getInstance().setSeats(String.valueOf(Integer.parseInt(seatsComboBox.getSelectionModel().getSelectedItem())));
@@ -197,6 +200,7 @@ public class CarRentalController implements Initializable, ChangeCurrency {
                 public void updateItem(LocalDate ld, boolean bln) {
                     super.updateItem(ld, bln);
                     setDisable(ld.isBefore(today) || ld.isAfter(next));
+                    returnDate.setValue(hireDate.getValue().plusDays(1));
                 }
             });
 
@@ -205,6 +209,7 @@ public class CarRentalController implements Initializable, ChangeCurrency {
                 public void updateItem(LocalDate ld, boolean bln) {
                     super.updateItem(ld, bln);
                     setDisable(ld.isBefore(returnStartDate) || ld.isAfter(hireLength));
+                    setDisable(ld.isBefore(returnDate.getValue()));
                 }
             });
 
@@ -217,6 +222,7 @@ public class CarRentalController implements Initializable, ChangeCurrency {
                         public void updateItem(LocalDate ld, boolean bln) {
                             super.updateItem(ld, bln);
                             setDisable(ld.isBefore(today) || ld.isAfter(next));
+                            returnDate.setValue(hireDate.getValue().plusDays(1));
                         }
                     });
 
@@ -225,6 +231,7 @@ public class CarRentalController implements Initializable, ChangeCurrency {
                         public void updateItem(LocalDate ld, boolean bln) {
                             super.updateItem(ld, bln);
                             setDisable(ld.isBefore(returnStartDate) || ld.isAfter(hireLength));
+                            setDisable(ld.isBefore(returnDate.getValue()));
                         }
                     });
 

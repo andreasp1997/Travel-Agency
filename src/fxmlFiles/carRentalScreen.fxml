@@ -33,7 +33,7 @@
       </Text>
       <ComboBox fx:id="seatsComboBox" layoutX="214.0" layoutY="158.0" prefWidth="150.0" />
       <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="37.0" layoutY="234.0" stroke="BLACK" strokeType="INSIDE" width="262.0" />
-      <Button layoutX="334.0" layoutY="252.0" mnemonicParsing="false" onAction="#book" prefHeight="40.0" prefWidth="96.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Book" />
+      <Button fx:id="book" layoutX="334.0" layoutY="252.0" mnemonicParsing="false" onAction="#book" prefHeight="40.0" prefWidth="96.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Book" />
       <Text fx:id="priceText" layoutX="198.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price: " />
       <Text fill="WHITE" layoutX="38.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Rental Booking">
          <font>

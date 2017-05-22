@@ -1129,6 +1129,22 @@ public class DBHandler {
         }
 
     }
+    public void getRoomsForCruiseBooking(String userID, String cruiseID){
+
+        try(Connection conn = DriverManager.getConnection(connectionURL)) {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery("Select rooms from cruise_bookings where user_id = '" + userID + "' and cruise_id = '" + cruiseID+ "'");
+            while (rs.next()) {
+                String s = rs.getString(1);
+                Singleton.getInstance().setFlightBookingID(s);
+
+            }
+
+        }catch (SQLException ex) {
+            System.out.print("Error executing the query");
+        }
+
+    }
 
     public void getCarPrice(String carID) {
 
