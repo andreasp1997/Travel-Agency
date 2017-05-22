@@ -14,11 +14,11 @@ public class Singleton {
     private SimpleStringProperty userIDnumber = new SimpleStringProperty();
     private SimpleStringProperty userRole = new SimpleStringProperty();
     private SimpleStringProperty username = new SimpleStringProperty();
-    private ArrayList<String> cities = new ArrayList<>();
-    private ArrayList<String> europeanCities = new ArrayList<>();
-    private ArrayList<String> northAmericanCities = new ArrayList<>();
-    private ArrayList<String> asianCities = new ArrayList<>();
-    private ArrayList<String> australianCities = new ArrayList<>();
+    private ArrayList<String> cityList = new ArrayList<>();
+    private ArrayList<String> europeanCityList = new ArrayList<>();
+    private ArrayList<String> northAmericanCityList = new ArrayList<>();
+    private ArrayList<String> asianCityList = new ArrayList<>();
+    private ArrayList<String> australianCityList = new ArrayList<>();
     private SimpleStringProperty cityID = new SimpleStringProperty();
     private SimpleStringProperty pickedUser = new SimpleStringProperty();
     private SimpleStringProperty checkedFlight = new SimpleStringProperty();
@@ -26,7 +26,6 @@ public class Singleton {
     private SimpleStringProperty flightID = new SimpleStringProperty();
     private SimpleStringProperty flightBookingIDCount = new SimpleStringProperty();
     private SimpleStringProperty userID = new SimpleStringProperty();
-    private SimpleStringProperty airlines = new SimpleStringProperty();
     private SimpleStringProperty bookedTicketsForFlight = new SimpleStringProperty();
     private SimpleStringProperty cruiseID = new SimpleStringProperty();
     private ArrayList<String> cars = new ArrayList<>();
@@ -88,25 +87,25 @@ public class Singleton {
 
     public String getUsername() { return username.get(); }
 
-    public void setCities (ArrayList<String> s) { this.cities = s; }
+    public void setCityList(ArrayList<String> s) { this.cityList = s; }
 
-    public ArrayList<String> getCities() { return cities; }
+    public ArrayList<String> getCityList() { return cityList; }
 
-    public void setEuropeanCities (ArrayList<String> s) { this.europeanCities = s; }
+    public void setEuropeanCityList(ArrayList<String> s) { this.europeanCityList = s; }
 
-    public ArrayList<String> getEuropeanCities() { return europeanCities; }
+    public ArrayList<String> getEuropeanCityList() { return europeanCityList; }
 
-    public void setNorthAmericanCities (ArrayList<String> s) { this.northAmericanCities = s; }
+    public void setNorthAmericanCityList(ArrayList<String> s) { this.northAmericanCityList = s; }
 
-    public ArrayList<String> getNorthAmericanCities() { return northAmericanCities; }
+    public ArrayList<String> getNorthAmericanCityList() { return northAmericanCityList; }
 
-    public void setAsianCities (ArrayList<String> s) { this.asianCities = s; }
+    public void setAsianCityList(ArrayList<String> s) { this.asianCityList = s; }
 
-    public ArrayList<String> getAsianCities() { return asianCities; }
+    public ArrayList<String> getAsianCityList() { return asianCityList; }
 
-    public void setAustralianCities (ArrayList<String> s) { this.australianCities = s; }
+    public void setAustralianCityList(ArrayList<String> s) { this.australianCityList = s; }
 
-    public ArrayList<String> getAustralianCities() { return australianCities; }
+    public ArrayList<String> getAustralianCityList() { return australianCityList; }
 
     public String getCityID() { return cityID.get(); }
 

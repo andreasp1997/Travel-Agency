@@ -2,26 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf3f572d-926b-4f6a-8f29-b71f6a79da64" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$1.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$2.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$3.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$4$1.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$4$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$4$2.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$4$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$4.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$5$1.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$5$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$5$2.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$5$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$5.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CarRentalController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CruiseBookingController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/CruiseBookingController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/DBHandler.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/DBHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/HotelBookingController$1.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/HotelBookingController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/HotelBookingController$2.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/HotelBookingController$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/HotelBookingController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/HotelBookingController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/EditBookingsController.class" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/classes/EditBookingsController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.properties" afterPath="$PROJECT_DIR$/app.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/fxmlFiles/carRentalScreen.fxml" afterPath="$PROJECT_DIR$/out/production/Travel-Agency-master-backup/fxmlFiles/carRentalScreen.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/AccountSettings.java" afterPath="$PROJECT_DIR$/src/classes/AccountSettings.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/AccountSettingsController.java" afterPath="$PROJECT_DIR$/src/classes/AccountSettingsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/AdminAccountEditBooking.java" afterPath="$PROJECT_DIR$/src/classes/AdminAccountEditBooking.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/AdminBooking.java" afterPath="$PROJECT_DIR$/src/classes/AdminBooking.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/AdminChangeUserSettings.java" afterPath="$PROJECT_DIR$/src/classes/AdminChangeUserSettings.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/CarRentalController.java" afterPath="$PROJECT_DIR$/src/classes/CarRentalController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/CruiseBookingController.java" afterPath="$PROJECT_DIR$/src/classes/CruiseBookingController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/DBHandler.java" afterPath="$PROJECT_DIR$/src/classes/DBHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/EditBooking.java" afterPath="$PROJECT_DIR$/src/classes/EditBooking.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/EditBookingsController.java" afterPath="$PROJECT_DIR$/src/classes/EditBookingsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/FlightBooking.java" afterPath="$PROJECT_DIR$/src/classes/FlightBooking.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/FlightBookingController.java" afterPath="$PROJECT_DIR$/src/classes/FlightBookingController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/Hotel.java" afterPath="$PROJECT_DIR$/src/classes/Hotel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/HotelBookingController.java" afterPath="$PROJECT_DIR$/src/classes/HotelBookingController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/LoginController.java" afterPath="$PROJECT_DIR$/src/classes/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/NormalAccountEditBooking.java" afterPath="$PROJECT_DIR$/src/classes/NormalAccountEditBooking.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/NormalAccountSettings.java" afterPath="$PROJECT_DIR$/src/classes/NormalAccountSettings.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/NormalUserBooking.java" afterPath="$PROJECT_DIR$/src/classes/NormalUserBooking.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/RegisterController.java" afterPath="$PROJECT_DIR$/src/classes/RegisterController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/Singleton.java" afterPath="$PROJECT_DIR$/src/classes/Singleton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/UserMenuController.java" afterPath="$PROJECT_DIR$/src/classes/UserMenuController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/WelcomeScreen.java" afterPath="$PROJECT_DIR$/src/classes/WelcomeScreen.java" />
     </list>
     <ignored path="Travel-Agency-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,51 +46,7 @@
     <favorites_list name="Travel-Agency-master" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DBHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/classes/DBHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="805">
-              <caret line="1139" column="5" selection-start-line="1139" selection-start-column="5" selection-end-line="1139" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CarRentalController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/classes/CarRentalController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="224" column="41" selection-start-line="224" selection-start-column="41" selection-end-line="224" selection-end-column="41" />
-              <folding>
-                <element signature="e#7711#8046#0" expanded="true" />
-                <element signature="e#8045#8046#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditBookingsController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/classes/EditBookingsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="145" column="58" selection-start-line="145" selection-start-column="58" selection-end-line="145" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HotelBookingController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/classes/HotelBookingController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="81" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -122,39 +83,43 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/classes/Main.java" />
-        <option value="$PROJECT_DIR$/src/classes/Hotel.java" />
         <option value="$PROJECT_DIR$/src/fxmlFiles/hotelBookingScreen.fxml" />
         <option value="$PROJECT_DIR$/src/classes/BookingTypes.java" />
         <option value="$PROJECT_DIR$/src/fxmlFiles/userMenu.fxml" />
         <option value="$PROJECT_DIR$/src/fxmlFiles/cruiseBookingScreen.fxml" />
-        <option value="$PROJECT_DIR$/src/classes/UserMenuController.java" />
         <option value="$PROJECT_DIR$/src/fxmlFiles/accountSettings.fxml" />
         <option value="$PROJECT_DIR$/src/classes/CruiseBooking.java" />
         <option value="$PROJECT_DIR$/src/fxmlFiles/loginScreen.fxml" />
-        <option value="$PROJECT_DIR$/src/classes/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/classes/AdminBooking.java" />
         <option value="$PROJECT_DIR$/src/fxmlFiles/carRentalScreen.fxml" />
-        <option value="$PROJECT_DIR$/src/classes/NormalUserBooking.java" />
         <option value="$PROJECT_DIR$/src/classes/ViewBooking.java" />
         <option value="$PROJECT_DIR$/src/classes/HotelBooking.java" />
-        <option value="$PROJECT_DIR$/src/classes/ChangeCurrency.java" />
-        <option value="$PROJECT_DIR$/src/classes/EditBooking.java" />
-        <option value="$PROJECT_DIR$/src/classes/NormalAccountSettings.java" />
         <option value="$PROJECT_DIR$/src/classes/AdminEditBooking.java" />
         <option value="$PROJECT_DIR$/src/fxmlFiles/viewEditBookings.fxml" />
         <option value="$PROJECT_DIR$/src/classes/NormalEditBooking.java" />
-        <option value="$PROJECT_DIR$/src/classes/RegisterController.java" />
-        <option value="$PROJECT_DIR$/src/classes/AccountSettingsController.java" />
-        <option value="$PROJECT_DIR$/src/classes/FlightBookingController.java" />
         <option value="$PROJECT_DIR$/app.properties" />
-        <option value="$PROJECT_DIR$/src/classes/Singleton.java" />
+        <option value="$PROJECT_DIR$/src/classes/AccountSettings.java" />
+        <option value="$PROJECT_DIR$/src/classes/ChangeCurrency.java" />
+        <option value="$PROJECT_DIR$/src/classes/DBHandler.java" />
+        <option value="$PROJECT_DIR$/src/classes/EditBooking.java" />
+        <option value="$PROJECT_DIR$/src/classes/FlightBooking.java" />
+        <option value="$PROJECT_DIR$/src/classes/Hotel.java" />
+        <option value="$PROJECT_DIR$/src/classes/NormalUserBooking.java" />
+        <option value="$PROJECT_DIR$/src/classes/NormalAccountSettings.java" />
         <option value="$PROJECT_DIR$/src/classes/NormalAccountEditBooking.java" />
+        <option value="$PROJECT_DIR$/src/classes/Singleton.java" />
+        <option value="$PROJECT_DIR$/src/classes/RegisterController.java" />
+        <option value="$PROJECT_DIR$/src/classes/WelcomeScreen.java" />
+        <option value="$PROJECT_DIR$/src/classes/UserMenuController.java" />
+        <option value="$PROJECT_DIR$/src/classes/AccountSettingsController.java" />
         <option value="$PROJECT_DIR$/src/classes/AdminAccountEditBooking.java" />
+        <option value="$PROJECT_DIR$/src/classes/AdminBooking.java" />
+        <option value="$PROJECT_DIR$/src/classes/AdminChangeUserSettings.java" />
         <option value="$PROJECT_DIR$/src/classes/CarRentalController.java" />
         <option value="$PROJECT_DIR$/src/classes/CruiseBookingController.java" />
-        <option value="$PROJECT_DIR$/src/classes/HotelBookingController.java" />
-        <option value="$PROJECT_DIR$/src/classes/DBHandler.java" />
         <option value="$PROJECT_DIR$/src/classes/EditBookingsController.java" />
+        <option value="$PROJECT_DIR$/src/classes/FlightBookingController.java" />
+        <option value="$PROJECT_DIR$/src/classes/HotelBookingController.java" />
+        <option value="$PROJECT_DIR$/src/classes/LoginController.java" />
       </list>
     </option>
   </component>
@@ -625,12 +590,19 @@
       <option name="project" value="LOCAL" />
       <updated>1495444046411</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Date Pickers for edit bookings fixed">
+      <created>1495469016192</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1495469016192</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="717" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -644,8 +616,9 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.265625" sideWeight="0.49195403" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819724" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.265625" sideWeight="0.49195403" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271605" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271605" sideWeight="0.49717513" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -659,7 +632,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271605" sideWeight="0.49717513" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -681,7 +653,8 @@
     <MESSAGE value="Car rental completed" />
     <MESSAGE value="Car inserts sql file added" />
     <MESSAGE value="Date Pickers for bookings fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Date Pickers for bookings fixed" />
+    <MESSAGE value="Date Pickers for edit bookings fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Date Pickers for edit bookings fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -729,13 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/BookingTypes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fxmlFiles/userMenu.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -753,34 +719,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="1100">
           <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/Register.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/UserMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="84" column="13" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="12" column="88" selection-start-line="12" selection-start-column="88" selection-end-line="12" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/WelcomeScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -806,13 +744,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/ViewBooking.java" />
-    <entry file="file://$PROJECT_DIR$/src/classes/Hotel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fxmlFiles/welcomeScreen.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -820,48 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/FlightBooking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/CarRentalBooking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/ChangeCurrency.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/EditBooking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/AdminChangeUserSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/HotelBooking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -890,149 +779,242 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/backup/DBHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/classes/AdminBooking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="63" column="59" selection-start-line="63" selection-start-column="57" selection-end-line="63" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/NormalAccountSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/AccountSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/FlightBookingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7276">
-          <caret line="452" column="10" selection-start-line="452" selection-start-column="10" selection-end-line="452" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/RegisterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="686">
-          <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/CruiseBooking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="54" column="61" selection-start-line="54" selection-start-column="61" selection-end-line="54" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/AccountSettingsController.java">
+    <entry file="file://$PROJECT_DIR$/src/classes/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="234" column="108" selection-start-line="234" selection-start-column="108" selection-end-line="234" selection-end-column="108" />
+        <state relative-caret-position="120">
+          <caret line="12" column="88" selection-start-line="12" selection-start-column="88" selection-end-line="12" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/Register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/NormalUserBooking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/Singleton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="1515">
+          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/RegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/WelcomeScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/UserMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/AccountSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/AccountSettingsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/AdminAccountEditBooking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2535">
-          <caret line="169" column="193" selection-start-line="169" selection-start-column="193" selection-end-line="169" selection-end-column="193" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/NormalAccountEditBooking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="169" column="44" selection-start-line="166" selection-start-column="7" selection-end-line="169" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/NormalUserBooking.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1515">
-          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+        <state relative-caret-position="120">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/CruiseBookingController.java">
+    <entry file="file://$PROJECT_DIR$/src/classes/AdminBooking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
+        <state relative-caret-position="105">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/DBHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/classes/AdminChangeUserSettings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="805">
-          <caret line="1139" column="5" selection-start-line="1139" selection-start-column="5" selection-end-line="1139" selection-end-column="5" />
+        <state relative-caret-position="345">
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/BookingTypes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/CarRentalBooking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/CarRentalController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="224" column="41" selection-start-line="224" selection-start-column="41" selection-end-line="224" selection-end-column="41" />
-          <folding>
-            <element signature="e#7711#8046#0" expanded="true" />
-            <element signature="e#8045#8046#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/classes/HotelBookingController.java">
+    <entry file="file://$PROJECT_DIR$/src/classes/ChangeCurrency.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="81" selection-end-column="36" />
+        <state relative-caret-position="105">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/CruiseBooking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="54" column="61" selection-start-line="54" selection-start-column="61" selection-end-line="54" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/CruiseBookingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/DBHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16680">
+          <caret line="1115" column="4" selection-start-line="1115" selection-start-column="4" selection-end-line="1115" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/EditBooking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/EditBookingsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="145" column="58" selection-start-line="145" selection-start-column="58" selection-end-line="145" selection-end-column="58" />
+        <state relative-caret-position="165">
+          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/FlightBooking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/FlightBookingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/Hotel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/HotelBooking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/HotelBookingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/NormalAccountEditBooking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/classes/NormalAccountSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
           <folding />
         </state>
       </provider>

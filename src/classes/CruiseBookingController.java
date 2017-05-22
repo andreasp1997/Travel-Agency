@@ -43,18 +43,17 @@ public class CruiseBookingController implements Initializable, ChangeCurrency {
     @FXML private ComboBox<String> currencyComboBox;
     @FXML private Button selectCurrencyBtn;
 
-    NormalUserBooking normalUserBooking = new NormalUserBooking();
-    AdminBooking adminBooking = new AdminBooking();
+    private NormalUserBooking normalUserBooking = new NormalUserBooking();
+    private AdminBooking adminBooking = new AdminBooking();
 
-    DBHandler dbHandler = new DBHandler();
+    private DBHandler dbHandler = new DBHandler();
     private ObservableList<String> travels;
-    Singleton singleton = new Singleton();
     private ObservableList<Integer> roomOption;
     private ArrayList<String> usernameList;
     private String originID;
     private String destinationID;
-    LocalDate today = LocalDate.now();
-    LocalDate next = today.plusMonths(8);
+    private LocalDate today = LocalDate.now();
+    private LocalDate next = today.plusMonths(8);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,15 +79,15 @@ public class CruiseBookingController implements Initializable, ChangeCurrency {
             }
         });
 
-        dbHandler.checkUserRole(singleton.getInstance().getUsername());
+        dbHandler.checkUserRole(Singleton.getInstance().getUsername());
 
-        if(singleton.getInstance().getUserRole().equals("1")){
+        if(Singleton.getInstance().getUserRole().equals("1")){
 
             pickUserField.setVisible(true);
             pickUserBtn.setVisible(true);
             adminText.setVisible(true);
 
-        } else if (singleton.getInstance().getUserRole().equals("2")) {
+        } else if (Singleton.getInstance().getUserRole().equals("2")) {
             pickUserField.setVisible(false);
             pickUserBtn.setVisible(false);
             adminText.setVisible(false);
@@ -255,9 +254,9 @@ public class CruiseBookingController implements Initializable, ChangeCurrency {
             alert.setHeaderText("Not enough rooms available");
             alert.showAndWait();
         }else {
-            dbHandler.checkUserRole(singleton.getInstance().getUsername());
+            dbHandler.checkUserRole(Singleton.getInstance().getUsername());
 
-            if(singleton.getInstance().getUserRole().equals("2")) {
+            if(Singleton.getInstance().getUserRole().equals("2")) {
                 normalUserBooking.makeCruiseBooking();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -276,7 +275,7 @@ public class CruiseBookingController implements Initializable, ChangeCurrency {
     }
 
     public void pickUser() {
-        dbHandler.checkIfUsernameExists();
+        dbHandler.checkIfUsernameExist();
         dbHandler.checkUserRole(pickUserField.getText());
         usernameList = Singleton.getInstance().getUsernameList();
 

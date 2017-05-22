@@ -24,7 +24,7 @@ public class Hotel {
 
         DBHandler dbh = new DBHandler();
 
-        rooms = dbh.getRooms(this.hotelId);
+        rooms = dbh.getRoomList(this.hotelId);
 
         return rooms;
 

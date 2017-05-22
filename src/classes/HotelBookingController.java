@@ -2,8 +2,6 @@ package classes;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,11 +16,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 /**
@@ -30,15 +25,13 @@ import java.util.ResourceBundle;
  */
 public class HotelBookingController implements Initializable {
 
-    DBHandler dbh = new DBHandler();
-    HotelBooking booking;
-    AdminBooking admin = new AdminBooking();
-    NormalUserBooking normalUser = new NormalUserBooking();
+    private DBHandler dbHandler = new DBHandler();
+    private HotelBooking booking;
+    private AdminBooking admin = new AdminBooking();
+    private NormalUserBooking normalUser = new NormalUserBooking();
 
-    Singleton singleton = new Singleton();
-
-    ArrayList<Integer> hotelIds;
-    ArrayList<String> rooms;
+    private ArrayList<Integer> hotelIds;
+    private ArrayList<String> rooms;
 
     private ArrayList<String> allCities;
 
@@ -120,8 +113,8 @@ public class HotelBookingController implements Initializable {
             }
         });
 
-        dbh.getCities();
-        allCities = Singleton.getInstance().getCities();
+        dbHandler.getCityList();
+        allCities = Singleton.getInstance().getCityList();
         cities.getItems().addAll(allCities);
 
         btn1.setVisible(false);
@@ -139,13 +132,13 @@ public class HotelBookingController implements Initializable {
 
         message.setText("Please choose check in, checkout and city.");
 
-        if(singleton.getInstance().getUserRole().equals("1")){
+        if(Singleton.getInstance().getUserRole().equals("1")){
 
             pickUserField.setVisible(true);
             pickUserBtn.setVisible(true);
             adminText.setVisible(true);
 
-        } else if (singleton.getInstance().getUserRole().equals("2")) {
+        } else if (Singleton.getInstance().getUserRole().equals("2")) {
             pickUserField.setVisible(false);
             pickUserBtn.setVisible(false);
             adminText.setVisible(false);
@@ -185,8 +178,8 @@ public class HotelBookingController implements Initializable {
     }
 
     public void pickUser(ActionEvent ae){
-        dbh.checkIfUsernameExists();
-        dbh.checkUserRole(pickUserField.getText());
+        dbHandler.checkIfUsernameExist();
+        dbHandler.checkUserRole(pickUserField.getText());
         usernameList = Singleton.getInstance().getUsernameList();
 
         if(usernameList.contains(pickUserField.getText()) && Singleton.getInstance().getUserRole().equals("2")){
@@ -242,7 +235,7 @@ public class HotelBookingController implements Initializable {
 
         try {
 
-            ArrayList<Hotel> hotels = dbh.getHotels(cities.getSelectionModel().getSelectedItem().toString());
+            ArrayList<Hotel> hotels = dbHandler.getHotelList(cities.getSelectionModel().getSelectedItem().toString());
 
             if (hotels.size() == 0) {
 
@@ -369,9 +362,9 @@ public class HotelBookingController implements Initializable {
 
     private void setHotelBooking(HotelBooking booking) {
 
-        booking.setRoomId(dbh.getRoomId(booking.getHotelId(), booking.getRoomSize()));
+        booking.setRoomId(dbHandler.getRoomId(booking.getHotelId(), booking.getRoomSize()));
 
-        if(singleton.getInstance().getUserRole().equals("1")){
+        if(Singleton.getInstance().getUserRole().equals("1")){
 
             if(Singleton.getInstance().getPickedUser() == null){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -386,7 +379,7 @@ public class HotelBookingController implements Initializable {
                 alert.showAndWait();
             }
 
-        } else if (singleton.getInstance().getUserRole().equals("2")) {
+        } else if (Singleton.getInstance().getUserRole().equals("2")) {
 
             normalUser.makeHotelBooking(booking);
 

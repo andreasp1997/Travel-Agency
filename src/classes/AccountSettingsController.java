@@ -37,9 +37,9 @@ public class AccountSettingsController implements Initializable {
 
     private ArrayList<String> usernameList;
 
-    DBHandler dbh = new DBHandler();
-    NormalAccountSettings normalAccountSettings = new NormalAccountSettings();
-    AdminChangeUserSettings adminChangeUserSettings = new AdminChangeUserSettings();
+    private DBHandler dbHandler = new DBHandler();
+    private NormalAccountSettings normalAccountSettings = new NormalAccountSettings();
+    private AdminChangeUserSettings adminChangeUserSettings = new AdminChangeUserSettings();
 
     public void back(ActionEvent ae){
         try {
@@ -91,8 +91,8 @@ public class AccountSettingsController implements Initializable {
             pickUserBtn.setVisible(false);
             adminText.setVisible(false);
 
-            dbh.getUserID(Singleton.getInstance().getUsername());
-            dbh.getUserInfo(Singleton.getInstance().getUserID());
+            dbHandler.getUserID(Singleton.getInstance().getUsername());
+            dbHandler.getUserInfo(Singleton.getInstance().getUserID());
 
             usernameField.setText(NormalAccountSettings.getInstance().getUsername());
             emailField.setText(NormalAccountSettings.getInstance().getEmail());
@@ -128,7 +128,7 @@ public class AccountSettingsController implements Initializable {
                     new InternetAddress(emailField.getText().toString()).validate();
                     AdminChangeUserSettings.getInstance().setEmail(emailField.getText());
 
-                    adminChangeUserSettings.commitChanges();
+                    adminChangeUserSettings.commitChange();
 
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Account Information Updated!");
@@ -163,7 +163,7 @@ public class AccountSettingsController implements Initializable {
                     new InternetAddress(emailField.getText().toString()).validate();
                     NormalAccountSettings.getInstance().setEmail(emailField.getText());
 
-                    normalAccountSettings.commitChanges();
+                    normalAccountSettings.commitChange();
 
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Account Information Updated!");
@@ -228,15 +228,15 @@ public class AccountSettingsController implements Initializable {
     }
 
     public void pickUser(ActionEvent ae){
-        dbh.checkIfUsernameExists();
-        dbh.checkUserRole(pickUserField.getText());
+        dbHandler.checkIfUsernameExist();
+        dbHandler.checkUserRole(pickUserField.getText());
         usernameList = Singleton.getInstance().getUsernameList();
 
         if(usernameList.contains(pickUserField.getText()) && Singleton.getInstance().getUserRole().equals("2")){
             Singleton.getInstance().setPickedUser(pickUserField.getText());
 
-            dbh.getUserID(pickUserField.getText());
-            dbh.getUserInfo(Singleton.getInstance().getUserID());
+            dbHandler.getUserID(pickUserField.getText());
+            dbHandler.getUserInfo(Singleton.getInstance().getUserID());
 
             usernameField.setDisable(false);
             passwordField.setDisable(false);

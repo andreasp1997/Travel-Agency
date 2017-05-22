@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.security.Signature;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -28,10 +27,9 @@ import java.util.ResourceBundle;
  */
 public class EditBookingsController implements Initializable {
 
-    DBHandler dbh = new DBHandler();
-    Singleton singleton = new Singleton();
-    AdminAccountEditBooking adminAccountEditBooking = new AdminAccountEditBooking();
-    NormalAccountEditBooking normalAccountEditBooking = new NormalAccountEditBooking();
+    private DBHandler dbh = new DBHandler();
+    private AdminAccountEditBooking adminAccountEditBooking = new AdminAccountEditBooking();
+    private NormalAccountEditBooking normalAccountEditBooking = new NormalAccountEditBooking();
 
     @FXML TextField pickUserField;
     @FXML Button pickUserBtn;
@@ -78,10 +76,10 @@ public class EditBookingsController implements Initializable {
     @FXML private Button saveBtn;
 
 
-    ArrayList<HotelBooking> hotelBooking;
-    ArrayList<CarRentalBooking> carBooking;
-    ArrayList<CruiseBooking> cruiseBooking;
-    ArrayList<FlightBooking> flightBooking;
+    private ArrayList<HotelBooking> hotelBooking;
+    private ArrayList<CarRentalBooking> carBooking;
+    private ArrayList<CruiseBooking> cruiseBooking;
+    private ArrayList<FlightBooking> flightBooking;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -94,14 +92,13 @@ public class EditBookingsController implements Initializable {
         datePicker2.setVisible(false);
         saveBtn.setVisible(false);
 
-
-        if(singleton.getInstance().getUserRole().equals("1")){
+        if(Singleton.getInstance().getUserRole().equals("1")){
 
             pickUserField.setVisible(true);
             pickUserBtn.setVisible(true);
             adminText.setVisible(true);
 
-        } else if (singleton.getInstance().getUserRole().equals("2")) {
+        } else if (Singleton.getInstance().getUserRole().equals("2")) {
             pickUserField.setVisible(false);
             pickUserBtn.setVisible(false);
             adminText.setVisible(false);
@@ -148,7 +145,6 @@ public class EditBookingsController implements Initializable {
                 });
             }
         });
-
     }
 
     public void back(ActionEvent ae){
@@ -163,7 +159,7 @@ public class EditBookingsController implements Initializable {
     }
 
     public void pickUser(ActionEvent ae){
-        dbh.checkIfUsernameExists();
+        dbh.checkIfUsernameExist();
         dbh.checkUserRole(pickUserField.getText());
         usernameList = Singleton.getInstance().getUsernameList();
 
@@ -220,7 +216,7 @@ public class EditBookingsController implements Initializable {
         flightTable.setVisible(false);
         cruiseTable.setVisible(false);
 
-        hotelBooking = dbh.getHotelsBookings(Integer.parseInt(singleton.getInstance().getUserID()));
+        hotelBooking = dbh.getHotelBooking(Integer.parseInt(Singleton.getInstance().getUserID()));
 
         final ObservableList<HotelBooking> data = FXCollections.observableArrayList(hotelBooking);
 
@@ -255,7 +251,6 @@ public class EditBookingsController implements Initializable {
         deleteBtn.setOnAction(e -> {
             deleteHotelBooking();
         });
-
     }
 
     @FXML
@@ -266,7 +261,7 @@ public class EditBookingsController implements Initializable {
         flightTable.setVisible(false);
         cruiseTable.setVisible(false);
 
-        carBooking = dbh.getCarBookings(Integer.parseInt(singleton.getInstance().getUserID()));
+        carBooking = dbh.getCarBooking(Integer.parseInt(Singleton.getInstance().getUserID()));
 
         final ObservableList<CarRentalBooking> data = FXCollections.observableArrayList(carBooking);
 
@@ -301,7 +296,6 @@ public class EditBookingsController implements Initializable {
         deleteBtn.setOnAction(e -> {
             deleteCarRentalBooking();
         });
-
     }
 
     @FXML
@@ -312,7 +306,7 @@ public class EditBookingsController implements Initializable {
         flightTable.setVisible(false);
         cruiseTable.setVisible(true);
 
-        cruiseBooking = dbh.getCruiseBookings(Integer.parseInt(singleton.getInstance().getUserID()));
+        cruiseBooking = dbh.getCruiseBooking(Integer.parseInt(Singleton.getInstance().getUserID()));
 
         final ObservableList<CruiseBooking> data = FXCollections.observableArrayList(cruiseBooking);
 
@@ -347,7 +341,6 @@ public class EditBookingsController implements Initializable {
         deleteBtn.setOnAction(e -> {
             deleteCruiseBooking();
         });
-
     }
 
     @FXML
@@ -358,7 +351,7 @@ public class EditBookingsController implements Initializable {
         flightTable.setVisible(true);
         cruiseTable.setVisible(false);
 
-        flightBooking = dbh.getFlightBookings(Integer.parseInt(singleton.getInstance().getUserID()));
+        flightBooking = dbh.getFlightBooking(Integer.parseInt(Singleton.getInstance().getUserID()));
 
         final ObservableList<FlightBooking> data = FXCollections.observableArrayList(flightBooking);
 
@@ -391,6 +384,7 @@ public class EditBookingsController implements Initializable {
         });
 
     }
+
     public void editFlightBookingDate(){
         datePicker.setVisible(true);
         saveBtn.setVisible(true);
@@ -405,19 +399,17 @@ public class EditBookingsController implements Initializable {
             FlightBooking.getInstance().setAirline(flightBooking.getAirline());
             saveBtn.setOnAction(e -> {
                 Singleton.getInstance().setNewFlightBookingDate(String.valueOf(datePicker.getValue()));
-                dbh.checkUserRole(singleton.getInstance().getUsername());
+                dbh.checkUserRole(Singleton.getInstance().getUsername());
 
-                if(singleton.getInstance().getUserRole().equals("2")) {
-                    normalAccountEditBooking.commitChangesForFlightBooking();
+                if(Singleton.getInstance().getUserRole().equals("2")) {
+                    normalAccountEditBooking.commitChangeForFlightBooking();
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information");
                     alert.setHeaderText("You have successfully edited a booking");
                     alert.showAndWait();
 
-
-
                 } else {
-                    adminAccountEditBooking.commitChangesForCarRentalBooking();
+                    adminAccountEditBooking.commitChangeForCarRentalBooking();
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information");
                     alert.setHeaderText("You have successfully edited a booking");
@@ -428,7 +420,6 @@ public class EditBookingsController implements Initializable {
         }
 
     }
-
 
     public void editCruiseBookingDate(){
         datePicker.setVisible(true);
@@ -446,10 +437,10 @@ public class EditBookingsController implements Initializable {
             CruiseBooking.getInstance().setRoom(cruiseBooking.getRoom());
             saveBtn.setOnAction(e -> {
                 Singleton.getInstance().setNewCruiseBookingDate(String.valueOf(datePicker.getValue()));
-                dbh.checkUserRole(singleton.getInstance().getUsername());
+                dbh.checkUserRole(Singleton.getInstance().getUsername());
 
-                if (singleton.getInstance().getUserRole().equals("2")) {
-                    normalAccountEditBooking.commitChangesForCruiseBooking();
+                if (Singleton.getInstance().getUserRole().equals("2")) {
+                    normalAccountEditBooking.commitChangeForCruiseBooking();
 
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information");
@@ -457,7 +448,7 @@ public class EditBookingsController implements Initializable {
                     alert.showAndWait();
 
                 } else {
-                    adminAccountEditBooking.commitChangesForCruiseBooking();
+                    adminAccountEditBooking.commitChangeForCruiseBooking();
 
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information");
@@ -486,14 +477,13 @@ public class EditBookingsController implements Initializable {
             Singleton.getInstance().setHotelCheckOutDate(hotelBooking.getCheckoutDate());
             Singleton.getInstance().setHotelRoomSize(String.valueOf(hotelBooking.getRoomSize()));
 
-
             saveBtn.setOnAction(e -> {
                 Singleton.getInstance().setNewHotelCheckInDate(String.valueOf(datePicker.getValue()));
                 Singleton.getInstance().setNewHotelCheckOutDate(String.valueOf(datePicker2.getValue()));
-                dbh.checkUserRole(singleton.getInstance().getUsername());
+                dbh.checkUserRole(Singleton.getInstance().getUsername());
 
-                if (singleton.getInstance().getUserRole().equals("2")) {
-                    normalAccountEditBooking.commitChangesForHotelBooking();
+                if (Singleton.getInstance().getUserRole().equals("2")) {
+                    normalAccountEditBooking.commitChangeForHotelBooking();
 
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information");
@@ -501,7 +491,7 @@ public class EditBookingsController implements Initializable {
                     alert.showAndWait();
 
                 } else {
-                    adminAccountEditBooking.commitChangesForHotelBooking();
+                    adminAccountEditBooking.commitChangeForHotelBooking();
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information");
                     alert.setHeaderText("You have successfully edited a booking");
@@ -510,12 +500,9 @@ public class EditBookingsController implements Initializable {
 
                 datePicker.setVisible(false);
                 datePicker2.setVisible(false);
-
-
             });
         }
     }
-
 
     public void editCarRentalBookingDate(){
         datePicker.setVisible(true);
@@ -536,24 +523,22 @@ public class EditBookingsController implements Initializable {
                Singleton.getInstance().setNewCarRentalStartDate(String.valueOf(datePicker.getValue()));
                 Singleton.getInstance().setNewCarRentalReturnDate(String.valueOf(datePicker2.getValue()));
 
-                dbh.checkUserRole(singleton.getInstance().getUsername());
+                dbh.checkUserRole(Singleton.getInstance().getUsername());
 
 
-                if(singleton.getInstance().getUserRole().equals("2")) {
-                    normalAccountEditBooking.commitChangesForCarRentalBooking();
+                if(Singleton.getInstance().getUserRole().equals("2")) {
+                    normalAccountEditBooking.commitChangeForCarRentalBooking();
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information");
                     alert.setHeaderText("You have successfully edited a booking");
                     alert.showAndWait();
-
 
                 } else {
-                    adminAccountEditBooking.commitChangesForCarRentalBooking();
+                    adminAccountEditBooking.commitChangeForCarRentalBooking();
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information");
                     alert.setHeaderText("You have successfully edited a booking");
                     alert.showAndWait();
-
 
                 }
                 datePicker.setVisible(false);
@@ -575,9 +560,9 @@ public class EditBookingsController implements Initializable {
             FlightBooking.getInstance().setDestination(flightBooking.getDestination());
             FlightBooking.getInstance().setAirline(flightBooking.getAirline());
 
-            dbh.checkUserRole(singleton.getInstance().getUsername());
+            dbh.checkUserRole(Singleton.getInstance().getUsername());
 
-            if(singleton.getInstance().getUserRole().equals("2")) {
+            if(Singleton.getInstance().getUserRole().equals("2")) {
                 normalAccountEditBooking.deleteFlightBooking();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information");
@@ -593,7 +578,6 @@ public class EditBookingsController implements Initializable {
             }
             allFlightBookings.remove(flightBooking);
         }
-
     }
 
     public void deleteCruiseBooking(){
@@ -606,9 +590,9 @@ public class EditBookingsController implements Initializable {
             CruiseBooking.getInstance().setDestination(cruiseBooking.getDestination());
             CruiseBooking.getInstance().setDate(cruiseBooking.getDate());
 
-            dbh.checkUserRole(singleton.getInstance().getUsername());
+            dbh.checkUserRole(Singleton.getInstance().getUsername());
 
-            if(singleton.getInstance().getUserRole().equals("2")) {
+            if(Singleton.getInstance().getUserRole().equals("2")) {
                 normalAccountEditBooking.deleteCruiseBooking();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -643,9 +627,9 @@ public class EditBookingsController implements Initializable {
             carRentalBooking.getInstance().setPrice(carRentalBooking.getPrice());
             carRentalBooking.getInstance().setSeats(carRentalBooking.getSeats());
 
-            dbh.checkUserRole(singleton.getInstance().getUsername());
+            dbh.checkUserRole(Singleton.getInstance().getUsername());
 
-            if(singleton.getInstance().getUserRole().equals("2")) {
+            if(Singleton.getInstance().getUserRole().equals("2")) {
                 normalAccountEditBooking.deleteCarRentalBooking();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -676,12 +660,9 @@ public class EditBookingsController implements Initializable {
             Singleton.getInstance().setHotelName(hotelBooking.getHotelName());
             Singleton.getInstance().setHotelCheckOutDate(hotelBooking.getCheckoutDate());
             Singleton.getInstance().setHotelRoomSize(String.valueOf(hotelBooking.getRoomSize()));
-            dbh.checkUserRole(singleton.getInstance().getUsername());
+            dbh.checkUserRole(Singleton.getInstance().getUsername());
 
-
-
-
-            if(singleton.getInstance().getUserRole().equals("2")) {
+            if(Singleton.getInstance().getUserRole().equals("2")) {
                 normalAccountEditBooking.deleteHotelBooking();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);

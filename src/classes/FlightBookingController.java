@@ -1,6 +1,5 @@
 package classes;
 
-import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -17,11 +16,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -31,10 +28,9 @@ import java.util.ResourceBundle;
  */
 public class FlightBookingController implements Initializable, ChangeCurrency {
 
-    DBHandler dbh = new DBHandler();
-    Singleton singleton = new Singleton();
-    AdminBooking adminBooking = new AdminBooking();
-    NormalUserBooking normalUserBooking = new NormalUserBooking();
+    private DBHandler dbh = new DBHandler();
+    private AdminBooking adminBooking = new AdminBooking();
+    private NormalUserBooking normalUserBooking = new NormalUserBooking();
 
     private boolean isEuropeanCity = false;
     private boolean isNorthAmericanCity = false;
@@ -120,7 +116,7 @@ public class FlightBookingController implements Initializable, ChangeCurrency {
         currencyComboBox.getItems().addAll("SEK", "USD", "GBP", "EUR");
         currencyComboBox.getSelectionModel().selectFirst();
 
-        dbh.checkUserRole(singleton.getInstance().getUsername());
+        dbh.checkUserRole(Singleton.getInstance().getUsername());
 
         date.setValue(LocalDate.now());
 
@@ -135,20 +131,20 @@ public class FlightBookingController implements Initializable, ChangeCurrency {
             }
         });
 
-        if(singleton.getInstance().getUserRole().equals("1")){
+        if(Singleton.getInstance().getUserRole().equals("1")){
 
             pickUserField.setVisible(true);
             pickUserBtn.setVisible(true);
             adminText.setVisible(true);
 
-        } else if (singleton.getInstance().getUserRole().equals("2")) {
+        } else if (Singleton.getInstance().getUserRole().equals("2")) {
             pickUserField.setVisible(false);
             pickUserBtn.setVisible(false);
             adminText.setVisible(false);
         }
 
-        dbh.getCities();
-        cities = Singleton.getInstance().getCities();
+        dbh.getCityList();
+        cities = Singleton.getInstance().getCityList();
         citiesObservable = FXCollections.observableArrayList(cities);
 
         travelOrigin.setItems(citiesObservable);
@@ -169,15 +165,15 @@ public class FlightBookingController implements Initializable, ChangeCurrency {
             }
         });
 
-        dbh.getEuropeanCities();
-        dbh.getAustralianCities();
-        dbh.getNorthAmericanCities();
-        dbh.getAsianCities();
+        dbh.getEuropeanCityList();
+        dbh.getAustralianCityList();
+        dbh.getNorthAmericanCityList();
+        dbh.getAsianCityList();
 
-        europeanCitiesList = Singleton.getInstance().getEuropeanCities();
-        australianCitiesList = Singleton.getInstance().getAustralianCities();
-        northAmericanCitiesList = Singleton.getInstance().getNorthAmericanCities();
-        asianCitiesList = Singleton.getInstance().getAsianCities();
+        europeanCitiesList = Singleton.getInstance().getEuropeanCityList();
+        australianCitiesList = Singleton.getInstance().getAustralianCityList();
+        northAmericanCitiesList = Singleton.getInstance().getNorthAmericanCityList();
+        asianCitiesList = Singleton.getInstance().getAsianCityList();
 
         System.out.println(europeanCitiesList);
         System.out.println(australianCitiesList);
@@ -439,7 +435,7 @@ public class FlightBookingController implements Initializable, ChangeCurrency {
     }
 
     public void pickUser(ActionEvent ae){
-        dbh.checkIfUsernameExists();
+        dbh.checkIfUsernameExist();
         dbh.checkUserRole(pickUserField.getText());
         usernameList = Singleton.getInstance().getUsernameList();
 
@@ -472,7 +468,7 @@ public class FlightBookingController implements Initializable, ChangeCurrency {
             alert.setHeaderText("No more seats available. Check another airline or date");
             alert.showAndWait();
         } else {
-            if(singleton.getInstance().getUserRole().equals("1")){
+            if(Singleton.getInstance().getUserRole().equals("1")){
 
                 if(Singleton.getInstance().getPickedUser() == null){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -487,7 +483,7 @@ public class FlightBookingController implements Initializable, ChangeCurrency {
                     alert.showAndWait();
                 }
 
-            } else if (singleton.getInstance().getUserRole().equals("2")) {
+            } else if (Singleton.getInstance().getUserRole().equals("2")) {
 
                 normalUserBooking.makeFlightBooking();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -511,7 +507,7 @@ public class FlightBookingController implements Initializable, ChangeCurrency {
             alert.setHeaderText("No more seats available. Check another airline or date");
             alert.showAndWait();
         } else {
-            if(singleton.getInstance().getUserRole().equals("1")){
+            if(Singleton.getInstance().getUserRole().equals("1")){
 
                 if(Singleton.getInstance().getPickedUser() == null){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -526,7 +522,7 @@ public class FlightBookingController implements Initializable, ChangeCurrency {
                     alert.showAndWait();
                 }
 
-            } else if (singleton.getInstance().getUserRole().equals("2")) {
+            } else if (Singleton.getInstance().getUserRole().equals("2")) {
 
                 normalUserBooking.makeFlightBooking();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -550,7 +546,7 @@ public class FlightBookingController implements Initializable, ChangeCurrency {
             alert.setHeaderText("No more seats available. Check another airline or date");
             alert.showAndWait();
         } else {
-            if(singleton.getInstance().getUserRole().equals("1")){
+            if(Singleton.getInstance().getUserRole().equals("1")){
 
                 if(Singleton.getInstance().getPickedUser() == null){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -565,7 +561,7 @@ public class FlightBookingController implements Initializable, ChangeCurrency {
                     alert.showAndWait();
                 }
 
-            } else if (singleton.getInstance().getUserRole().equals("2")) {
+            } else if (Singleton.getInstance().getUserRole().equals("2")) {
 
                 normalUserBooking.makeFlightBooking();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);

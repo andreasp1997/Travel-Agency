@@ -5,13 +5,13 @@ package classes;
  */
 public abstract class EditBooking {
 
-    abstract void commitChangesForFlightBooking();
+    abstract void commitChangeForFlightBooking();
 
-    abstract void commitChangesForCruiseBooking();
+    abstract void commitChangeForCruiseBooking();
 
-    abstract void commitChangesForHotelBooking();
+    abstract void commitChangeForHotelBooking();
 
-    abstract void commitChangesForCarRentalBooking();
+    abstract void commitChangeForCarRentalBooking();
 
     abstract void deleteFlightBooking();
 

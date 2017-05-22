@@ -8,16 +8,18 @@ import static java.time.temporal.ChronoUnit.DAYS;
  * Created by Paolo9517 on 2017-05-15.
  */
 public class AdminAccountEditBooking extends EditBooking {
-    DBHandler dbHandler = new DBHandler();
+    private DBHandler dbHandler = new DBHandler();
+    private String origin;
+    private String destination;
     @Override
-    void commitChangesForFlightBooking() {
+    void commitChangeForFlightBooking() {
         int flightIDCount;
         int flightBookingIDCount;
 
         dbHandler.getCityID(FlightBooking.getInstance().getOrigin());
-        String origin = Singleton.getInstance().getCityID();
+        origin = Singleton.getInstance().getCityID();
         dbHandler.getCityID(FlightBooking.getInstance().getDestination());
-        String destination = Singleton.getInstance().getCityID();
+        destination = Singleton.getInstance().getCityID();
         dbHandler.checkForFlight(FlightBooking.getInstance().getAirline(),origin,destination, Singleton.getInstance().getNewFlightBookingDate());
 
         dbHandler.flightIDCount();
@@ -71,7 +73,7 @@ public class AdminAccountEditBooking extends EditBooking {
     }
 
     @Override
-    void commitChangesForCruiseBooking() {
+    void commitChangeForCruiseBooking() {
         int cruiseIDCount;
         int cruiseBookingIDCount;
         dbHandler.getCityID(CruiseBooking.getInstance().getOrigin());
@@ -139,7 +141,7 @@ public class AdminAccountEditBooking extends EditBooking {
 
 
     @Override
-    void commitChangesForHotelBooking() {
+    void commitChangeForHotelBooking() {
         int roomID;
         dbHandler.getHotelID(Singleton.getInstance().getHotelName());
         roomID= dbHandler.getRoomId(Integer.parseInt(Singleton.getInstance().getHotelID()),Integer.parseInt(Singleton.getInstance().getHotelRoomSize()));
@@ -151,7 +153,7 @@ public class AdminAccountEditBooking extends EditBooking {
 
 
     @Override
-    void commitChangesForCarRentalBooking() {
+    void commitChangeForCarRentalBooking() {
         int carPrice;
         int totalPrice;
         LocalDate hireDate = LocalDate.parse(Singleton.getInstance().getNewCarRentalStartDate());

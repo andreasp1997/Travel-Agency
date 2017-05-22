@@ -4,7 +4,6 @@ package classes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,24 +15,22 @@ import javafx.stage.Stage;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class RegisterController{
 
 
-    @FXML TextField firstNameField;
-    @FXML TextField lastNameField;
-    @FXML TextField usernameField;
-    @FXML TextField emailField;
-    @FXML TextField passwordField;
-    @FXML TextField confirmPasswordField;
-    @FXML Button helpBtn;
+    @FXML private TextField firstNameField;
+    @FXML private TextField lastNameField;
+    @FXML private TextField usernameField;
+    @FXML private TextField emailField;
+    @FXML private TextField passwordField;
+    @FXML private TextField confirmPasswordField;
+    @FXML private Button helpBtn;
 
-    Register register = new Register();
+    private Register register = new Register();
 
-    DBHandler dbh = new DBHandler();
+    private DBHandler dbHandler = new DBHandler();
 
     private ArrayList<String> usernameList = Singleton.getInstance().getUsernameList();
 
@@ -69,8 +66,8 @@ public class RegisterController{
 
     public void createAccount(ActionEvent ae){
 
-        dbh.getUserIDCount();
-        dbh.checkIfUsernameExists();
+        dbHandler.getUserIDCount();
+        dbHandler.checkIfUsernameExist();
 
         int userid;
 
@@ -122,7 +119,7 @@ public class RegisterController{
         }
 
         if(register.getFirstName() != null && register.getLastName() != null && register.getUsername() != null && register.getEmail() != null && register.getPassword() != null){
-            dbh.register(Integer.toString(userid), register.getFirstName(), register.getLastName(), register.getUsername(), register.getPassword(),  register.getEmail(), "2");
+            dbHandler.register(Integer.toString(userid), register.getFirstName(), register.getLastName(), register.getUsername(), register.getPassword(),  register.getEmail(), "2");
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Account Created!");

@@ -20,7 +20,7 @@ public class NormalAccountSettings extends AccountSettings {
     private ArrayList<String> hotelBookingForUser;
     private ArrayList<String> carRentalBookingForUser;
 
-    DBHandler dbh = new DBHandler();
+    private DBHandler dbHandler = new DBHandler();
 
     public NormalAccountSettings() {
 
@@ -34,10 +34,10 @@ public class NormalAccountSettings extends AccountSettings {
     }
 
     @Override
-    public void commitChanges() {
+    public void commitChange() {
 
-        dbh.getUserID(Singleton.getInstance().getUsername());
-        dbh.updateUserInfo(Singleton.getInstance().getUserID(), NormalAccountSettings.getInstance().getUsername(),
+        dbHandler.getUserID(Singleton.getInstance().getUsername());
+        dbHandler.updateUserInfo(Singleton.getInstance().getUserID(), NormalAccountSettings.getInstance().getUsername(),
                 NormalAccountSettings.getInstance().getPassword(), NormalAccountSettings.getInstance().getEmail(),
                 NormalAccountSettings.getInstance().getFirstName(), NormalAccountSettings.getInstance().getLastName());
 
@@ -45,12 +45,12 @@ public class NormalAccountSettings extends AccountSettings {
 
     public void deleteAccount() {
 
-        dbh.getUserID(Singleton.getInstance().getUsername());
+        dbHandler.getUserID(Singleton.getInstance().getUsername());
 
-        dbh.getFlightBookingIDforUser(Singleton.getInstance().getUserID());
-        dbh.getCruiseBookingIDforUser(Singleton.getInstance().getUserID());
-        dbh.getHotelBookingIDforUser(Singleton.getInstance().getUserID());
-        dbh.getCarRentalBookingIDforUser(Singleton.getInstance().getUserID());
+        dbHandler.getFlightBookingIDforUser(Singleton.getInstance().getUserID());
+        dbHandler.getCruiseBookingIDforUser(Singleton.getInstance().getUserID());
+        dbHandler.getHotelBookingIDforUser(Singleton.getInstance().getUserID());
+        dbHandler.getCarRentalBookingIDforUser(Singleton.getInstance().getUserID());
 
         flightBookingForUser = Singleton.getInstance().getFlightBookingIDforUser();
         cruiseBookingForUser = Singleton.getInstance().getCruiseBookingIDforUser();
@@ -59,34 +59,34 @@ public class NormalAccountSettings extends AccountSettings {
 
         if(flightBookingForUser != null){
             for(int i = 0; i < flightBookingForUser.size(); i++){
-                dbh.removeFlightBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(flightBookingForUser.get(i)));
+                dbHandler.removeFlightBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(flightBookingForUser.get(i)));
                 flightBookingForUser.remove(i);
             }
         }
 
         if(cruiseBookingForUser != null){
             for(int i = 0; i < cruiseBookingForUser.size(); i++){
-                dbh.removeCruiseBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(cruiseBookingForUser.get(i)));
+                dbHandler.removeCruiseBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(cruiseBookingForUser.get(i)));
                 cruiseBookingForUser.remove(i);
             }
         }
 
         if(hotelBookingForUser != null){
             for(int i = 0; i < hotelBookingForUser.size(); i++){
-                dbh.removeHotelBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(hotelBookingForUser.get(i)));
+                dbHandler.removeHotelBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(hotelBookingForUser.get(i)));
                 hotelBookingForUser.remove(i);
             }
         }
 
         if(carRentalBookingForUser != null){
             for(int i = 0; i < carRentalBookingForUser.size(); i++){
-                dbh.removeCarRentalBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(carRentalBookingForUser.get(i)));
+                dbHandler.removeCarRentalBookingForDeletedAccount(Singleton.getInstance().getUserID(), String.valueOf(carRentalBookingForUser.get(i)));
                 carRentalBookingForUser.remove(i);
             }
         }
 
-        dbh.deleteUser(Singleton.getInstance().getUserID());
-        dbh.updateUserID(Singleton.getInstance().getUserID());
+        dbHandler.deleteUser(Singleton.getInstance().getUserID());
+        dbHandler.updateUserID(Singleton.getInstance().getUserID());
 
     }
 

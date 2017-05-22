@@ -1,26 +1,24 @@
 package classes;
 
-import javafx.scene.control.Alert;
-
 /**
  * Created by andreas on 2017-05-04.
  */
 public class NormalUserBooking implements BookingTypes {
 
-    DBHandler dbh = new DBHandler();
+    private DBHandler dbHandler = new DBHandler();
 
-    int flightIDCount;
-    int flightBookingIDCount;
-    int cruiseIDCount;
-    int cruiseBookingIDCount;
-    int carIDCount;
-    int carBookingIDCount;
+    private int flightIDCount;
+    private int flightBookingIDCount;
+    private int cruiseIDCount;
+    private int cruiseBookingIDCount;
+    private int carIDCount;
+    private int carBookingIDCount;
 
     @Override
     public void makeFlightBooking() {
-        dbh.checkForFlight(FlightBooking.getInstance().getAirline(), FlightBooking.getInstance().getOrigin(), FlightBooking.getInstance().getDestination(), FlightBooking.getInstance().getDate());
-        dbh.flightIDCount();
-        dbh.flightBookingIDCount();
+        dbHandler.checkForFlight(FlightBooking.getInstance().getAirline(), FlightBooking.getInstance().getOrigin(), FlightBooking.getInstance().getDestination(), FlightBooking.getInstance().getDate());
+        dbHandler.flightIDCount();
+        dbHandler.flightBookingIDCount();
 
             if(Singleton.getInstance().getCheckedFlight() == null){
 
@@ -38,10 +36,10 @@ public class NormalUserBooking implements BookingTypes {
                     flightBookingIDCount++;
                 }
 
-                dbh.addFlight(flightIDCount, FlightBooking.getInstance().getAirline(), FlightBooking.getInstance().getOrigin(), FlightBooking.getInstance().getDestination(), 200, FlightBooking.getInstance().getPrice(), FlightBooking.getInstance().getDate());
-                dbh.getFlightID(FlightBooking.getInstance().getAirline(), FlightBooking.getInstance().getOrigin(), FlightBooking.getInstance().getDestination(), FlightBooking.getInstance().getDate());
-                dbh.getUserID(Singleton.getInstance().getUsername());
-                dbh.bookFlight(flightBookingIDCount, Singleton.getInstance().getFlightID(), Singleton.getInstance().getUserID());
+                dbHandler.addFlight(flightIDCount, FlightBooking.getInstance().getAirline(), FlightBooking.getInstance().getOrigin(), FlightBooking.getInstance().getDestination(), 200, FlightBooking.getInstance().getPrice(), FlightBooking.getInstance().getDate());
+                dbHandler.getFlightID(FlightBooking.getInstance().getAirline(), FlightBooking.getInstance().getOrigin(), FlightBooking.getInstance().getDestination(), FlightBooking.getInstance().getDate());
+                dbHandler.getUserID(Singleton.getInstance().getUsername());
+                dbHandler.bookFlight(flightBookingIDCount, Singleton.getInstance().getFlightID(), Singleton.getInstance().getUserID());
 
             } else if(Singleton.getInstance().getCheckedFlight() != null){
 
@@ -59,26 +57,26 @@ public class NormalUserBooking implements BookingTypes {
                     flightBookingIDCount++;
                 }
 
-                dbh.getFlightID(FlightBooking.getInstance().getAirline(), FlightBooking.getInstance().getOrigin(), FlightBooking.getInstance().getDestination(), FlightBooking.getInstance().getDate());
-                dbh.getUserID(Singleton.getInstance().getUsername());
-                dbh.bookFlight(flightBookingIDCount, Singleton.getInstance().getFlightID(), Singleton.getInstance().getUserID());
+                dbHandler.getFlightID(FlightBooking.getInstance().getAirline(), FlightBooking.getInstance().getOrigin(), FlightBooking.getInstance().getDestination(), FlightBooking.getInstance().getDate());
+                dbHandler.getUserID(Singleton.getInstance().getUsername());
+                dbHandler.bookFlight(flightBookingIDCount, Singleton.getInstance().getFlightID(), Singleton.getInstance().getUserID());
             }
     }
 
     @Override
     public void makeHotelBooking(HotelBooking hotel) {
 
-        dbh.setHotelBooking(hotel, Integer.parseInt(Singleton.getInstance().getUserID()));
+        dbHandler.setHotelBooking(hotel, Integer.parseInt(Singleton.getInstance().getUserID()));
 
     }
 
     @Override
     public void makeCarRentalBooking() {
 
-        dbh.carBookingIDCount();
-        dbh.getCityID(CarRentalBooking.getInstance().getCity());
-        dbh.getCarID(CarRentalBooking.getInstance().getCar(), Singleton.getInstance().getCityID());
-        dbh.getUserID(Singleton.getInstance().getUsername());
+        dbHandler.carBookingIDCount();
+        dbHandler.getCityID(CarRentalBooking.getInstance().getCity());
+        dbHandler.getCarID(CarRentalBooking.getInstance().getCar(), Singleton.getInstance().getCityID());
+        dbHandler.getUserID(Singleton.getInstance().getUsername());
 
         if(Singleton.getInstance().getCarBookingsIDAmount() == null){
             carBookingIDCount = 1;
@@ -94,15 +92,15 @@ public class NormalUserBooking implements BookingTypes {
         System.out.println(CarRentalBooking.getInstance().getReturnCarDate());
         System.out.println(CarRentalBooking.getInstance().getPrice());
 
-        dbh.bookCar(carBookingIDCount, Singleton.getInstance().getCarID(), Singleton.getInstance().getUserID(), CarRentalBooking.getInstance().getHireCarDate(), CarRentalBooking.getInstance().getReturnCarDate(), CarRentalBooking.getInstance().getPrice());
+        dbHandler.bookCar(carBookingIDCount, Singleton.getInstance().getCarID(), Singleton.getInstance().getUserID(), CarRentalBooking.getInstance().getHireCarDate(), CarRentalBooking.getInstance().getReturnCarDate(), CarRentalBooking.getInstance().getPrice());
     }
 
     @Override
     public void makeCruiseBooking() {
 
-        dbh.checkForCruise(CruiseBooking.getInstance().getOrigin(), CruiseBooking.getInstance().getDestination(), CruiseBooking.getInstance().getDate());
-        dbh.cruiseIDCount();
-        dbh.cruiseBookingIDCount();
+        dbHandler.checkForCruise(CruiseBooking.getInstance().getOrigin(), CruiseBooking.getInstance().getDestination(), CruiseBooking.getInstance().getDate());
+        dbHandler.cruiseIDCount();
+        dbHandler.cruiseBookingIDCount();
 
         if(Singleton.getInstance().getCheckedCruise() == null){
 
@@ -120,10 +118,10 @@ public class NormalUserBooking implements BookingTypes {
                 cruiseBookingIDCount++;
             }
 
-            dbh.addCruise(cruiseIDCount, CruiseBooking.getInstance().getOrigin(), CruiseBooking.getInstance().getDestination(), CruiseBooking.getInstance().getDate(), 150, CruiseBooking.getInstance().getPrice());
-            dbh.getCruiseID(CruiseBooking.getInstance().getOrigin(), CruiseBooking.getInstance().getDestination(), CruiseBooking.getInstance().getDate());
-            dbh.getUserID(Singleton.getInstance().getUsername());
-            dbh.bookCruise(cruiseBookingIDCount, Singleton.getInstance().getCruiseID(),Singleton.getInstance().getUserID(),CruiseBooking.getInstance().getRoom());
+            dbHandler.addCruise(cruiseIDCount, CruiseBooking.getInstance().getOrigin(), CruiseBooking.getInstance().getDestination(), CruiseBooking.getInstance().getDate(), 150, CruiseBooking.getInstance().getPrice());
+            dbHandler.getCruiseID(CruiseBooking.getInstance().getOrigin(), CruiseBooking.getInstance().getDestination(), CruiseBooking.getInstance().getDate());
+            dbHandler.getUserID(Singleton.getInstance().getUsername());
+            dbHandler.bookCruise(cruiseBookingIDCount, Singleton.getInstance().getCruiseID(),Singleton.getInstance().getUserID(),CruiseBooking.getInstance().getRoom());
 
         } else if (Singleton.getInstance().getCheckedCruise() != null){
 
@@ -141,9 +139,9 @@ public class NormalUserBooking implements BookingTypes {
                 cruiseBookingIDCount++;
             }
 
-            dbh.getCruiseID(CruiseBooking.getInstance().getOrigin(), CruiseBooking.getInstance().getDestination(), CruiseBooking.getInstance().getDate());
-            dbh.getUserID(Singleton.getInstance().getUsername());
-            dbh.bookCruise(cruiseBookingIDCount, Singleton.getInstance().getCruiseID(),Singleton.getInstance().getUserID(),CruiseBooking.getInstance().getRoom());
+            dbHandler.getCruiseID(CruiseBooking.getInstance().getOrigin(), CruiseBooking.getInstance().getDestination(), CruiseBooking.getInstance().getDate());
+            dbHandler.getUserID(Singleton.getInstance().getUsername());
+            dbHandler.bookCruise(cruiseBookingIDCount, Singleton.getInstance().getCruiseID(),Singleton.getInstance().getUserID(),CruiseBooking.getInstance().getRoom());
         }
 
     }

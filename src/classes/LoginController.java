@@ -26,19 +26,17 @@ public class LoginController implements Initializable {
     @FXML private Label loginError;
 
     //Password from database
-    String dbPass;
+    private String dbPass;
     //Password from form input
-    String pass;
+    private String pass;
 
     //Connection to database
-    DBHandler dbh;
-
-    Singleton singleton = new Singleton();
+    private DBHandler dbHandler;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        dbh = new DBHandler();
+        dbHandler = new DBHandler();
         Properties properties = loadProperties();
         username.setText(properties.getProperty("username"));
     }
@@ -46,9 +44,9 @@ public class LoginController implements Initializable {
     @FXML
     public void login(ActionEvent ae) {
 
-        singleton.getInstance().setUsername(username.getText());
+        Singleton.getInstance().setUsername(username.getText());
 
-        dbPass = dbh.checkLogin(username.getText());
+        dbPass = dbHandler.checkLogin(username.getText());
         pass = password.getText();
         Properties properties = loadProperties();
 

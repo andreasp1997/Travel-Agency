@@ -15,9 +15,9 @@ import java.io.IOException;
 
 public class WelcomeScreen {
 
-    Register register = new Register();
+    private Register register = new Register();
 
-    @FXML Button helpBtn;
+    @FXML private Button helpBtn;
 
     public void loginBtnPressed(ActionEvent ae){
 

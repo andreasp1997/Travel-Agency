@@ -45,7 +45,7 @@ public class DBHandler {
         }
     }
 
-    public void checkIfUsernameExists(){
+    public void checkIfUsernameExist(){
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("SELECT username FROM users");
@@ -121,7 +121,7 @@ public class DBHandler {
         return s;
     }
 
-    public void getCities(){
+    public void getCityList(){
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("select city from cities order by city");
@@ -132,7 +132,7 @@ public class DBHandler {
                 result.add(rs.getString(1));
             }
 
-            Singleton.getInstance().setCities(result);
+            Singleton.getInstance().setCityList(result);
 
         }
         catch (SQLException ex){
@@ -140,7 +140,7 @@ public class DBHandler {
         }
     }
 
-    public ArrayList<Hotel> getHotels(String city){
+    public ArrayList<Hotel> getHotelList(String city){
 
         ArrayList <Hotel> hotels = new ArrayList<Hotel>();
 
@@ -162,7 +162,7 @@ public class DBHandler {
         return hotels;
     }
 
-    public ArrayList<Integer> getRooms(int hotelId){
+    public ArrayList<Integer> getRoomList(int hotelId){
 
         ArrayList <Integer> rooms = new ArrayList<>();
 
@@ -229,7 +229,7 @@ public class DBHandler {
 
     }
 
-    public void getEuropeanCities(){
+    public void getEuropeanCityList(){
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("select city from cities where city in ('Rome', 'Stockholm', 'London', 'Berlin', 'Paris', 'Madrid', 'Milan', 'Moscow')");
@@ -240,7 +240,7 @@ public class DBHandler {
                 result.add(rs.getString(1));
             }
 
-            Singleton.getInstance().setEuropeanCities(result);
+            Singleton.getInstance().setEuropeanCityList(result);
 
         }
         catch (SQLException ex){
@@ -248,7 +248,7 @@ public class DBHandler {
         }
     }
 
-    public void getNorthAmericanCities(){
+    public void getNorthAmericanCityList(){
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("select city from cities where city in ('New York', 'Los Angeles')");
@@ -259,7 +259,7 @@ public class DBHandler {
                 result.add(rs.getString(1));
             }
 
-            Singleton.getInstance().setNorthAmericanCities(result);
+            Singleton.getInstance().setNorthAmericanCityList(result);
 
         }
         catch (SQLException ex){
@@ -267,7 +267,7 @@ public class DBHandler {
         }
     }
 
-    public void getAsianCities(){
+    public void getAsianCityList(){
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("select city from cities where city in ('Tokyo', 'Beijing', 'Bangkok')");
@@ -278,7 +278,7 @@ public class DBHandler {
                 result.add(rs.getString(1));
             }
 
-            Singleton.getInstance().setAsianCities(result);
+            Singleton.getInstance().setAsianCityList(result);
 
         }
         catch (SQLException ex){
@@ -286,7 +286,7 @@ public class DBHandler {
         }
     }
 
-    public void getAustralianCities(){
+    public void getAustralianCityList(){
         try(Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("select city from cities where city = 'Sydney'");
@@ -297,7 +297,7 @@ public class DBHandler {
                 result.add(rs.getString(1));
             }
 
-            Singleton.getInstance().setAustralianCities(result);
+            Singleton.getInstance().setAustralianCityList(result);
 
         }
         catch (SQLException ex){
@@ -434,7 +434,7 @@ public class DBHandler {
         }
     }
 
-    public void getCars(String seats, String city) {
+    public void getCarList(String seats, String city) {
         try (Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
 
@@ -470,7 +470,7 @@ public class DBHandler {
         }
     }
 
-    public void checkCarBookingsBetweenDates(String city, String carName, String hireDate, String returnDate) {
+    public void checkCarBookingsForDate(String city, String carName, String hireDate, String returnDate) {
         try (Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("select count(booking_id) from car_bookings left join cars on car_bookings.car_id = cars.car_id where car = '" + carName + "' and cars.location = '" + city + "' and starts and ends between '" + hireDate + "' and '" + returnDate + "'");
@@ -484,7 +484,7 @@ public class DBHandler {
         }
     }
 
-    public void getAmountOfCars(String city, String carName) {
+    public void getCarAmount(String city, String carName) {
         try (Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
             String c = "select amount from cars where car = '" + carName + "' and location = '" + city + "'";
@@ -642,7 +642,7 @@ public class DBHandler {
         }
     }
 
-    public ArrayList<HotelBooking> getHotelsBookings(int userID){
+    public ArrayList<HotelBooking> getHotelBooking(int userID){
 
         ArrayList <HotelBooking> bookings = new ArrayList<HotelBooking>();
 
@@ -672,7 +672,7 @@ public class DBHandler {
         return bookings;
     }
 
-    public ArrayList<CarRentalBooking> getCarBookings(int userID){
+    public ArrayList<CarRentalBooking> getCarBooking(int userID){
 
         ArrayList <CarRentalBooking> bookings = new ArrayList<CarRentalBooking>();
 
@@ -705,7 +705,7 @@ public class DBHandler {
         return bookings;
     }
 
-    public ArrayList<CruiseBooking> getCruiseBookings(int userID){
+    public ArrayList<CruiseBooking> getCruiseBooking(int userID){
 
         ArrayList<CruiseBooking> bookings = new ArrayList<CruiseBooking>();
 
@@ -739,7 +739,7 @@ public class DBHandler {
         return bookings;
     }
 
-    public ArrayList<FlightBooking> getFlightBookings(int userID){
+    public ArrayList<FlightBooking> getFlightBooking(int userID){
 
         ArrayList<FlightBooking> bookings = new ArrayList<FlightBooking>();
 
@@ -1113,6 +1113,7 @@ public class DBHandler {
             System.out.print("Error executing the query");
         }
     }
+
     public void editHotel(String bookingID, String checkIn, String checkOut) {
 
         try (Connection conn = DriverManager.getConnection(connectionURL)) {

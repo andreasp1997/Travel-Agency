@@ -14,7 +14,7 @@ public class FlightBooking {
     private String destination;
     private String date;
     private double price;
-    private int seats;
+    private int seatAmount;
 
     public FlightBooking() {
 
@@ -63,7 +63,7 @@ public class FlightBooking {
 
     public void setPrice(double price) { this.price = price; }
 
-    public int getSeats() { return seats; }
+    public int getSeatAmount() { return seatAmount; }
 
-    public void setSeats(int seats) { this.seats = seats; }
+    public void setSeatAmount(int seats) { this.seatAmount = seats; }
 }

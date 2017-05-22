@@ -21,7 +21,7 @@ public class AdminChangeUserSettings extends AccountSettings {
     private ArrayList<String> hotelBookingForUser;
     private ArrayList<String> carRentalBookingForUser;
 
-    DBHandler dbh = new DBHandler();
+    private DBHandler dbh = new DBHandler();
 
     public AdminChangeUserSettings() {
 
@@ -35,7 +35,7 @@ public class AdminChangeUserSettings extends AccountSettings {
     }
 
     @Override
-    public void commitChanges() {
+    public void commitChange() {
 
         dbh.getUserID(Singleton.getInstance().getPickedUser());
         dbh.updateUserInfo(Singleton.getInstance().getUserID(), AdminChangeUserSettings.getInstance().getUserName(),

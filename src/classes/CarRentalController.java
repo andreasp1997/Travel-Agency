@@ -28,12 +28,12 @@ import static java.time.temporal.ChronoUnit.DAYS;
  * Created by safaa on 2017-05-01.
  */
 public class CarRentalController implements Initializable, ChangeCurrency {
-    DBHandler dbh = new DBHandler();
-    AdminBooking adminBooking = new AdminBooking();
-    NormalUserBooking normalUserBooking = new NormalUserBooking();
+    private DBHandler dbHandler = new DBHandler();
+    private AdminBooking adminBooking = new AdminBooking();
+    private NormalUserBooking normalUserBooking = new NormalUserBooking();
     private ArrayList<String> usernameList;
 
-    private ArrayList<String> cities;
+    private ArrayList<String> cityList;
     private ArrayList<String> carList;
     private LocalDate hireCarDate;
     private LocalDate returnCarDate;
@@ -42,15 +42,15 @@ public class CarRentalController implements Initializable, ChangeCurrency {
     private ObservableList<String> citiesObservable;
     private ObservableList<String> carListObservable;
 
-    @FXML ComboBox<String> cityComboBox;
-    @FXML ComboBox<String> seatsComboBox;
-    @FXML ComboBox<String> carsComboBox;
-    @FXML DatePicker hireDate;
-    @FXML DatePicker returnDate;
+    @FXML private ComboBox<String> cityComboBox;
+    @FXML private ComboBox<String> seatsComboBox;
+    @FXML private ComboBox<String> carsComboBox;
+    @FXML private DatePicker hireDate;
+    @FXML private DatePicker returnDate;
     @FXML private Text hireDateText;
     @FXML private Text returnDateText;
-    @FXML Text priceText;
-    @FXML Text priceValue;
+    @FXML private Text priceText;
+    @FXML private Text priceValue;
     @FXML private TextField pickUserField;
     @FXML private Button pickUserBtn;
     @FXML private Text adminText;
@@ -61,6 +61,11 @@ public class CarRentalController implements Initializable, ChangeCurrency {
     @FXML private ComboBox<String> currencyComboBox;
     @FXML private Button selectCurrencyBtn;
     @FXML private Button book;
+
+    private LocalDate today = LocalDate.now();
+    private LocalDate returnStartDate = hireDate.getValue().plusDays(1);
+    private LocalDate next = today.plusMonths(8);
+    private LocalDate hireLength = today.plusWeeks(4);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -83,7 +88,7 @@ public class CarRentalController implements Initializable, ChangeCurrency {
         currencyComboBox.getItems().addAll("SEK", "USD", "GBP", "EUR");
         currencyComboBox.getSelectionModel().selectFirst();
 
-        dbh.checkUserRole(Singleton.getInstance().getUsername());
+        dbHandler.checkUserRole(Singleton.getInstance().getUsername());
 
         if(Singleton.getInstance().getUserRole().equals("1")){
 
@@ -97,10 +102,10 @@ public class CarRentalController implements Initializable, ChangeCurrency {
             adminText.setVisible(false);
         }
 
-        dbh.getCities();
+        dbHandler.getCityList();
 
-        cities = Singleton.getInstance().getCities();
-        citiesObservable = FXCollections.observableArrayList(cities);
+        cityList = Singleton.getInstance().getCityList();
+        citiesObservable = FXCollections.observableArrayList(cityList);
 
         cityComboBox.setItems(citiesObservable);
         seatsComboBox.getItems().addAll("2", "5", "7");
@@ -160,8 +165,8 @@ public class CarRentalController implements Initializable, ChangeCurrency {
             CarRentalBooking.getInstance().setCity(cityComboBox.getSelectionModel().getSelectedItem());
             CarRentalBooking.getInstance().setSeats(String.valueOf(Integer.parseInt(seatsComboBox.getSelectionModel().getSelectedItem())));
 
-            dbh.getCityID(CarRentalBooking.getInstance().getCity());
-            dbh.getCars(String.valueOf(CarRentalBooking.getInstance().getSeats()), Singleton.getInstance().getCityID());
+            dbHandler.getCityID(CarRentalBooking.getInstance().getCity());
+            dbHandler.getCarList(String.valueOf(CarRentalBooking.getInstance().getSeats()), Singleton.getInstance().getCityID());
 
             carList = Singleton.getInstance().getCars();
             carListObservable = FXCollections.observableArrayList(carList);
@@ -169,7 +174,7 @@ public class CarRentalController implements Initializable, ChangeCurrency {
             carsComboBox.setItems(carListObservable);
             carsComboBox.getSelectionModel().selectFirst();
 
-            dbh.getCarPrice(carsComboBox.getSelectionModel().getSelectedItem(), Singleton.getInstance().getCityID());
+            dbHandler.getCarPrice(carsComboBox.getSelectionModel().getSelectedItem(), Singleton.getInstance().getCityID());
             priceValue.setText(Singleton.getInstance().getCarPrice());
             priceEUR.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.10354).split("\\.")[0]);
             priceUSD.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.11272).split("\\.")[0]);
@@ -178,7 +183,7 @@ public class CarRentalController implements Initializable, ChangeCurrency {
             carsComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
                 @Override
                 public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                    dbh.getCarPrice(carsComboBox.getSelectionModel().getSelectedItem(), Singleton.getInstance().getCityID());
+                    dbHandler.getCarPrice(carsComboBox.getSelectionModel().getSelectedItem(), Singleton.getInstance().getCityID());
                     priceValue.setText(Singleton.getInstance().getCarPrice());
                     priceEUR.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.10354).split("\\.")[0]);
                     priceUSD.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.11272).split("\\.")[0]);
@@ -187,11 +192,6 @@ public class CarRentalController implements Initializable, ChangeCurrency {
             });
 
             hireDate.setValue(LocalDate.now());
-
-            LocalDate today = LocalDate.now();
-            LocalDate returnStartDate = hireDate.getValue().plusDays(1);
-            LocalDate next = today.plusMonths(8);
-            LocalDate hireLength = today.plusWeeks(4);
 
             returnDate.setValue(returnStartDate);
 
@@ -293,9 +293,9 @@ public class CarRentalController implements Initializable, ChangeCurrency {
         CarRentalBooking.getInstance().setReturnCarDate(returnDate.getValue().toString());
         CarRentalBooking.getInstance().setCar(carsComboBox.getSelectionModel().getSelectedItem());
 
-        dbh.getCityID(CarRentalBooking.getInstance().getCity());
-        dbh.checkCarBookingsBetweenDates(Singleton.getInstance().getCityID(), CarRentalBooking.getInstance().getCar(), CarRentalBooking.getInstance().getHireCarDate(), CarRentalBooking.getInstance().getReturnCarDate());
-        dbh.getAmountOfCars(Singleton.getInstance().getCityID(), CarRentalBooking.getInstance().getCar());
+        dbHandler.getCityID(CarRentalBooking.getInstance().getCity());
+        dbHandler.checkCarBookingsForDate(Singleton.getInstance().getCityID(), CarRentalBooking.getInstance().getCar(), CarRentalBooking.getInstance().getHireCarDate(), CarRentalBooking.getInstance().getReturnCarDate());
+        dbHandler.getCarAmount(Singleton.getInstance().getCityID(), CarRentalBooking.getInstance().getCar());
 
         if(Integer.parseInt(Singleton.getInstance().getCarBookingsForDate()) >= Integer.parseInt(Singleton.getInstance().getCarAmount())){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -336,8 +336,8 @@ public class CarRentalController implements Initializable, ChangeCurrency {
     }
 
     public void pickUser() {
-        dbh.checkIfUsernameExists();
-        dbh.checkUserRole(pickUserField.getText());
+        dbHandler.checkIfUsernameExist();
+        dbHandler.checkUserRole(pickUserField.getText());
         usernameList = Singleton.getInstance().getUsernameList();
 
         if(usernameList.contains(pickUserField.getText()) && Singleton.getInstance().getUserRole().equals("2")){

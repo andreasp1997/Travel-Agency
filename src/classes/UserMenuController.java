@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 public class UserMenuController {
 
-    @FXML Button helpBtn;
+    @FXML private Button helpBtn;
 
     public void gotoFlightBooking(ActionEvent ae){
         try {
