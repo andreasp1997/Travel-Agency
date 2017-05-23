@@ -16,7 +16,7 @@
          </image>
       </ImageView>
       <Button layoutX="26.0" layoutY="278.0" mnemonicParsing="false" onAction="#gotoFlightBooking" prefHeight="48.0" prefWidth="180.0" styleClass="btn" stylesheets="@../cssfiles/style.css" text="Flight Booking" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="115.0" layoutX="-4.0" layoutY="114.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="649.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="115.0" layoutX="-4.0" layoutY="114.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="644.0" />
       <Text fill="WHITE" layoutX="238.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu">
          <font>
             <Font name="PT Serif" size="66.0" />

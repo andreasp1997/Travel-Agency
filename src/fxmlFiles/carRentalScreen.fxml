@@ -18,7 +18,7 @@
             <Image url="@../images/ocean-796934_1280.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="172.0" layoutY="35.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="649.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="172.0" layoutY="35.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="644.0" />
       <Button layoutX="451.0" layoutY="518.0" mnemonicParsing="false" onAction="#back" prefHeight="48.0" prefWidth="180.0" styleClass="btn2" stylesheets="@../cssfiles/style.css" text="Back" />
       <ComboBox fx:id="cityComboBox" layoutX="36.0" layoutY="158.0" prefWidth="150.0" />
       <Text fill="WHITE" layoutX="36.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
