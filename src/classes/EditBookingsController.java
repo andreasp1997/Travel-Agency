@@ -416,6 +416,9 @@ public class EditBookingsController implements Initializable {
                     alert.showAndWait();
 
                 }
+
+                datePicker.setVisible(false);
+                saveBtn.setVisible(false);
             });
         }
 
@@ -457,6 +460,7 @@ public class EditBookingsController implements Initializable {
 
                 }
                 datePicker.setVisible(false);
+                saveBtn.setVisible(false);
             });
         }
     }
@@ -500,6 +504,7 @@ public class EditBookingsController implements Initializable {
 
                 datePicker.setVisible(false);
                 datePicker2.setVisible(false);
+                saveBtn.setVisible(false);
             });
         }
     }
@@ -543,7 +548,7 @@ public class EditBookingsController implements Initializable {
                 }
                 datePicker.setVisible(false);
                 datePicker2.setVisible(false);
-
+                saveBtn.setVisible(false);
             });
         }
     }
