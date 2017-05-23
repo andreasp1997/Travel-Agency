@@ -92,6 +92,8 @@ public class EditBookingsController implements Initializable {
         datePicker2.setVisible(false);
         saveBtn.setVisible(false);
 
+        dbh.checkUserRole(Singleton.getInstance().getUsername());
+
         if(Singleton.getInstance().getUserRole().equals("1")){
 
             pickUserField.setVisible(true);
