@@ -72,9 +72,6 @@ public class NormalAccountEditBooking extends EditBooking{
             dbHandler.getFlightID(FlightBooking.getInstance().getAirline(),origin, destination, Singleton.getInstance().getNewFlightBookingDate());
             dbHandler.bookFlight(flightBookingIDCount, Singleton.getInstance().getFlightID(), Singleton.getInstance().getUserID());
         }
-
-
-
     }
 
     @Override

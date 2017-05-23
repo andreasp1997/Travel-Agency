@@ -924,7 +924,7 @@ public class DBHandler {
     public void getHotelBookingIDforUser(String userID) {
         try (Connection conn = DriverManager.getConnection(connectionURL)) {
             Statement statement = conn.createStatement();
-            String c = "select booking_id from cruise_bookings where user_id = '" + userID + "'";
+            String c = "select booking_id from hotel_bookings where user_id = '" + userID + "'";
             ResultSet rs = statement.executeQuery(c);
 
             ArrayList<String> result = new ArrayList<>();
