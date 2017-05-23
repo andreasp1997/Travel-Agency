@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bf3f572d-926b-4f6a-8f29-b71f6a79da64" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.properties" afterPath="$PROJECT_DIR$/app.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/classes/EditBookingsController.java" afterPath="$PROJECT_DIR$/src/classes/EditBookingsController.java" />
     </list>
     <ignored path="Travel-Agency-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,7 +46,7 @@
       <file leaf-file-name="EditBookingsController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/classes/EditBookingsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
+            <state relative-caret-position="105">
               <caret line="550" column="42" selection-start-line="550" selection-start-column="42" selection-end-line="550" selection-end-column="42" />
               <folding />
             </state>
@@ -627,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495489410479</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="edit booking set date picker not visible fix">
+      <created>1495522662415</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1495522662415</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -687,7 +692,8 @@
     <MESSAGE value="Variable names + access levels fixed" />
     <MESSAGE value="A few comments added in the code + sql insert files" />
     <MESSAGE value="hotel booking rooms combo box bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="hotel booking rooms combo box bug fix" />
+    <MESSAGE value="edit booking set date picker not visible fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit booking set date picker not visible fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1046,7 +1052,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/EditBookingsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
+        <state relative-caret-position="105">
           <caret line="550" column="42" selection-start-line="550" selection-start-column="42" selection-end-line="550" selection-end-column="42" />
           <folding />
         </state>
