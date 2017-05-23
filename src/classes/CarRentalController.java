@@ -187,12 +187,12 @@ public class CarRentalController implements Initializable, ChangeCurrency {
                 }
             });
 
+            hireDate.setValue(LocalDate.now());
+
             LocalDate today = LocalDate.now();
             LocalDate returnStartDate = hireDate.getValue().plusDays(1);
             LocalDate next = today.plusMonths(8);
             LocalDate hireLength = today.plusWeeks(4);
-
-            hireDate.setValue(LocalDate.now());
 
             returnDate.setValue(returnStartDate);
 
