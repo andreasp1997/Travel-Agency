@@ -62,11 +62,6 @@ public class CarRentalController implements Initializable, ChangeCurrency {
     @FXML private Button selectCurrencyBtn;
     @FXML private Button book;
 
-    private LocalDate today = LocalDate.now();
-    private LocalDate returnStartDate = hireDate.getValue().plusDays(1);
-    private LocalDate next = today.plusMonths(8);
-    private LocalDate hireLength = today.plusWeeks(4);
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -191,6 +186,11 @@ public class CarRentalController implements Initializable, ChangeCurrency {
                     priceGBP.setText(String.valueOf(Integer.parseInt(priceValue.getText()) * 0.08752).split("\\.")[0]);
                 }
             });
+
+            LocalDate today = LocalDate.now();
+            LocalDate returnStartDate = hireDate.getValue().plusDays(1);
+            LocalDate next = today.plusMonths(8);
+            LocalDate hireLength = today.plusWeeks(4);
 
             hireDate.setValue(LocalDate.now());
 
