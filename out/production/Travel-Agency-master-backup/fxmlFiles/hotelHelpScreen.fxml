@@ -15,7 +15,7 @@
             <Image url="@../images/ocean-796934_1280.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="115.0" layoutX="-3.0" layoutY="52.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="520.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6bbaa7" height="115.0" layoutX="-3.0" layoutY="52.0" opacity="0.65" stroke="#6bbaa7" strokeType="INSIDE" width="513.0" />
       <Text fill="WHITE" layoutX="189.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Help">
          <font>
             <Font name="PT Serif" size="66.0" />

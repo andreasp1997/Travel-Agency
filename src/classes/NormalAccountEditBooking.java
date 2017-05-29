@@ -42,13 +42,13 @@ public class NormalAccountEditBooking extends EditBooking{
                 flightBookingIDCount = Integer.parseInt(Singleton.getInstance().getFlightBookingIDCount());
                 flightBookingIDCount++;
             }
-            dbHandler.getFlightID(FlightBooking.getInstance().getAirline(),origin,destination,FlightBooking.getInstance().getDate());
             dbHandler.getUserID(Singleton.getInstance().getUsername());
-            dbHandler.getFlightBookingID(Singleton.getInstance().getUserID(),Singleton.getInstance().getFlightID());
-            dbHandler.deleteFlightBooking(Singleton.getInstance().getFlightBookingID());
             dbHandler.addFlight(flightIDCount, FlightBooking.getInstance().getAirline(),origin, destination, 200, FlightBooking.getInstance().getPrice(),Singleton.getInstance().getNewFlightBookingDate());
             dbHandler.getFlightID(FlightBooking.getInstance().getAirline(), origin, destination, Singleton.getInstance().getNewFlightBookingDate());
             dbHandler.bookFlight(flightBookingIDCount, Singleton.getInstance().getFlightID(), Singleton.getInstance().getUserID());
+            dbHandler.getFlightID(FlightBooking.getInstance().getAirline(),origin,destination,FlightBooking.getInstance().getDate());
+            dbHandler.getFlightBookingID(Singleton.getInstance().getUserID(),Singleton.getInstance().getFlightID());
+            dbHandler.deleteFlightBooking(Singleton.getInstance().getFlightBookingID());
 
         } else if(Singleton.getInstance().getCheckedFlight() != null){
 
@@ -65,12 +65,12 @@ public class NormalAccountEditBooking extends EditBooking{
                 flightBookingIDCount = Integer.parseInt(Singleton.getInstance().getFlightBookingIDCount());
                 flightBookingIDCount++;
             }
-            dbHandler.getFlightID(FlightBooking.getInstance().getAirline(),origin,destination,FlightBooking.getInstance().getDate());
             dbHandler.getUserID(Singleton.getInstance().getUsername());
-            dbHandler.getFlightBookingID(Singleton.getInstance().getUserID(),Singleton.getInstance().getFlightID());
-            dbHandler.deleteFlightBooking(Singleton.getInstance().getFlightBookingID());
             dbHandler.getFlightID(FlightBooking.getInstance().getAirline(),origin, destination, Singleton.getInstance().getNewFlightBookingDate());
             dbHandler.bookFlight(flightBookingIDCount, Singleton.getInstance().getFlightID(), Singleton.getInstance().getUserID());
+            dbHandler.getFlightID(FlightBooking.getInstance().getAirline(),origin,destination,FlightBooking.getInstance().getDate());
+            dbHandler.getFlightBookingID(Singleton.getInstance().getUserID(),Singleton.getInstance().getFlightID());
+            dbHandler.deleteFlightBooking(Singleton.getInstance().getFlightBookingID());
         }
     }
 

@@ -390,7 +390,7 @@ public class EditBookingsController implements Initializable {
     public void editFlightBookingDate(){
         datePicker.setVisible(true);
         saveBtn.setVisible(true);
-
+        
         ObservableList<FlightBooking> flightBookingSelected;
         flightBookingSelected = flightTable.getSelectionModel().getSelectedItems();
         for (FlightBooking flightBooking : flightBookingSelected) {
